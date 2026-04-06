@@ -55,11 +55,15 @@ body{background:var(--bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,'
 .nav-logo{font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--text);text-decoration:none}
 .nav-logo span{color:var(--purple)}
 .nav-links{display:flex;gap:8px}
-.nav-link{padding:8px 16px;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;color:var(--text-secondary);transition:all .2s}
+.nav-link{padding:8px 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:10px;font-size:13px;font-weight:600;text-decoration:none;color:var(--text-secondary);transition:all .2s}
 .nav-link:hover{background:var(--purple-light);color:var(--purple)}
 @media(prefers-color-scheme:dark){.nav-link:hover{background:rgba(83,74,183,.15)}}
 .nav-link.active{background:var(--purple);color:#fff}
 .nav-link.active:hover{background:var(--purple-dark);color:#fff}
+
+/* Mobile hamburger */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}
+.nav-toggle svg{width:24px;height:24px}
 
 /* ══════ ALL SECTIONS ══════ */
 section,.footer-wrap{position:relative;z-index:1}
@@ -93,7 +97,7 @@ section,.footer-wrap{position:relative;z-index:1}
 .scroll-arrow{width:18px;height:18px;border-right:2px solid var(--text-muted);border-bottom:2px solid var(--text-muted);transform:rotate(45deg);animation:bounce 2s ease-in-out infinite}
 @keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
 
-/* ══════ IDENTITY ══════ */
+/* ══════ IDENTITY / ABOUT ══════ */
 .identity{padding:100px 24px}
 .section-intro{text-align:center;max-width:600px;margin:0 auto 56px}
 .section-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--purple);font-weight:700;margin-bottom:14px}
@@ -117,9 +121,41 @@ section,.footer-wrap{position:relative;z-index:1}
 .greet-item .word{font-size:20px;letter-spacing:.5px}
 @keyframes scroll-x{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-/* ══════ HUBS ══════ */
-.hubs{padding:100px 24px}
+/* ══════ WHAT WE OFFER ══════ */
+.offers{padding:100px 24px}
+.offer-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.offer-card{background:var(--card-bg);backdrop-filter:blur(var(--card-blur));-webkit-backdrop-filter:blur(var(--card-blur));border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .4s cubic-bezier(.4,0,.2,1);opacity:0;transform:translateY(40px)}
+.offer-card.visible{opacity:1;transform:translateY(0)}
+.offer-card:hover{border-color:var(--border-hover);box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+.offer-img{width:100%;height:180px;object-fit:cover;display:block}
+.offer-body{padding:28px}
+.offer-icon{font-size:36px;margin-bottom:16px;display:block}
+.offer-title{font-size:18px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em}
+.offer-text{font-size:13.5px;color:var(--text-secondary);line-height:1.75}
+.offer-cta{text-align:center;margin-top:40px}
 
+/* ══════ ABOUT PHOTO ══════ */
+.about-photo{max-width:960px;margin:0 auto 40px;border-radius:var(--radius);overflow:hidden;position:relative}
+.about-photo img{width:100%;height:340px;object-fit:cover;display:block}
+.about-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent 60%);display:flex;align-items:flex-end;padding:28px}
+.about-photo-text{color:#fff;font-size:15px;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+
+/* ══════ ADVENTURES ══════ */
+.adventures{padding:100px 24px}
+.adventure-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.adventure-card{background:var(--card-bg);backdrop-filter:blur(var(--card-blur));-webkit-backdrop-filter:blur(var(--card-blur));border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .4s cubic-bezier(.4,0,.2,1);opacity:0;transform:translateY(40px)}
+.adventure-card.visible{opacity:1;transform:translateY(0)}
+.adventure-card:hover{border-color:var(--border-hover);box-shadow:var(--shadow-hover);transform:translateY(-4px)}
+.adventure-video{position:relative;width:100%;padding-bottom:56.25%;background:var(--surface)}
+.adventure-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.adventure-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--text-muted);font-size:14px;font-weight:600}
+.adventure-placeholder span{font-size:48px}
+.adventure-info{padding:20px}
+.adventure-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.adventure-location{font-size:13px;color:var(--text-muted);font-weight:500}
+
+/* ══════ HUBS (public) ══════ */
+.hubs{padding:100px 24px}
 .hub-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .hub-card{background:var(--card-bg);backdrop-filter:blur(var(--card-blur));-webkit-backdrop-filter:blur(var(--card-blur));border:1px solid var(--border);border-radius:var(--radius);padding:28px;text-decoration:none;color:var(--text);transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;opacity:0;transform:translateY(40px)}
 .hub-card.visible{opacity:1;transform:translateY(0)}
@@ -130,14 +166,10 @@ section,.footer-wrap{position:relative;z-index:1}
 .hub-name{font-size:17px;font-weight:800;margin-bottom:8px;letter-spacing:-.01em}
 .hub-desc{font-size:13px;color:var(--text-secondary);line-height:1.7}
 .hub-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;padding:4px 10px;border-radius:8px;margin-top:12px}
-.tag-strategy{background:var(--purple-light);color:var(--purple-dark)}
 .tag-fitness{background:var(--green-light);color:#2e7d32}
-.tag-tools{background:var(--orange-light);color:#e65100}
 .tag-outreach{background:#fce4ec;color:#c62828}
 @media(prefers-color-scheme:dark){
-  .tag-strategy{background:rgba(83,74,183,.15);color:#a78bfa}
   .tag-fitness{background:rgba(67,160,71,.15);color:#81c784}
-  .tag-tools{background:rgba(245,124,0,.15);color:#ffb74d}
   .tag-outreach{background:rgba(239,83,80,.12);color:#ef9a9a}
 }
 
@@ -153,8 +185,19 @@ section,.footer-wrap{position:relative;z-index:1}
 .hub-featured .stat-num{font-size:28px;font-weight:900;color:var(--purple)}
 .hub-featured .stat-label{font-size:11px;color:var(--text-muted);margin-top:2px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
 
+/* ══════ MEMBERSHIP TEASER ══════ */
+.membership{padding:100px 24px;background:var(--purple-glow);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.membership-card{max-width:640px;margin:0 auto;background:var(--card-bg);backdrop-filter:blur(var(--card-blur));-webkit-backdrop-filter:blur(var(--card-blur));border:1px solid var(--border);border-radius:var(--radius);padding:48px;text-align:center}
+.membership-badge{display:inline-block;background:var(--orange-light);color:#e65100;font-size:11px;font-weight:700;padding:4px 12px;border-radius:8px;margin-bottom:20px;letter-spacing:.5px}
+@media(prefers-color-scheme:dark){.membership-badge{background:rgba(245,124,0,.15);color:#ffb74d}}
+.membership-title{font-size:clamp(24px,4vw,32px);font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
+.membership-desc{font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:480px;margin:0 auto 28px}
+.membership-features{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:32px}
+.membership-feat{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--text-secondary)}
+.membership-feat span{color:var(--green)}
+
 /* ══════ STATS ══════ */
-.stats{padding:80px 24px;background:var(--purple-glow);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats{padding:80px 24px}
 .stats-grid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
 .stat-card{padding:24px 12px}
 .stat-big{font-size:clamp(32px,5vw,44px);font-weight:900;background:linear-gradient(135deg,#534AB7,#7c6cf0,#a78bfa);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradient-shift 6s ease infinite;line-height:1}
@@ -165,15 +208,18 @@ section,.footer-wrap{position:relative;z-index:1}
 .footer-brand{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
 .footer-brand span{color:var(--purple)}
 .footer-tagline{font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+.footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:16px}
+.footer-link{font-size:12px;color:var(--text-muted);text-decoration:none;font-weight:600;transition:color .2s}
+.footer-link:hover{color:var(--purple)}
 .footer-divider{width:40px;height:2px;background:var(--border);margin:0 auto 16px;border-radius:2px}
 .footer-copy{font-size:11px;color:var(--text-muted)}
-.footer-copy a{color:var(--purple);text-decoration:none}
-.footer-copy a:hover{text-decoration:underline}
 
 /* ══════ RESPONSIVE ══════ */
 @media(max-width:640px){
-  .nav-links{display:none}
-  .identity-grid,.hub-grid{grid-template-columns:1fr}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px;gap:4px;box-shadow:var(--shadow)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+  .identity-grid,.hub-grid,.offer-grid,.adventure-grid{grid-template-columns:1fr}
   .hub-featured{grid-column:1;grid-template-columns:1fr}
   .hub-featured .hub-visual{padding:24px}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
@@ -184,12 +230,15 @@ section,.footer-wrap{position:relative;z-index:1}
   .mesh-blob:nth-child(2){width:300px;height:300px}
   .mesh-blob:nth-child(3){width:250px;height:250px}
   .mesh-blob:nth-child(4){width:200px;height:200px}
+  .membership-card{padding:32px 24px}
+  .membership-features{flex-direction:column;align-items:center}
 }
 @media(max-width:480px){
   .hero{padding:60px 16px 40px}
-  .identity,.hubs{padding:60px 16px}
+  .identity,.hubs,.offers,.adventures{padding:60px 16px}
   .stats{padding:48px 16px}
-  .id-card{padding:24px}
+  .membership{padding:60px 16px}
+  .id-card,.offer-card{padding:24px}
   .hub-card{padding:22px}
 }
 </style>
@@ -210,10 +259,14 @@ section,.footer-wrap{position:relative;z-index:1}
 <!-- ══════ NAV ══════ -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo"><span>YERR</span>AMAZING</a>
-  <div class="nav-links">
-    <a href="partner-pitch.html" class="nav-link">Business Plan</a>
-    <a href="fitness/index.html" class="nav-link">Gym Partners</a>
-    <a href="content-roadmap.html" class="nav-link">Content</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#offers" class="nav-link">What We Offer</a>
+    <a href="#adventures" class="nav-link">Adventures</a>
+    <a href="media-kit.html" class="nav-link">Media Kit</a>
   </div>
 </nav>
 
@@ -224,8 +277,8 @@ section,.footer-wrap{position:relative;z-index:1}
     <h1 class="hero-title"><span class="yerr">YERR</span>AMAZING</h1>
     <p class="hero-sub">A <strong>Dominican</strong> and a <strong>Rican-American</strong> from NYC, seeing the world for the first time — getting locals everywhere to say <strong>YERR</strong> on camera.</p>
     <div class="hero-cta">
-      <a href="partner-pitch.html" class="btn btn-primary">The Business Plan</a>
-      <a href="fitness/index.html" class="btn btn-ghost">Gym Partners Hub</a>
+      <a href="#offers" class="btn btn-primary">What We Offer</a>
+      <a href="#adventures" class="btn btn-ghost">Our Adventures</a>
     </div>
   </div>
   <div class="scroll-hint">
@@ -234,13 +287,22 @@ section,.footer-wrap{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ══════ IDENTITY ══════ -->
-<section class="identity">
+<!-- ══════ ABOUT / IDENTITY ══════ -->
+<section class="identity" id="about">
   <div class="section-intro">
-    <div class="section-eyebrow">The concept</div>
+    <div class="section-eyebrow">Who we are</div>
     <h2 class="section-heading">One syllable. Every country.</h2>
     <p class="section-desc">NYC slang meets world travel — a format with infinite episodes and zero competition.</p>
   </div>
+
+  <!-- Stock photo placeholder — replace with your own photo later -->
+  <div class="about-photo">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=960&h=340&fit=crop&crop=center" alt="Tropical beach paradise" loading="lazy">
+    <div class="about-photo-overlay">
+      <div class="about-photo-text">Your photos will go here — this is just a placeholder</div>
+    </div>
+  </div>
+
   <div class="identity-grid">
     <div class="id-card">
       <div class="id-label">The word</div>
@@ -253,14 +315,14 @@ section,.footer-wrap{position:relative;z-index:1}
       <div class="id-text">Every country has their own "yerr" — klk in DR, wagwan in Jamaica, ossu in Japan, g'day in Australia. We teach them ours, they teach us theirs. Infinite episodes, infinite reactions, infinite content.</div>
     </div>
     <div class="id-card">
-      <div class="id-label">The gap</div>
-      <div class="id-title">Zero NYC Latino travel duos exist</div>
+      <div class="id-label">Our mission</div>
+      <div class="id-title">Putting NYC Latino travel on the map</div>
       <div class="id-text">65M+ Latinos in the US, $56B/year spent on travel — and nobody is making travel content from the perspective of two NYC Latinos seeing the world for the first time. We're not competing. We're creating the lane.</div>
     </div>
     <div class="id-card">
-      <div class="id-label">The proof</div>
-      <div class="id-title">The format already works — at scale</div>
-      <div class="id-text">Xiaomanyc (6.4M subs) — NYC guy speaking foreign languages. Kieran Murray — Aussie teaching locals "G'day." Drew Binsky — $114K/mo. Same formula, different culture. Nobody's done it with NYC slang yet.</div>
+      <div class="id-label">The vibe</div>
+      <div class="id-title">Real people, real reactions, real culture</div>
+      <div class="id-text">No scripts, no filters. Two people from the Bronx and Brooklyn experiencing new foods, new languages, and new places — documenting every genuine reaction. The comedy writes itself when NYC meets the world.</div>
     </div>
   </div>
 </section>
@@ -298,87 +360,123 @@ section,.footer-wrap{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ══════ HUBS ══════ -->
+<!-- ══════ WHAT WE OFFER ══════ -->
+<section class="offers" id="offers">
+  <div class="section-intro">
+    <div class="section-eyebrow">For hotels & partners</div>
+    <h2 class="section-heading">What We Bring to the Table</h2>
+    <p class="section-desc">Authentic NYC-meets-world content that connects with the fastest-growing travel demographic in the US.</p>
+  </div>
+  <div class="offer-grid">
+    <div class="offer-card">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=480&h=180&fit=crop&crop=center" alt="Tropical resort pool" loading="lazy">
+      <div class="offer-body">
+        <div class="offer-title">Content Creation</div>
+        <div class="offer-text">Professional video coverage of your property, food, and experiences — shot and edited for YouTube, TikTok, Instagram Reels, and short-form platforms. Real reactions, not scripted ads.</div>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=480&h=180&fit=crop&crop=center" alt="Caribbean food platter" loading="lazy">
+      <div class="offer-body">
+        <div class="offer-title">Authentic Reviews</div>
+        <div class="offer-text">Honest, culturally diverse perspective that resonates with Latino and multicultural audiences. We highlight what makes your spot special — food, vibe, people, the real experience.</div>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=480&h=180&fit=crop&crop=center" alt="Palm trees and sunset" loading="lazy">
+      <div class="offer-body">
+        <div class="offer-title">Social Media Reach</div>
+        <div class="offer-text">Cross-platform distribution targeting the $56B Latino leisure travel market. Every video goes out on YouTube, TikTok, Instagram, and our growing community.</div>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=480&h=180&fit=crop&crop=center" alt="Overwater bungalow tropical" loading="lazy">
+      <div class="offer-body">
+        <div class="offer-title">Brand Storytelling</div>
+        <div class="offer-text">NYC-meets-world narrative that's impossible to fake. Two people from the city experiencing your destination for the first time — the story tells itself. Relatable, shareable, memorable.</div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-cta">
+    <a href="media-kit.html" class="btn btn-primary">View Our Media Kit</a>
+  </div>
+</section>
+
+<!-- ══════ ADVENTURES ══════ -->
+<section class="adventures" id="adventures">
+  <div class="section-intro">
+    <div class="section-eyebrow">On the road</div>
+    <h2 class="section-heading">Our Adventures</h2>
+    <p class="section-desc">Follow our journey as we take NYC slang around the world. New videos dropping as we travel.</p>
+  </div>
+  <div class="adventure-grid">
+    <div class="adventure-card">
+      <div class="adventure-video">
+        <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=480&h=270&fit=crop&crop=center" alt="Tropical ocean view" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy">
+        <div class="adventure-placeholder" style="position:relative;z-index:1;background:rgba(0,0,0,.4);color:#fff;inset:0;position:absolute">
+          First video dropping soon!
+        </div>
+      </div>
+      <div class="adventure-info">
+        <div class="adventure-title">Our First Adventure</div>
+        <div class="adventure-location">Subscribe to our YouTube — link coming soon</div>
+      </div>
+    </div>
+    <div class="adventure-card">
+      <div class="adventure-video">
+        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=480&h=270&fit=crop&crop=center" alt="Tropical island sunset" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy">
+        <div class="adventure-placeholder" style="position:relative;z-index:1;background:rgba(0,0,0,.4);color:#fff;inset:0;position:absolute">
+          More adventures loading
+        </div>
+      </div>
+      <div class="adventure-info">
+        <div class="adventure-title">More Coming Soon</div>
+        <div class="adventure-location">We're just getting started — follow the journey</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA SECTION ══════ -->
 <section class="hubs">
   <div class="section-intro">
-    <div class="section-eyebrow">Everything in one place</div>
-    <h2 class="section-heading">The Hub</h2>
-    <p class="section-desc">Business plan, content strategy, fitness, and all the tools — organized and ready to go.</p>
+    <div class="section-eyebrow">Let's work together</div>
+    <h2 class="section-heading">Partner With Us</h2>
+    <p class="section-desc">We create authentic, high-energy content that puts your hotel, restaurant, or brand in front of the fastest-growing travel audience in America.</p>
   </div>
 
   <div class="hub-grid">
-    <!-- Featured: Gym Partners -->
-    <a href="fitness/index.html" class="hub-card hub-featured">
+    <a href="media-kit.html" class="hub-card hub-featured">
       <div class="hub-visual">
         <div class="stat-row">
-          <div class="stat"><div class="stat-num">15</div><div class="stat-label">Pages</div></div>
-          <div class="stat"><div class="stat-num">His</div><div class="stat-label">Plan</div></div>
-          <div class="stat"><div class="stat-num">Hers</div><div class="stat-label">Plan</div></div>
+          <div class="stat"><div class="stat-num">65M+</div><div class="stat-label">Audience</div></div>
+          <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Platforms</div></div>
+          <div class="stat"><div class="stat-num">NYC</div><div class="stat-label">Based</div></div>
         </div>
       </div>
       <div class="hub-content">
-        <span class="hub-icon">&#x1F4AA;</span>
-        <div class="hub-name">Gym Partners Hub</div>
-        <div class="hub-desc">Full workout plans, meal prep, grocery lists, eating guides, supplements, progress tracking — separate His/Hers tabs on everything. Research-backed, budget-optimized.</div>
-        <span class="hub-tag tag-fitness">Fitness & Nutrition</span>
+        <span class="hub-icon">&#x1F91D;</span>
+        <div class="hub-name">View Our Media Kit</div>
+        <div class="hub-desc">Everything hotels, cruise lines, and brands need to know about working with us — our audience, content style, reach, and partnership options. One page, everything you need.</div>
+        <span class="hub-tag tag-outreach">Partnerships</span>
       </div>
     </a>
+  </div>
+</section>
 
-    <!-- Business Plan -->
-    <a href="partner-pitch.html" class="hub-card">
-      <span class="hub-icon">&#x1F4CB;</span>
-      <div class="hub-name">The Business Plan</div>
-      <div class="hub-desc">LLC formation, credit card strategy, comp playbook, tax write-offs, YERR content strategy, growth roadmap with revenue targets — interactive checklist.</div>
-      <span class="hub-tag tag-strategy">Strategy</span>
-    </a>
-
-    <!-- Content Roadmap -->
-    <a href="content-roadmap.html" class="hub-card">
-      <span class="hub-icon">&#x1F3AC;</span>
-      <div class="hub-name">Content Roadmap</div>
-      <div class="hub-desc">50 video ideas, 90-day week-by-week calendar, posting schedule, platform priorities, monetization timeline.</div>
-      <span class="hub-tag tag-strategy">Strategy</span>
-    </a>
-
-    <!-- Growth Funnel -->
-    <a href="growth-funnel.html" class="hub-card">
-      <span class="hub-icon">&#x1F4C8;</span>
-      <div class="hub-name">Growth Funnel</div>
-      <div class="hub-desc">5-stage scaling strategy — from first video to membership site, with real lessons from creators who've done it.</div>
-      <span class="hub-tag tag-strategy">Strategy</span>
-    </a>
-
-    <!-- Accounts -->
-    <a href="accounts.html" class="hub-card">
-      <span class="hub-icon">&#x1F511;</span>
-      <div class="hub-name">Accounts to Create</div>
-      <div class="hub-desc">Every social media, travel platform, affiliate program, and creator network — with checklist.</div>
-      <span class="hub-tag tag-tools">Tools</span>
-    </a>
-
-    <!-- Dashboard -->
-    <a href="dashboard.html" class="hub-card">
-      <span class="hub-icon">&#x1F4CA;</span>
-      <div class="hub-name">Travel Dashboard</div>
-      <div class="hub-desc">Track trips, hotels, restaurants, contacts, expenses, and content — shared log for both of you.</div>
-      <span class="hub-tag tag-tools">Tools</span>
-    </a>
-
-    <!-- Sheets Template -->
-    <a href="travel-log.html" class="hub-card">
-      <span class="hub-icon">&#x1F4D1;</span>
-      <div class="hub-name">Google Sheets Template</div>
-      <div class="hub-desc">Column-by-column template for trips, food, people, expenses, content tracking.</div>
-      <span class="hub-tag tag-tools">Tools</span>
-    </a>
-
-    <!-- Media Kit -->
-    <a href="media-kit.html" class="hub-card">
-      <span class="hub-icon">&#x1F91D;</span>
-      <div class="hub-name">Media Kit</div>
-      <div class="hub-desc">3-page template showing hotels and cruise lines exactly what they want to see — with annotations.</div>
-      <span class="hub-tag tag-outreach">Outreach</span>
-    </a>
+<!-- ══════ MEMBERSHIP TEASER ══════ -->
+<section class="membership" id="membership">
+  <div class="membership-card">
+    <div class="membership-badge">COMING SOON</div>
+    <h2 class="membership-title">Exclusive Content & Travel Tips</h2>
+    <p class="membership-desc">Get behind-the-scenes footage, travel hacks, budget breakdowns, and exclusive videos from every destination — straight from two NYC Latinos figuring it out in real time.</p>
+    <div class="membership-features">
+      <div class="membership-feat"><span>&#x2713;</span> Behind-the-scenes vlogs</div>
+      <div class="membership-feat"><span>&#x2713;</span> Budget travel tips</div>
+      <div class="membership-feat"><span>&#x2713;</span> Exclusive Q&A</div>
+      <div class="membership-feat"><span>&#x2713;</span> Early access to videos</div>
+    </div>
+    <p class="section-desc" style="font-size:13px;color:var(--text-muted)">Membership launching soon. Follow our adventures to stay in the loop.</p>
   </div>
 </section>
 
@@ -396,18 +494,33 @@ section,.footer-wrap{position:relative;z-index:1}
 <div class="footer-wrap">
   <div class="footer-brand"><span>YERR</span>AMAZING</div>
   <div class="footer-tagline">Two NYC Latinos. One syllable. Every country.</div>
+  <div class="footer-links">
+    <a href="media-kit.html" class="footer-link">Media Kit</a>
+    <a href="login.html" class="footer-link">Team Login</a>
+  </div>
   <div class="footer-divider"></div>
-  <div class="footer-copy">Built March 2026</div>
+  <div class="footer-copy">Built 2026</div>
 </div>
 
 <!-- ══════ SCRIPTS ══════ -->
 <script>
 // Navbar scroll effect
 var nav = document.getElementById('nav');
-var lastScroll = 0;
 window.addEventListener('scroll', function() {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
+
+// Mobile nav toggle
+document.getElementById('navToggle').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-link').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
 
 // Intersection Observer for fade-in animations
 var observer = new IntersectionObserver(function(entries) {
@@ -419,7 +532,7 @@ var observer = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.id-card, .hub-card').forEach(function(el, i) {
+document.querySelectorAll('.id-card, .hub-card, .offer-card, .adventure-card').forEach(function(el, i) {
   el.style.transitionDelay = (i % 4) * 0.08 + 's';
   observer.observe(el);
 });
@@ -441,12 +554,7 @@ document.querySelectorAll('.stat-card').forEach(function(el, i) {
 });
 </script>
 
-<noscript><style>.id-card,.hub-card{opacity:1;transform:none}</style></noscript>
+<noscript><style>.id-card,.hub-card,.offer-card,.adventure-card{opacity:1;transform:none}</style></noscript>
 
-<!-- Supabase Sync -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase-config.js"></script>
-<script src="js/supabase-sync.js"></script>
-<script src="js/supabase-auth-ui.js"></script>
 </body>
 </html>

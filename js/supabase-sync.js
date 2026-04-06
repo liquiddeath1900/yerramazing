@@ -36,6 +36,16 @@ async function signInWithEmail(email) {
   return { data, error };
 }
 
+async function signInWithGoogle() {
+  const sb = getSupabase();
+  if (!sb) return { error: 'Supabase not loaded' };
+  const { data, error } = await sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.origin + '/login.html' }
+  });
+  return { data, error };
+}
+
 async function signOut() {
   const sb = getSupabase();
   if (!sb) return;

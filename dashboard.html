@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <title>Dashboard — yerramazing</title>
+<style id="auth-hide">body{visibility:hidden}</style>
+<noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=index.html"></noscript>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#f7f7f8;--card:#fff;--border:#e5e5e5;--text:#1a1a1a;--dim:#666;--muted:#999;--purple:#534AB7;--purple-bg:#EEEDFE;--purple-dark:#26215C;--green:#0F6E56;--green-bg:#E1F5EE;--green-dark:#04342C;--orange:#854F0B;--orange-bg:#FEF3C7;--orange-dark:#78350F;--red:#993C1D;--red-bg:#FAECE7;--red-dark:#4A1B0C;--blue:#0C4A6E;--blue-bg:#E0F2FE;--pink:#6B21A8;--pink-bg:#F3E8FF}
@@ -970,7 +972,7 @@ function toggleShotSection(head) {
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase-config.js"></script>
 <script src="js/supabase-sync.js"></script>
-<script src="js/supabase-auth-ui.js"></script>
+<script src="js/auth-guard.js"></script>
 <script>
 // Override save to also push to Supabase
 const _origDashSave = save;
