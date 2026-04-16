@@ -147,7 +147,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
   // Check if already logged in
   const session = await getSession();
   if (session && session.user) {
-    const redirect = new URLSearchParams(window.location.search).get('redirect') || 'fitness/index.html';
+    const redirect = new URLSearchParams(window.location.search).get('redirect') || 'hub.html';
     window.location.replace(redirect);
     return;
   }
@@ -156,7 +156,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
   const sb = getSupabase();
   sb.auth.onAuthStateChange((event, session) => {
     if (event === 'SIGNED_IN' && session) {
-      const redirect = new URLSearchParams(window.location.search).get('redirect') || 'fitness/index.html';
+      const redirect = new URLSearchParams(window.location.search).get('redirect') || 'hub.html';
       window.location.replace(redirect);
     }
   });
