@@ -31,7 +31,7 @@ async function signInWithEmail(email) {
   if (!sb) return { error: 'Supabase not loaded' };
   const { data, error } = await sb.auth.signInWithOtp({
     email,
-    options: { shouldCreateUser: true }
+    options: { shouldCreateUser: true, emailRedirectTo: window.location.origin + '/login.html' }
   });
   return { data, error };
 }
