@@ -14,10 +14,23 @@ const ALLOWED_EMAILS = [
   const loginPage = prefix + 'login.html';
 
   try {
-    const session = await getSession();
+    // First try cached session, then wait for token refresh if needed
+    let session = await getSession();
 
     if (!session || !session.user) {
-      // Not logged in — redirect to login with return URL
+      // Session may be refreshing — wait for auth state change (up to 3s)
+      session = await new Promise((resolve) => {
+        const sb = getSupabase();
+        const timeout = setTimeout(() => resolve(null), 3000);
+        sb.auth.onAuthStateChange((_event, s) => {
+          clearTimeout(timeout);
+          resolve(s);
+        });
+      });
+    }
+
+    if (!session || !session.user) {
+      // Truly not logged in — redirect to login with return URL
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const redirect = depth > 1
         ? 'fitness/' + currentPage
@@ -38,6 +51,21 @@ const ALLOWED_EMAILS = [
     document.body.style.visibility = 'visible';
     const hideStyle = document.getElementById('auth-hide');
     if (hideStyle) hideStyle.remove();
+
+    // Inject floating sign-out button
+    const btn = document.createElement('button');
+    btn.id = 'auth-signout';
+    btn.type = 'button';
+    btn.textContent = 'Sign out';
+    btn.setAttribute('aria-label', 'Sign out of ' + email);
+    btn.style.cssText = 'position:fixed;bottom:16px;right:16px;z-index:9999;padding:8px 14px;min-height:36px;background:rgba(0,0,0,.75);color:#fff;border:none;border-radius:999px;font:600 12px/1 -apple-system,system-ui,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);backdrop-filter:blur(8px)';
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      btn.textContent = 'Signing out...';
+      await signOut();
+      window.location.replace(loginPage);
+    });
+    document.body.appendChild(btn);
 
   } catch (err) {
     console.error('Auth guard error:', err);
