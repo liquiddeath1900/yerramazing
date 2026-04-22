@@ -82,9 +82,9 @@ h2{font-size:11px;font-weight:700;margin:1.5rem 0 .5rem;padding-bottom:4px;borde
 
   <!-- Budget at a glance -->
   <div class="budget-bar" id="budget-bar">
-    <div class="budget-card"><div class="budget-num" style="color:#F57C00" id="budget-food">$201</div><div class="budget-label">food / 2 weeks</div></div>
-    <div class="budget-card"><div class="budget-num" style="color:#534AB7" id="budget-supps">$135</div><div class="budget-label">supplements / 2 weeks</div></div>
-    <div class="budget-card"><div class="budget-num" id="budget-total">$336</div><div class="budget-label">total / 2 weeks</div></div>
+    <div class="budget-card"><div class="budget-num" style="color:#F57C00" id="budget-food">$237</div><div class="budget-label">food / 2 weeks</div></div>
+    <div class="budget-card"><div class="budget-num" style="color:#534AB7" id="budget-supps">$139</div><div class="budget-label">supplements / 2 weeks</div></div>
+    <div class="budget-card"><div class="budget-num" id="budget-total">$376</div><div class="budget-label">total / 2 weeks</div></div>
   </div>
 
   <!-- Section toggles -->
@@ -143,13 +143,21 @@ h2{font-size:11px;font-weight:700;margin:1.5rem 0 .5rem;padding-bottom:4px;borde
     <div class="quality-card">
       <div class="label-name">Week 2 Fresh Run</div>
       <div class="label-detail">
-        <strong>Baby spinach</strong> — only lasts 5-7 days even with paper towel trick<br>
-        <strong>Avocados</strong> — buy hard, they ripen in 4-7 days. Week 1: buy ripe. Week 2: buy hard ones on day 7<br>
-        <strong>Bananas</strong> — split the buy. Week 1 bunch + week 2 bunch (or freeze ripe ones for shakes)<br>
-        <strong>Broccoli</strong> — 4-7 days fresh. Buy week 1 fresh + week 2 fresh (or buy frozen for week 2)<br>
-        <strong>Asparagus/zucchini</strong> — 3-5 days max. Week 2 buy only<br>
+        <strong>Avocados</strong> — buy hard, they ripen in 4-7 days. Week 1: buy ripe. Week 2: buy hard ones on day 7. Freeze halves if you won't use in time<br>
+        <strong>Bananas</strong> — split the buy. Week 1 bunch + week 2 bunch. Freeze any that go ripe for shakes<br>
         <strong>Greek yogurt</strong> — 1-2 weeks past sell-by. Buy 1 tub each week<br>
-        <strong>Oat/almond milk (opened)</strong> — 7-10 days. Open 1 carton per week
+        <strong>Oat milk (opened)</strong> — 7-10 days. Open 1 carton per week<br>
+        <em>Spinach + broccoli are now frozen (bought Day 1, zero spoilage). Skip the fresh produce hassle.</em>
+      </div>
+    </div>
+
+    <div class="quality-card" style="border-left:3px solid #43A047">
+      <div class="label-name" style="color:#2E7D32">Why Frozen Wins (learned the hard way)</div>
+      <div class="label-detail">
+        Last 2-week run: fresh spinach rotted, maybe a handful used, rest thrown out. Never again.<br>
+        <strong>Frozen spinach:</strong> blends into shakes, sautés in 3 min with garlic + olive oil, stirs into rice. Same nutrition as fresh — often more (flash-frozen at peak).<br>
+        <strong>Frozen broccoli:</strong> steam-in-bag 4 min in microwave. Zero prep, zero waste.<br>
+        <strong>Rule:</strong> if it's not something you'll cook in the first 3 days, buy it frozen.
       </div>
     </div>
 
@@ -243,49 +251,52 @@ h2{font-size:11px;font-weight:700;margin:1.5rem 0 .5rem;padding-bottom:4px;borde
 
 <script>
 var HIS_ITEMS = [
-  { cat: "Proteins — Freeze Day 1", name: "Chicken thighs (boneless)", qty: "5 lbs", note: "Portion into 8oz bags, freeze", price: "$12.45", store: "aldi", life: "freeze" },
-  { cat: "Proteins — Freeze Day 1", name: "Ground beef 85/15", qty: "3 lbs", note: "1-lb bags, freeze", price: "$14.97", store: "aldi", life: "freeze" },
-  { cat: "Proteins — Freeze Day 1", name: "Ground turkey 93/7", qty: "2.5 lbs", note: "1-lb bags, freeze", price: "$8.73", store: "aldi", life: "freeze" },
-  { cat: "Proteins — Freeze Day 1", name: "Salmon fillets (frozen)", qty: "1.5 lbs", note: "Wed Prep 2 — Thu/Fri meals. Keep frozen until Wed", price: "$8.99", store: "aldi", life: "freeze" },
+  { cat: "Proteins — Freeze Day 1", name: "Chicken thighs (boneless)", qty: "5 lbs", note: "Portion into 8oz bags, freeze", price: "$19.95", store: "aldi", life: "freeze" },
+  { cat: "Proteins — Freeze Day 1", name: "Ground beef 85/15", qty: "3 lbs", note: "1-lb bags, freeze", price: "$17.97", store: "aldi", life: "freeze" },
+  { cat: "Proteins — Freeze Day 1", name: "Ground turkey 93/7", qty: "2.5 lbs", note: "1-lb bags, freeze", price: "$12.48", store: "aldi", life: "freeze" },
+  { cat: "Proteins — Freeze Day 1", name: "Salmon fillets (frozen)", qty: "2 lbs", note: "Wed Prep 2 — Thu/Fri meals (8oz each). Keep frozen until Wed", price: "$15.98", store: "aldi", life: "freeze" },
 
-  { cat: "Proteins — Fridge", name: "Eggs", qty: "5 dozen", note: "3-5 weeks in back of fridge", price: "$10.95", store: "aldi", life: "long" },
-  { cat: "Proteins — Fridge", name: "Canned tuna (5 oz)", qty: "10 cans", note: "2 cans per meal, ~5 meals", price: "$7.90", store: "aldi", life: "long" },
-  { cat: "Proteins — Fridge", name: "Black beans (canned)", qty: "6 cans", note: "Taco bowls — ~10 meals", price: "$5.34", store: "aldi", life: "long" },
-  { cat: "Proteins — Fridge", name: "Greek yogurt (plain 32oz)", qty: "1 tub", note: "Buy 1 now, 1 on week 2 restock", price: "$3.85", store: "aldi", life: "week1" },
+  { cat: "Proteins — Fridge", name: "Eggs", qty: "5 dozen", note: "3-5 weeks in back of fridge. 4/day break-fast + 4 boiled for snacks", price: "$17.45", store: "aldi", life: "long" },
+  { cat: "Proteins — Fridge", name: "Canned tuna (5 oz)", qty: "10 cans", note: "2 cans per meal, ~5 meals", price: "$10.90", store: "aldi", life: "long" },
+  { cat: "Proteins — Fridge", name: "Black beans (canned)", qty: "6 cans", note: "Taco bowls — ~10 meals", price: "$5.94", store: "aldi", life: "long" },
+  { cat: "Proteins — Fridge", name: "Greek yogurt (plain 32oz)", qty: "4 tubs", note: "1.5 cups/day × 14 days = 21 cups (need ~5 tubs). Buy 2 now, 2 on week 2 restock", price: "$17.16", store: "aldi", life: "week1" },
 
-  { cat: "Produce — Buy Week 1 + 2", name: "Bananas", qty: "2 bunches", note: "1 now, 1 on week 2. Freeze ripe ones for shakes", price: "$2.64", store: "aldi", life: "week1" },
-  { cat: "Produce — Buy Week 1 + 2", name: "Avocados", qty: "3 + 3", note: "Week 1: buy ripe. Week 2: buy hard", price: "$5.34", store: "aldi", life: "week1" },
-  { cat: "Produce — Buy Week 1 + 2", name: "Baby spinach", qty: "1 + 1 bag", note: "5-7 days max. Paper towel trick. Restock week 2", price: "$5.70", store: "aldi", life: "week1" },
-  { cat: "Produce — Buy Week 1 + 2", name: "Broccoli", qty: "2 + 2 lbs", note: "Or buy frozen for week 2", price: "$6.60", store: "aldi", life: "week1" },
+  { cat: "Produce — Buy Week 1 + 2", name: "Bananas", qty: "2 bunches", note: "1 now, 1 on week 2. Freeze ripe ones for shakes — never let them rot", price: "$2.75", store: "aldi", life: "week1" },
+  { cat: "Produce — Buy Week 1 + 2", name: "Avocados", qty: "3 + 3", note: "Week 1: buy ripe. Week 2: buy hard. Freeze halves if unused", price: "$5.34", store: "aldi", life: "week1" },
+
+  { cat: "Produce — Frozen (no spoilage)", name: "Frozen chopped spinach", qty: "2 bags (16oz)", note: "8-12 months freezer. Toss in shakes, sauté with garlic, or mix into rice. No more wasted spinach", price: "$3.98", store: "aldi", life: "freeze" },
+  { cat: "Produce — Frozen (no spoilage)", name: "Frozen broccoli florets", qty: "2 bags (16oz)", note: "Steam from frozen in microwave bag. 8-12 months freezer", price: "$3.98", store: "aldi", life: "freeze" },
+  { cat: "Produce — Frozen (no spoilage)", name: "Mixed berries (frozen)", qty: "1 bag", note: "8-12 months freezer. Don't refreeze once thawed", price: "$3.49", store: "aldi", life: "freeze" },
 
   { cat: "Produce — Full 2 Weeks", name: "Sweet potatoes", qty: "5 lbs", note: "3-5 weeks in cool dark spot, NOT fridge", price: "$6.45", store: "aldi", life: "long" },
-  { cat: "Produce — Full 2 Weeks", name: "Onions", qty: "3 lb bag", note: "2-3 months. Cool, dark, NOT near potatoes", price: "$2.99", store: "aldi", life: "long" },
-  { cat: "Produce — Full 2 Weeks", name: "Garlic", qty: "2 heads", note: "3-6 months whole unpeeled", price: "$1.00", store: "aldi", life: "long" },
-  { cat: "Produce — Full 2 Weeks", name: "Limes", qty: "5", note: "3-4 weeks in fridge (whole)", price: "$1.25", store: "aldi", life: "long" },
-  { cat: "Produce — Full 2 Weeks", name: "Mangos", qty: "7", note: "Buy unripe, they ripen over 1-2 weeks", price: "$6.93", store: "aldi", life: "long" },
-  { cat: "Produce — Full 2 Weeks", name: "Mixed berries (frozen)", qty: "1 bag", note: "8-12 months freezer. Don't refreeze once thawed", price: "$3.49", store: "aldi", life: "freeze" },
+  { cat: "Produce — Full 2 Weeks", name: "Onions", qty: "3 lb bag", note: "2-3 months. Cool, dark, NOT near potatoes", price: "$3.49", store: "aldi", life: "long" },
+  { cat: "Produce — Full 2 Weeks", name: "Garlic", qty: "2 heads", note: "3-6 months whole unpeeled", price: "$1.38", store: "aldi", life: "long" },
+  { cat: "Produce — Full 2 Weeks", name: "Limes", qty: "5", note: "3-4 weeks in fridge (whole)", price: "$1.75", store: "aldi", life: "long" },
+  { cat: "Produce — Full 2 Weeks", name: "Mangos", qty: "7", note: "Buy unripe, they ripen over 1-2 weeks", price: "$6.23", store: "aldi", life: "long" },
 
-  { cat: "Carbs & Pantry", name: "Jasmine rice", qty: "2x 5-lb bags", note: "Years of shelf life. Batch cook + freeze portions", price: "$8.98", store: "aldi", life: "long" },
-  { cat: "Carbs & Pantry", name: "Oats", qty: "1 canister", note: "1-2 years shelf life", price: "$3.29", store: "aldi", life: "long" },
-  { cat: "Carbs & Pantry", name: "Rice cakes", qty: "2 packs", note: "Pre-workout daily", price: "$5.38", store: "aldi", life: "long" },
-  { cat: "Carbs & Pantry", name: "Whole wheat tortillas", qty: "2 packs", note: "Freeze extra pack with parchment between", price: "$4.38", store: "aldi", life: "freeze" },
-  { cat: "Carbs & Pantry", name: "Bread (Powerseed)", qty: "1 loaf", note: "Slice + freeze. Toast from frozen", price: "$3.99", store: "aldi", life: "freeze" },
-  { cat: "Carbs & Pantry", name: "Peanut butter (natural)", qty: "1 jar (28oz)", note: "6-9 months opened", price: "$2.99", store: "aldi", life: "long" },
-  { cat: "Carbs & Pantry", name: "Honey", qty: "1 bottle", note: "Literally never expires", price: "$4.99", store: "aldi", life: "long" },
-  { cat: "Carbs & Pantry", name: "Olive oil", qty: "2x 1L bottles", note: "3-6 months opened. Dark cool cabinet", price: "$10.98", store: "aldi", life: "long" },
-  { cat: "Carbs & Pantry", name: "Oat milk", qty: "2 cartons", note: "Open 1/week. 7-10 days once opened", price: "$5.98", store: "aldi", life: "week1" },
-  { cat: "Carbs & Pantry", name: "Hot sauce / Salsa", qty: "1 each", note: "Months in fridge", price: "$4.14", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Jasmine rice", qty: "2x 5-lb bags", note: "Years of shelf life. Batch cook + freeze portions", price: "$13.98", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Oats", qty: "1 canister", note: "1-2 years shelf life", price: "$3.79", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Rice cakes", qty: "2 packs", note: "Pre-workout daily", price: "$3.58", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Whole wheat tortillas", qty: "2 packs", note: "Freeze extra pack with parchment between", price: "$4.98", store: "aldi", life: "freeze" },
+  { cat: "Carbs & Pantry", name: "Bread (Powerseed)", qty: "1 loaf", note: "Slice + freeze. Toast from frozen", price: "$4.99", store: "aldi", life: "freeze" },
+  { cat: "Carbs & Pantry", name: "Peanut butter (natural)", qty: "1 jar (28oz)", note: "6-9 months opened", price: "$4.29", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Honey", qty: "1 bottle", note: "Literally never expires", price: "$4.49", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Olive oil", qty: "2x 1L bottles", note: "3-6 months opened. Dark cool cabinet", price: "$17.98", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Oat milk", qty: "2 cartons", note: "Open 1/week. 7-10 days once opened", price: "$6.98", store: "aldi", life: "week1" },
+  { cat: "Carbs & Pantry", name: "Hot sauce / Salsa", qty: "1 each", note: "Months in fridge", price: "$4.28", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Green tea (Benner)", qty: "2 boxes (20 bags each)", note: "3-4 cups/day per His Plan — EGCG + caffeine for fat loss. 1-2 year shelf life", price: "$4.98", store: "aldi", life: "long" },
   { cat: "Carbs & Pantry", name: "Zevia", qty: "24-pack", note: "Zero sugar soda swap", price: "$16.76", store: "amazon", life: "long" },
 
   { cat: "Supplements", name: "Creatine Monohydrate", qty: "1 tub", note: "5g daily. ~3 month supply (reorder when low)", price: "$16.99", store: "amazon", life: "long" },
-  { cat: "Supplements", name: "Vega Sport Premium Protein", qty: "1 tub", note: "2 scoops/day × 14 = 28 scoops. Reorder every 2-3 weeks", price: "$54.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Vega Sport Premium Protein", qty: "1 tub", note: "2 scoops/day post-workout × 14 = 28 scoops. Reorder every 2-3 weeks", price: "$54.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Whey protein (unflavored or vanilla)", qty: "1 tub", note: "1 scoop/day stirred into 2 PM yogurt — hits 240g protein target (Murphy 2015 / Longland 2016). ~1 month supply", price: "$34.99", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Collagen peptides", qty: "1 tub", note: "10-15g/day — skin elasticity. ~1 month supply (reorder monthly)", price: "$26.99", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Vitamin C (500mg)", qty: "1 bottle", note: "Collagen synthesis cofactor. ~3 month supply (reorder when low)", price: "$8.99", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Zinc (15-30mg)", qty: "1 bottle", note: "With food — skin repair. ~3 month supply (reorder when low)", price: "$7.99", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Krill oil / Fish oil (IFOS human-grade)", qty: "1 bottle", note: "2-3g EPA+DHA daily — skin + anti-inflammatory. IFOS certified. Don't share cats' bottle. ~2 month supply", price: "$22.99", store: "amazon", life: "long" },
 
-  { cat: "Cat Food (2 cats)", name: "Ground turkey (for cats)", qty: "5 lbs", note: "75% of mix. Portion + freeze", price: "$8.73", store: "aldi", life: "freeze" },
-  { cat: "Cat Food (2 cats)", name: "Chicken thighs (for cats)", qty: "2 lbs", note: "25% of mix. Dice small, freeze", price: "$4.98", store: "aldi", life: "freeze" },
+  { cat: "Cat Food (2 cats)", name: "Ground turkey (for cats)", qty: "5 lbs", note: "75% of mix. Portion + freeze", price: "$24.95", store: "aldi", life: "freeze" },
+  { cat: "Cat Food (2 cats)", name: "Chicken thighs (for cats)", qty: "2 lbs", note: "25% of mix. Dice small, freeze", price: "$7.98", store: "aldi", life: "freeze" },
   { cat: "Cat Food (2 cats)", name: "Taurine powder", qty: "1 container", note: "Essential — cats can't make their own. ~3-4 month supply (reorder when low)", price: "$12.99", store: "amazon", life: "long" },
   { cat: "Cat Food (2 cats)", name: "Eggshell powder", qty: "1 container", note: "Calcium source. ~3-4 month supply (reorder when low)", price: "$9.99", store: "amazon", life: "long" },
   { cat: "Cat Food (2 cats)", name: "Krill oil (pet-grade, cats only)", qty: "1 bottle", note: "Separate from his human-grade bottle — pet krill oil isn't tested to human standards", price: "$14.99", store: "amazon", life: "long" }
@@ -355,7 +366,7 @@ var HERS_ITEMS = [
   { cat: "One-Time Gear", name: "Lifting straps", qty: "1 pair", note: "All pulling movements — protects median nerve", price: "$9.99", store: "amazon", life: "long" }
 ];
 
-var HIS_BUDGET = { food: 187, supps: 139, total: 326 };
+var HIS_BUDGET = { food: 237, supps: 139, total: 376 };
 var HERS_BUDGET = { food: 215, supps: 215, total: 430 };
 
 var STORAGE_HIS = 'gym-grocery-his-v2';
