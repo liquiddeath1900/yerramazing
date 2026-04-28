@@ -77,7 +77,7 @@ p{font-size:13px;color:#444;line-height:1.6;margin-bottom:.75rem}
   <!-- Quick Presets -->
   <p style="font-weight:600;font-size:13px;margin-bottom:8px">Quick fill:</p>
   <div class="presets">
-    <button class="preset" id="pre-his" onclick="fillPreset('his')">Him (285 lbs)</button>
+    <button class="preset" id="pre-his" onclick="fillPreset('his')">Him (280 lbs)</button>
     <button class="preset" id="pre-hers" onclick="fillPreset('hers')">Her (145 lbs)</button>
     <button class="preset" onclick="clearForm()">Clear</button>
   </div>
@@ -100,7 +100,7 @@ p{font-size:13px;color:#444;line-height:1.6;margin-bottom:.75rem}
     <div class="form-row">
       <div class="form-group">
         <label>Weight (lbs)</label>
-        <input type="number" id="weight" placeholder="285" min="80" max="500">
+        <input type="number" id="weight" placeholder="280" min="80" max="500">
       </div>
       <div class="form-group">
         <label>Height</label>
@@ -233,7 +233,7 @@ function fillPreset(who) {
   if (who === 'his') {
     document.getElementById('gender').value = 'male';
     document.getElementById('age').value = '28';
-    document.getElementById('weight').value = '285';
+    document.getElementById('weight').value = '280';
     document.getElementById('height').value = '70';
     document.getElementById('activity').value = '1.55';
     document.getElementById('goal').value = 'recomp';
@@ -306,9 +306,10 @@ function calculate() {
   }
 
   // Macros
-  // Protein: 1g per lb bodyweight (for recomp/cut) or 0.8g (maintain/bulk)
-  let proteinPerLb = (goal === 'recomp' || goal === 'cut') ? 1.0 : 0.8;
-  const protein = Math.round(weightLbs * proteinPerLb);
+  // Protein: 1.8 g/kg in deficit (Longland/Phillips 2016 — preserves lean mass)
+  // 1.6 g/kg at maintenance/bulk (Morton 2018 meta-analysis ceiling)
+  let proteinPerKg = (goal === 'recomp' || goal === 'cut') ? 1.8 : 1.6;
+  const protein = Math.round(weightKg * proteinPerKg);
   const proteinCal = protein * 4;
 
   // Fat: 25% of total calories
@@ -327,7 +328,7 @@ function calculate() {
   document.getElementById('r-cal-sub').textContent = goalLabel;
   document.getElementById('r-tdee').textContent = tdee.toLocaleString();
   document.getElementById('r-protein').textContent = protein + 'g';
-  document.getElementById('r-protein-sub').textContent = `${proteinPerLb}g/lb × ${weightLbs} lbs = ${proteinCal} cal`;
+  document.getElementById('r-protein-sub').textContent = `${proteinPerKg}g/kg × ${weightKg.toFixed(0)} kg = ${proteinCal} cal`;
   document.getElementById('r-carbs').textContent = carbs + 'g';
   document.getElementById('r-carbs-sub').textContent = `${carbsCal} cal (remaining)`;
   document.getElementById('r-fat').textContent = fat + 'g';
@@ -397,11 +398,12 @@ function calculate() {
   </div>`;
   document.getElementById('meal-list').innerHTML = mealHtml;
 
-  // Pre-workout carbs
-  const preCarbs = Math.round(weightKg * 0.5);
-  document.getElementById('preworkout-title').textContent = `${preCarbs}-${preCarbs + 10}g carbs, 60-90 min before gym`;
+  // Pre-workout carbs (Kerksick/ISSN 2017 nutrient timing: 0.3-0.5 g/kg)
+  const preCarbsLow = Math.round(weightKg * 0.3);
+  const preCarbsHigh = Math.round(weightKg * 0.5);
+  document.getElementById('preworkout-title').textContent = `${preCarbsLow}-${preCarbsHigh}g carbs, 60-90 min before gym`;
   document.getElementById('preworkout-macros').innerHTML = `
-    <span>~${Math.round(preCarbs/25 * 100)/100} mangos worth</span>
+    <span>~${Math.round(preCarbsHigh/25 * 100)/100} mangos worth</span>
     <span>or 1 banana + rice cake</span>
   `;
 

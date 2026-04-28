@@ -83,8 +83,8 @@ h2{font-size:11px;font-weight:700;margin:1.5rem 0 .5rem;padding-bottom:4px;borde
   <!-- Budget at a glance -->
   <div class="budget-bar" id="budget-bar">
     <div class="budget-card"><div class="budget-num" style="color:#F57C00" id="budget-food">$237</div><div class="budget-label">food / 2 weeks</div></div>
-    <div class="budget-card"><div class="budget-num" style="color:#534AB7" id="budget-supps">$139</div><div class="budget-label">supplements / 2 weeks</div></div>
-    <div class="budget-card"><div class="budget-num" id="budget-total">$376</div><div class="budget-label">total / 2 weeks</div></div>
+    <div class="budget-card"><div class="budget-num" style="color:#534AB7" id="budget-supps">$152</div><div class="budget-label">supplements / 2 weeks</div></div>
+    <div class="budget-card"><div class="budget-num" id="budget-total">$389</div><div class="budget-label">total / 2 weeks</div></div>
   </div>
 
   <!-- Section toggles -->
@@ -288,11 +288,15 @@ var HIS_ITEMS = [
   { cat: "Carbs & Pantry", name: "Zevia", qty: "24-pack", note: "Zero sugar soda swap", price: "$16.76", store: "amazon", life: "long" },
 
   { cat: "Supplements", name: "Creatine Monohydrate", qty: "1 tub", note: "5g daily. ~3 month supply (reorder when low)", price: "$16.99", store: "amazon", life: "long" },
-  { cat: "Supplements", name: "Vega Sport Premium Protein", qty: "2 tubs", note: "3 scoops/day (2 post-workout + 1 for the +30g protein lever — see Eating Guide). × 14 = 42 scoops per 2 weeks. Reorder every 2 weeks", price: "$109.98", store: "amazon", life: "long" },
-  { cat: "Supplements", name: "Collagen peptides", qty: "1 tub", note: "10-15g/day — skin elasticity. ~1 month supply (reorder monthly)", price: "$26.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Vega Sport Premium Protein", qty: "1 tub (Subscribe & Save)", note: "2 scoops/day (post-workout) + half-scoop in 4 PM cup on heavy lift days to close 230g target. ~30 scoops/tub lasts ~2 weeks. Subscribe & Save 5-15% off — auto-ships every 2 wk", price: "$54.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Collagen peptides (pure hydrolyzed, NO biotin)", qty: "1 tub", note: "10-15g/day — skin elasticity. CRITICAL: avoid 'multi-collagen' blends — most include biotin which distorts thyroid + sex hormone immunoassays (Bowen 2019, FDA 2017). Stick with Vital Proteins / BulkSupplements / Sports Research single-source bovine. ~1 month supply", price: "$26.99", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Vitamin C (500mg)", qty: "1 bottle", note: "Collagen synthesis cofactor. ~3 month supply (reorder when low)", price: "$8.99", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Zinc (15-30mg)", qty: "1 bottle", note: "With food — skin repair. ~3 month supply (reorder when low)", price: "$7.99", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Krill oil / Fish oil (IFOS human-grade)", qty: "1 bottle", note: "2-3g EPA+DHA daily — skin + anti-inflammatory. IFOS certified. Don't share cats' bottle. ~2 month supply", price: "$22.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Vitamin D3 5000 IU", qty: "1 bottle", note: "Daily AM with fat (avo, eggs). Pilz 2011 — D3 supports T in deficient men. NOW Foods softgels. ~6 month supply", price: "$13.49", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Magnesium Glycinate (200-400mg)", qty: "1 bottle", note: "PM with dinner — sleep + recovery. Doctor's Best chelated form, no laxative effect. ~2 month supply", price: "$14.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "UC-II Undenatured Type II Collagen (40mg)", qty: "1 bottle", note: "Daily for knees. Lugo 2016: UC-II beat glucosamine+chondroitin head-to-head. NOT the same as 'Type II' in multi-collagen blends. NOW Foods or Now Sports brand. ~2 month supply", price: "$22.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Ashwagandha KSM-66 (600mg)", qty: "1 bottle", note: "Daily PM with zinc. Lopresti 2019 / Wankhede 2015 — modest T bump + stress reduction. Run 8-12 wk on, 4 wk off. ~2 month supply", price: "$16.99", store: "amazon", life: "long" },
 
   { cat: "Cat Food (2 cats)", name: "Ground turkey (for cats)", qty: "5 lbs", note: "75% of mix. Portion + freeze", price: "$24.95", store: "aldi", life: "freeze" },
   { cat: "Cat Food (2 cats)", name: "Chicken thighs (for cats)", qty: "2 lbs", note: "25% of mix. Dice small, freeze", price: "$7.98", store: "aldi", life: "freeze" },
@@ -365,7 +369,7 @@ var HERS_ITEMS = [
   { cat: "One-Time Gear", name: "Lifting straps", qty: "1 pair", note: "All pulling movements — protects median nerve", price: "$9.99", store: "amazon", life: "long" }
 ];
 
-var HIS_BUDGET = { food: 237, supps: 139, total: 376 };
+var HIS_BUDGET = { food: 237, supps: 152, total: 389 };
 var HERS_BUDGET = { food: 215, supps: 215, total: 430 };
 
 var STORAGE_HIS = 'gym-grocery-his-v2';
