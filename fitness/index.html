@@ -2,120 +2,254 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F5F7">
 <title>Gym Partners — yerramazing</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style id="auth-hide">body{visibility:hidden}</style>
 <noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f7f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;padding:16px;min-height:100vh;display:flex;align-items:center;justify-content:center}
-.wrap{max-width:480px;width:100%;text-align:center}
-.logo{font-size:28px;font-weight:700;margin-bottom:6px}
-.sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:2rem}
-.back{display:inline-block;font-size:13px;color:#534AB7;text-decoration:none;margin-bottom:1.5rem;border:none;background:none;padding:14px 8px;min-height:44px;line-height:1}
-.back:hover{text-decoration:underline;background:none;border:none}
-.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#999;font-weight:600;margin:24px 0 10px;text-align:left}
-.section-label:first-of-type{margin-top:0}
-.links{display:flex;flex-direction:column;gap:10px}
-a.card{display:block;padding:14px 18px;background:#fff;border:1px solid #e5e5e5;border-radius:12px;text-decoration:none;color:#1a1a1a;transition:all .15s;text-align:left}
-a.card:hover{border-color:#534AB7;background:#EEEDFE}
-.link-title{font-size:14px;font-weight:600;margin-bottom:3px;display:flex;align-items:center;gap:8px}
-.link-desc{font-size:12px;color:#666;line-height:1.4}
-.link-badge{font-size:11px;padding:2px 7px;border-radius:6px;font-weight:700;letter-spacing:.5px}
-.badge-shared{background:#EEEDFE;color:#3C3489}
-.badge-her{background:#E1F5EE;color:#04342C}
-.badge-fuel{background:#FFF3E0;color:#7A4A00}
-.footer{text-align:center;margin-top:2rem;padding:1rem;font-size:12px;color:#999;line-height:1.6}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
-<div class="wrap">
-  <a href="../index.html" class="back">&larr; Back to yerramazing</a>
-  <div class="logo">Gym Partners</div>
-  <div class="sub">Your shared workout hub — warm-ups, routines, nutrition & supplements.</div>
+<div class="app">
 
-  <div class="section-label">Workouts</div>
-  <div class="links">
-    <a href="hybrid-workout.html" class="card">
-      <div class="link-title">Hybrid Workout <span class="link-badge badge-shared">Shared</span></div>
-      <div class="link-desc">3-day plan — Core Four exercises together, then tailored finishers for each of you</div>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <a href="../index.html" class="back" aria-label="Back to yerramazing">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      <span>yerramazing</span>
     </a>
-    <a href="his-plan.html" class="card">
-      <div class="link-title">His Plan <span class="link-badge" style="background:#FFF3E0;color:#7A4A00">Him</span></div>
-      <div class="link-desc">Body recomp — solo finishers, IF timing, skin management, progression chart. Built for 280.</div>
+    <span class="brand">Gym Partners</span>
+  </div>
+
+  <!-- GREETING -->
+  <div class="hero-head fade-in">
+    <span class="eyebrow"><span class="dot"></span>Yerramazing · Gym Partners Hub</span>
+    <h1 id="greeting">Hey.</h1>
+    <div class="sub" id="date">Your hub for training, fuel, and tracking.</div>
+  </div>
+
+  <!-- HIS/HERS/SHARED FILTER -->
+  <div class="seg" role="tablist" aria-label="Filter by side">
+    <button data-filter="all" aria-pressed="true">All</button>
+    <button data-filter="his" data-side="his" aria-pressed="false">His</button>
+    <button data-filter="hers" data-side="hers" aria-pressed="false">Hers</button>
+    <button data-filter="shared" aria-pressed="false">Shared</button>
+  </div>
+
+  <!-- HERO QUICK ACTIONS -->
+  <div class="hero">
+    <a href="his-plan.html" class="qa" data-flavor="train">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M21 21l-1-1M3 3l1 1M18 22l4-4M2 6l4-4M7 17l-5 5M17 7l5-5"/><path d="M14.5 9.5l-5 5M9.5 14.5L7 17M14.5 9.5L17 7"/></svg>
+      </span>
+      <div class="qa-title">Train</div>
+      <div class="qa-sub">Today's session</div>
     </a>
-    <a href="her-plan.html" class="card">
-      <div class="link-title">Her Solo Plan <span class="link-badge badge-her">Her</span></div>
-      <div class="link-desc">3-day bodyweight starter — lower body, full body toning, strength & core</div>
+    <a href="eating-guide.html" class="qa" data-flavor="eat">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18M3 8h4M7 3v18M14 3c-1.5 3-1.5 6 0 9v9M14 12h7M21 3v18"/></svg>
+      </span>
+      <div class="qa-title">Fuel</div>
+      <div class="qa-sub">What to eat next</div>
     </a>
-    <a href="her-health-plan.html" class="card" style="border-left:3px solid #7B1FA2">
-      <div class="link-title">Her Health Action Plan <span class="link-badge badge-her">Her</span></div>
-      <div class="link-desc">The full picture — perimenopause, hyperhidrosis, sleep, mood, carpal tunnel, tinnitus. Supplements, bloodwork panel, doctor scripts, master checklist.</div>
-    </a>
-    <a href="travel-workouts.html" class="card">
-      <div class="link-title">Travel Workouts <span class="link-badge badge-shared">Shared</span></div>
-      <div class="link-desc">Beach, park, mountain, hotel room — full workouts wherever you land, zero equipment</div>
+    <a href="progress.html" class="qa" data-flavor="track">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+      </span>
+      <div class="qa-title">Track</div>
+      <div class="qa-sub">Log progress</div>
     </a>
   </div>
 
-  <div class="section-label">Nutrition & Supplements</div>
-  <div class="links">
-    <a href="nutrition.html" class="card">
-      <div class="link-title">Pre-Workout Nutrition <span class="link-badge badge-fuel">Fuel</span></div>
-      <div class="link-desc">Carb targets, fruit breakdowns, timing charts for 280 lbs vs 145 lbs</div>
-    </a>
-    <a href="supplements.html" class="card">
-      <div class="link-title">Supplement Guide <span class="link-badge badge-fuel">Fuel</span></div>
-      <div class="link-desc">Creatine & protein dosing for both — daily protocol, timing, and post-workout stacks</div>
-    </a>
-    <a href="eating-guide.html" class="card">
-      <div class="link-title">Eating Guide <span class="link-badge badge-fuel">Fuel</span></div>
-      <div class="link-desc">When to eat, how much, weekday vs weekend — full daily schedules for both, calorie targets, the rules</div>
-    </a>
-    <a href="meal-prep.html" class="card">
-      <div class="link-title">Meal Prep <span class="link-badge badge-shared">Shared</span></div>
-      <div class="link-desc">2 preps per week (Sun + Wed), 3 days max — 5 rotating meals, his vs hers portions, weekly calendar</div>
-    </a>
-    <a href="grocery-list.html" class="card">
-      <div class="link-title">Grocery List <span class="link-badge badge-fuel">Fuel</span></div>
-      <div class="link-desc">Combined Aldi-optimized list with interactive checklist — tap to check off items</div>
-    </a>
+  <!-- WORKOUTS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Workouts</div>
+      <div class="section-count" data-count="workouts">5</div>
+    </div>
+    <div class="grid">
+      <a href="hybrid-workout.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Hybrid Workout <span class="pill pill-shared">Shared</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">3-day plan — Core Four exercises together, then tailored finishers for each of you.</div>
+      </a>
+      <a href="his-plan.html" class="card featured" data-side="his">
+        <div class="card-row"><div class="card-title">His Plan <span class="pill pill-his">Him</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Body recomp — solo finishers, IF timing, skin management, progression chart. Built for 280.</div>
+      </a>
+      <a href="her-plan.html" class="card" data-side="hers">
+        <div class="card-row"><div class="card-title">Her Solo Plan <span class="pill pill-hers">Her</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">3-day bodyweight starter — lower body, full body toning, strength &amp; core.</div>
+      </a>
+      <a href="her-health-plan.html" class="card" data-side="hers">
+        <div class="card-row"><div class="card-title">Her Health Action Plan <span class="pill pill-hers">Her</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">The full picture — perimenopause, hyperhidrosis, sleep, mood, carpal tunnel, tinnitus. Supplements, bloodwork panel, doctor scripts, master checklist.</div>
+      </a>
+      <a href="travel-workouts.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Travel Workouts <span class="pill pill-shared">Shared</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Beach, park, mountain, hotel room — full workouts wherever you land, zero equipment.</div>
+      </a>
+    </div>
   </div>
 
-  <div class="section-label">Tools & Tracking</div>
-  <div class="links">
-    <a href="calculator.html" class="card">
-      <div class="link-title">Fitness Calculator <span class="link-badge badge-shared">Shared</span></div>
-      <div class="link-desc">Enter your stats → get calories, protein, carbs, fat, water, creatine dose, and per-meal breakdown</div>
-    </a>
-    <a href="progress.html" class="card">
-      <div class="link-title">Progress Tracker <span class="link-badge badge-shared">Shared</span></div>
-      <div class="link-desc">Log weight, waist, chest, arms, hips — see trends, export to CSV, separate tabs for each</div>
-    </a>
-    <a href="deals.html" class="card">
-      <div class="link-title">Deals & Savings <span class="link-badge badge-fuel">Save</span></div>
-      <div class="link-desc">Supplement coupons, Aldi hacks, price comparisons, gear deals — save money while getting fit</div>
-    </a>
+  <!-- NUTRITION & SUPPLEMENTS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Nutrition &amp; Supplements</div>
+      <div class="section-count" data-count="fuel">5</div>
+    </div>
+    <div class="grid">
+      <a href="nutrition.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Pre-Workout Nutrition <span class="pill pill-fuel">Fuel</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Carb targets, fruit breakdowns, timing charts for 280 lbs vs 145 lbs.</div>
+      </a>
+      <a href="supplements.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Supplement Guide <span class="pill pill-fuel">Fuel</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Creatine &amp; protein dosing for both — daily protocol, timing, and post-workout stacks.</div>
+      </a>
+      <a href="eating-guide.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Eating Guide <span class="pill pill-fuel">Fuel</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">When to eat, how much, weekday vs weekend — full daily schedules for both, calorie targets, the rules.</div>
+      </a>
+      <a href="meal-prep.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Meal Prep <span class="pill pill-shared">Shared</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">2 preps per week (Sun + Wed), 3 days max — 5 rotating meals, his vs hers portions, weekly calendar.</div>
+      </a>
+      <a href="grocery-list.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Grocery List <span class="pill pill-fuel">Fuel</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Combined Aldi-optimized list with interactive checklist — tap to check off items.</div>
+      </a>
+    </div>
   </div>
 
-  <div class="section-label">Health Profile</div>
-  <div class="links">
-    <a href="health-profile.html" class="card">
-      <div class="link-title">Health Questionnaire <span class="link-badge badge-her">Her</span></div>
-      <div class="link-desc">Fill out your health profile — sleep, mood, sweating, carpal tunnel, family history. Helps us tailor everything to your body.</div>
-    </a>
+  <!-- TOOLS & TRACKING -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Tools &amp; Tracking</div>
+      <div class="section-count" data-count="tools">3</div>
+    </div>
+    <div class="grid">
+      <a href="calculator.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Fitness Calculator <span class="pill pill-shared">Shared</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Enter your stats → get calories, protein, carbs, fat, water, creatine dose, and per-meal breakdown.</div>
+      </a>
+      <a href="progress.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Progress Tracker <span class="pill pill-shared">Shared</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Log weight, waist, chest, arms, hips — see trends, export to CSV, separate tabs for each.</div>
+      </a>
+      <a href="deals.html" class="card" data-side="shared">
+        <div class="card-row"><div class="card-title">Deals &amp; Savings <span class="pill pill-save">Save</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Supplement coupons, Aldi hacks, price comparisons, gear deals — save money while getting fit.</div>
+      </a>
+    </div>
   </div>
 
-  <div class="section-label">Coaching</div>
-  <div class="links">
-    <a href="her-coaching.html" class="card">
-      <div class="link-title">Her Coaching <span class="link-badge badge-her">Her</span></div>
-      <div class="link-desc">Tonight's restart workout + activation cues for every exercise — what to feel, where to feel it, and how to know it's working.</div>
-    </a>
+  <!-- HEALTH PROFILE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Health Profile</div>
+      <div class="section-count" data-count="health">1</div>
+    </div>
+    <div class="grid">
+      <a href="health-profile.html" class="card" data-side="hers">
+        <div class="card-row"><div class="card-title">Health Questionnaire <span class="pill pill-hers">Her</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Fill out your health profile — sleep, mood, sweating, carpal tunnel, family history. Helps us tailor everything to your body.</div>
+      </a>
+    </div>
   </div>
 
-  <div class="footer">yerramazing &middot; Gym Partners Hub</div>
+  <!-- COACHING -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">Coaching</div>
+      <div class="section-count" data-count="coaching">1</div>
+    </div>
+    <div class="grid">
+      <a href="her-coaching.html" class="card" data-side="hers">
+        <div class="card-row"><div class="card-title">Her Coaching <span class="pill pill-hers">Her</span></div><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></div>
+        <div class="card-desc">Tonight's restart workout + activation cues for every exercise — what to feel, where to feel it, and how to know it's working.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="foot">yerramazing &middot; Gym Partners Hub</div>
 </div>
+
+<!-- STICKY BOTTOM NAV -->
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+    <a href="index.html" class="tab" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="his-plan.html" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12M11 10v4M13 10v4"/></svg>
+      <span>Train</span>
+    </a>
+    <a href="eating-guide.html" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M11 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg>
+      <span>Fuel</span>
+    </a>
+    <a href="progress.html" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg>
+      <span>Track</span>
+    </a>
+    <a href="health-profile.html" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+      <span>Profile</span>
+    </a>
+  </div>
+</nav>
+
+<script>
+// Greeting based on time of day
+(function(){
+  var h = new Date().getHours();
+  var greet = h < 12 ? "Good morning." : h < 17 ? "Good afternoon." : "Good evening.";
+  document.getElementById('greeting').textContent = greet;
+  var d = new Date();
+  var opts = { weekday:'long', month:'short', day:'numeric' };
+  document.getElementById('date').textContent = d.toLocaleDateString(undefined, opts);
+})();
+
+// His/Hers/Shared filter
+(function(){
+  var seg = document.querySelector('.seg');
+  var btns = seg.querySelectorAll('button');
+  var cards = document.querySelectorAll('a.card');
+  var counts = document.querySelectorAll('.section-count');
+
+  function applyFilter(filter){
+    cards.forEach(function(c){
+      var side = c.getAttribute('data-side');
+      var show = filter === 'all' ||
+                 (filter === 'his' && (side === 'his' || side === 'shared')) ||
+                 (filter === 'hers' && (side === 'hers' || side === 'shared')) ||
+                 (filter === 'shared' && side === 'shared');
+      c.classList.toggle('is-hidden', !show);
+    });
+    // recount visible per section
+    document.querySelectorAll('.section').forEach(function(sec){
+      var visible = sec.querySelectorAll('a.card:not(.is-hidden)').length;
+      var counter = sec.querySelector('.section-count');
+      if(counter) counter.textContent = visible;
+      sec.style.display = visible === 0 ? 'none' : '';
+    });
+  }
+
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+      applyFilter(b.getAttribute('data-filter'));
+    });
+  });
+
+  // initial count
+  applyFilter('all');
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script src="../js/supabase-sync.js"></script>

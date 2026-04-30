@@ -3,81 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#F5F5F7">
 <title>Health Profile — Gym Partners</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style id="auth-hide">body{visibility:hidden}</style>
 <noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f7f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;padding:16px;min-height:100vh}
-.wrap{max-width:640px;margin:0 auto}
-.back{display:inline-block;font-size:13px;color:#534AB7;text-decoration:none;margin-bottom:1.5rem;padding:14px 8px;min-height:44px;line-height:1}
-.back:hover{text-decoration:underline}
-h1{font-size:24px;font-weight:700;margin-bottom:6px}
-.sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:1.5rem}
-.intro-box{background:#EEEDFE;border-left:4px solid #534AB7;padding:12px 14px;border-radius:0 10px 10px 0;margin-bottom:1.5rem;font-size:12px;color:#3C3489;line-height:1.6}
-.intro-box strong{font-size:13px}
-
-/* Sections */
-.section{margin-bottom:16px}
-.section-header{background:#534AB7;color:#fff;padding:10px 14px;border-radius:12px 12px 0 0;font-size:14px;font-weight:700;display:flex;align-items:center;gap:10px}
-.section-header .num{background:#fff;color:#534AB7;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
-.section-body{background:#fff;border:1px solid #e5e5e5;border-top:none;border-radius:0 0 12px 12px;padding:14px 16px}
-
-/* Questions */
-.q{margin-bottom:14px}
-.q:last-child{margin-bottom:0}
-.q label{display:block;font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
-.q .hint{font-weight:400;font-size:12px;color:#888}
-.q input[type="text"],.q textarea{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;font-family:inherit;background:#fafafa;transition:border-color .15s}
-.q input[type="text"]:focus,.q textarea:focus{outline:none;border-color:#534AB7;background:#fff}
-.q textarea{resize:vertical;min-height:60px}
-
-/* Checkbox group */
-.check-group{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.check-group label{font-weight:400;font-size:13px;display:flex;align-items:center;gap:6px;padding:10px 14px;background:#fafafa;border:1px solid #e5e5e5;border-radius:8px;cursor:pointer;transition:all .15s}
-.check-group label:has(input:checked){background:#EEEDFE;border-color:#534AB7;color:#3C3489}
-.check-group input[type="checkbox"]{width:16px;height:16px;accent-color:#534AB7}
-
-/* Scale */
-.scale{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap}
-.scale .label{font-size:11px;color:#888;flex-shrink:0}
-.scale-circles{display:flex;gap:4px}
-.scale-btn{width:44px;height:44px;border-radius:50%;border:2px solid #ddd;background:#fff;font-size:12px;font-weight:600;color:#888;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
-.scale-btn.selected{background:#534AB7;border-color:#534AB7;color:#fff}
-.scale-btn:hover{border-color:#534AB7}
-
-/* Progress bar */
-.progress-bar{background:#e5e5e5;border-radius:20px;height:6px;margin-bottom:1.5rem;overflow:hidden}
-.progress-fill{height:100%;background:linear-gradient(90deg,#534AB7,#7c3aed);border-radius:20px;transition:width .3s}
-.progress-text{font-size:12px;color:#888;margin-bottom:6px;text-align:right}
-
-/* Bottom buttons */
-.btn{display:block;width:100%;padding:14px;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:all .15s;margin-bottom:10px;font-family:inherit}
-.btn-primary{background:#534AB7;color:#fff}
-.btn-primary:hover{background:#3C3489}
-.btn-primary:disabled{background:#ccc;cursor:not-allowed}
-.btn-secondary{background:#E1F5EE;color:#04342C;border:1px solid #b2dfdb}
-.btn-secondary:hover{background:#c8e6c9}
-.btn-share{background:#25D366;color:#fff}
-.btn-share:hover{background:#1da851}
-.btn-copy{background:#FFF3E0;color:#7A4A00;border:1px solid #ffe0b2}
-.btn-copy:hover{background:#ffe0b2}
-
-/* Results */
-.results{display:none;background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:16px;margin-bottom:16px}
-.results h2{font-size:16px;margin-bottom:8px}
-.results pre{font-size:12px;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;background:#fafafa;padding:12px;border-radius:8px;max-height:400px;overflow-y:auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-.copied-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:600;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
-.copied-toast.show{opacity:1}
-
-/* Section nav dots */
-.section-nav{display:flex;justify-content:center;gap:8px;margin-bottom:1rem}
-.dot{width:10px;height:10px;padding:8px;box-sizing:content-box;border-radius:50%;background:#ddd;transition:background .2s;cursor:pointer}
-.dot.active{background:#534AB7}
-.dot.done{background:#43A047}
-
-0;color:#999;text-align:center;line-height:1.6}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="wrap">
@@ -513,6 +445,16 @@ function startOver() {
   updateUI();
 }
 </script>
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+      <a href="index.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+      <a href="his-plan.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg><span>Train</span></a>
+      <a href="eating-guide.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg><span>Fuel</span></a>
+      <a href="progress.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg><span>Track</span></a>
+      <a href="health-profile.html" class="tab" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Profile</span></a>
+  </div>
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script src="../js/supabase-sync.js"></script>

@@ -3,44 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#F5F5F7">
 <title>Pre-Workout Nutrition — Gym Partners</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style id="auth-hide">body{visibility:hidden}</style>
 <noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f7f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;padding:16px;min-height:100vh}
-.wrap{max-width:640px;margin:0 auto}
-.back{display:inline-block;font-size:13px;color:#534AB7;text-decoration:none;margin-bottom:1.5rem;padding:14px 8px;min-height:44px;line-height:1}
-.back:hover{text-decoration:underline}
-h1{font-size:24px;font-weight:700;margin-bottom:6px}
-.sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:2rem}
-h2{font-size:16px;font-weight:700;margin:2rem 0 .75rem;padding-bottom:6px;border-bottom:2px solid #FFF3E0}
-p{font-size:13px;color:#444;line-height:1.6;margin-bottom:.75rem}
-.note{padding:12px 14px;border-radius:10px;font-size:12px;margin-bottom:10px}
-.note-purple{background:#EEEDFE;color:#3C3489}
-.note-orange{background:#FFF3E0;color:#7A4A00}
-table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:13px}
-th{background:#534AB7;color:#fff;padding:10px 12px;text-align:left;font-size:12px;font-weight:600}
-td{padding:10px 12px;border-bottom:1px solid #e5e5e5;background:#fff}
-tr:last-child td{border-bottom:none}
-.card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:14px 18px;margin-bottom:10px}
-.card-title{font-size:14px;font-weight:600;margin-bottom:4px}
-.card-detail{font-size:12px;color:#666;line-height:1.5}
-.split{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:10px}
-.his{border-left:3px solid #F57C00}
-.hers{border-left:3px solid #43A047}
-.tag{font-size:11px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:6px;display:inline-block;margin-bottom:6px}
-.tag-his{background:#FFF3E0;color:#7A4A00}
-.tag-hers{background:#E1F5EE;color:#04342C}
-.tabs{display:flex;gap:0;margin-bottom:1rem;border-radius:10px;overflow:hidden;border:1px solid #e5e5e5}
-.tab{flex:1;padding:12px 14px;text-align:center;font-size:13px;font-weight:600;cursor:pointer;background:#fff;color:#666;transition:all .15s;border:none;min-height:44px}
-.tab.active-his{background:#F57C00;color:#fff}
-.tab.active-hers{background:#43A047;color:#fff}
-.hers{display:none}
-body.show-hers .hers{display:block}
-body.show-hers .his{display:none}
-0;color:#999;text-align:center}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="wrap">
@@ -123,6 +92,16 @@ function switchTab(who){
   document.body.className=who==='hers'?'show-hers':'';
 }
 </script>
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+      <a href="index.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+      <a href="his-plan.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg><span>Train</span></a>
+      <a href="eating-guide.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg><span>Fuel</span></a>
+      <a href="progress.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg><span>Track</span></a>
+      <a href="health-profile.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Profile</span></a>
+  </div>
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script src="../js/supabase-sync.js"></script>

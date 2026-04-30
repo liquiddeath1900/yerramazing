@@ -2,145 +2,241 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F5F7">
 <title>His Plan — Gym Partners</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style id="auth-hide">body{visibility:hidden}</style>
 <noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f7f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;padding:16px;min-height:100vh}
-.wrap{max-width:640px;margin:0 auto}
-.back{display:inline-block;font-size:13px;color:#534AB7;text-decoration:none;margin-bottom:1.5rem;padding:14px 8px;min-height:44px;line-height:1}
-.back:hover{text-decoration:underline}
-h1{font-size:24px;font-weight:700;margin-bottom:6px}
-.sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:2rem}
-h2{font-size:16px;font-weight:700;margin:2rem 0 .75rem;padding-bottom:6px;border-bottom:2px solid #FFF3E0}
-h3{font-size:14px;font-weight:600;margin:1.25rem 0 .5rem}
-p{font-size:13px;color:#444;line-height:1.6;margin-bottom:.75rem}
-.card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:14px 18px;margin-bottom:10px}
-.card-title{font-size:14px;font-weight:600;margin-bottom:4px}
-.card-detail{font-size:12px;color:#666;line-height:1.5}
-.watch{font-size:12px;color:#534AB7;text-decoration:none;font-weight:600;margin-left:6px;padding:6px 8px;display:inline-block;border-radius:6px}
-.watch:hover{text-decoration:underline}
-.note{padding:12px 14px;border-radius:10px;font-size:12px;margin-bottom:10px}
-.note-orange{background:#FFF3E0;color:#7A4A00}
-.note-purple{background:#EEEDFE;color:#3C3489}
-.note-green{background:#E1F5EE;color:#04342C}
-.note-red{background:#FCE4EC;color:#880E4F}
-.note-blue{background:#E3F2FD;color:#0D47A1}
-.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:6px;margin-bottom:8px}
-.tag-upper{background:#E3F2FD;color:#0D47A1}
-.tag-lower{background:#FFF3E0;color:#7A4A00}
-.tag-core{background:#EEEDFE;color:#3C3489}
-.tag-skin{background:#FCE4EC;color:#880E4F}
-.tag-cardio{background:#E1F5EE;color:#04342C}
-.tag-mistake{background:#FFEBEE;color:#B71C1C}
-.tag-optional{background:#E3F2FD;color:#0D47A1}
-.tag-warmup{background:#FFF8E1;color:#E65100}
-.tag-pool{background:#E3F2FD;color:#0D47A1}
-table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:13px}
-th{background:#F57C00;color:#fff;padding:10px 12px;text-align:left;font-size:12px;font-weight:600}
-td{padding:10px 12px;border-bottom:1px solid #e5e5e5;background:#fff}
-tr:last-child td{border-bottom:none}
-ul{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-@media(max-width:500px){.compare{grid-template-columns:1fr}}
-.compare .card{text-align:center}
-.big-num{font-size:28px;font-weight:700;color:#F57C00;margin-bottom:2px}
-.big-label{font-size:12px;color:#999}
-.phase{border-left:3px solid #F57C00;padding-left:14px;margin-bottom:1.5rem}
-.warmup-box{background:#FFF8E1;border:1px solid #FFE082;border-radius:10px;padding:12px 14px;margin-bottom:14px}
-.warmup-box .card-title{color:#E65100;font-size:13px}
-.warmup-box .card-detail{font-size:12px;color:#7A4A00}
-.optional-banner{background:linear-gradient(135deg,#E3F2FD,#EEEDFE);border:2px dashed #534AB7;border-radius:12px;padding:14px 18px;margin:2rem 0 1rem;text-align:center}
-.optional-banner h2{border:none;margin:0 0 6px;padding:0;color:#534AB7}
-.optional-banner p{font-size:12px;color:#534AB7;margin:0}
-.footer{margin-top:3rem;padding:1.5rem 0;font-size:12px;color:#999;text-align:center}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="wrap">
-  <a href="index.html" class="back">&larr; Back to Gym Partners</a>
-  <h1>His Plan</h1>
-  <div class="sub">Full body every session — upper, lower, and core mixed together so nothing gets destroyed. 3-day base + required HIIT + optional pool. No fixed weekdays, just A → B → C in order.</div>
+  <a href="index.html" class="back" aria-label="Back to Gym Partners">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    <span>Gym Partners</span>
+  </a>
+  <div class="hero-head fade-in">
+    <span class="eyebrow"><span class="dot"></span>Body Recomp · 280 → 220-235</span>
+    <h1>His Plan.</h1>
+    <div class="sub">Full body, three days a week. Heavy compounds with disk-safe swaps. Built for 280 lbs of "let's actually do this."</div>
+  </div>
 
-  <!-- DAY IN HIS LIFE -->
-  <div class="card" style="border-left:3px solid #534AB7;background:#EEEDFE;margin-bottom:1rem">
-    <span class="tag" style="background:#534AB7;color:#fff">A DAY IN HIS LIFE</span>
-    <div class="card-title" style="color:#3C3489;margin-bottom:8px">The whole day, one view</div>
-    <div class="card-detail" style="color:#3C3489;line-height:1.9">
-      <strong>6 AM – 11:59 AM</strong> &middot; Fasting. Water only (no coffee after 2 PM on lift days — see <a href="eating-guide.html" style="color:#534AB7;font-weight:600">Eating Guide</a> Rule #6).<br>
-      <strong>12:00 PM</strong> &middot; Break-fast: oats jar (+ banana sliced in) + 4 eggs + <strong>full avo</strong> + <em>Collagen 10-15g + Vit C 500mg + Omega-3 2-3g + D3 5000 IU + UC-II 40mg</em><br>
-      <strong>2:00 PM</strong> &middot; Greek yogurt snack + honey + berries + <em>Zinc 15-30mg + Ashwagandha KSM-66 600mg (8-12 wk cycle)</em><br>
-      <strong>4:00 PM</strong> &middot; Container meal (chicken/turkey/salmon/beef + 2 cups rice / sweet potato + veg) + 1 piece fruit<br>
-      <strong>7:00 PM</strong> &middot; Pre-workout: mango or banana + rice cake + honey<br>
-      <strong>8:30 – 10:15 PM</strong> &middot; GYM: Workout A / B / C / D (HIIT) + 15-20 min incline walk cooldown<br>
-      <strong>10:30 PM</strong> &middot; Post-workout shake: 2 scoops Vega + <em>5g creatine</em> + banana. <strong>Magnesium glycinate 200-400mg</strong> 30 min later (sleep + recovery). Last food of the day.<br>
-      <strong>≤12 AM</strong> &middot; Lights out. 7-8 hrs sleep drives recovery, T, cortisol, and skin retraction.
+  <!-- STAT TILES -->
+  <div class="stat-grid fade-in">
+    <div class="stat-tile" data-tone="kcal">
+      <div class="stat-overline">Daily Cal</div>
+      <div class="stat-num">2,500</div>
+      <div class="stat-caption">~900 kcal deficit · 1.7-1.8 lb/wk</div>
     </div>
-    <div class="card-detail" style="color:#3C3489;margin-top:10px;font-size:11px;border-top:1px solid #D5D1F5;padding-top:8px">
-      Saturday shifts: noon break-fast · 3:30 PM meal · 4:30 PM pre · 5-7 PM gym · 7 PM post-shake.
+    <div class="stat-tile" data-tone="exercise">
+      <div class="stat-overline">Protein</div>
+      <div class="stat-num">230<small>g</small></div>
+      <div class="stat-caption">1.8 g/kg · recalc every 10 lb</div>
+    </div>
+    <div class="stat-tile" data-tone="move">
+      <div class="stat-overline">Goal</div>
+      <div class="stat-num">220-235</div>
+      <div class="stat-caption">15-18% BF · 10-14 mo timeline</div>
+    </div>
+    <div class="stat-tile" data-tone="stand">
+      <div class="stat-overline">Rep Range</div>
+      <div class="stat-num">4-20</div>
+      <div class="stat-caption">Strength + hypertrophy · all sessions</div>
     </div>
   </div>
 
-  <!-- THE MISSION -->
-  <h2>The Mission</h2>
-  <div class="note note-orange">
-    <strong>Body recomposition, not just weight loss.</strong> At 280 lbs and 5'7", you're estimated at 33-38% body fat (down from 280 / 35-40% nine days ago — system is working). Target: 220-235 lbs at 15-18% BF. That's ~45-60 lbs of fat to lose while building serious muscle. Realistic timeline: 10-14 months. Loose skin is expected — muscle building + slow loss rate is the #1 strategy to minimize it.
-  </div>
-  <div class="note note-blue">
-    <strong>Calorie plan — skin-preservation pace.</strong> TDEE at 280 lbs / 5'7" / 28 / activity 1.55 (Mifflin-St Jeor) = ~3,400 kcal/day. Target = <strong>2,500 kcal/day</strong> = ~900 kcal deficit = ~1.7-1.8 lb/wk. Aggressive enough for visible results, slow enough for skin to retract along with the loss (Helms 2014 — recommends 0.5-1% BW/wk for natural lifters minimizing muscle and skin loss).<br><br>
-    &bull; <strong>How the daily 2,500 splits:</strong> 230g protein (1.8 g/kg, Longland 2016 evidence sweet spot for cut/recomp) / 235g carbs / 70g fat.<br>
-    &bull; <strong>If weekly loss runs &gt;2 lb for two consecutive weeks:</strong> add another 100-150 kcal (½ cup more rice in the 4 PM container or an extra rice cake at pre-workout). Don't go faster — skin won't keep up.<br>
-    &bull; <strong>If weekly loss stalls below 0.5 lb for two consecutive weeks:</strong> drop 100-150 kcal (smaller rice portion). Don't go below 2,200 — gym performance and recovery suffer.<br>
-    &bull; <strong>Recalc protein every 10 lb lost:</strong> at 270 lb = 220g / at 260 lb = 213g (always 1.8 g/kg of current bodyweight).
+  <!-- TODAY'S PLAYBOOK · TIMELINE -->
+  <div class="timeline-card">
+    <div class="timeline-head">
+      <div class="tl-title">Today's playbook</div>
+      <div class="tl-sub">Mon / Wed / Fri pattern</div>
+    </div>
+    <div class="timeline">
+      <div class="tl-row" data-kind="fast">
+        <div class="tl-time">6–11<sup>AM</sup></div>
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="tl-content">
+          <div class="tl-label">Fast</div>
+          <div class="tl-detail">Water only. No coffee after 2 PM on lift days <em>· Eating Guide Rule #6</em></div>
+        </div>
+      </div>
+      <div class="tl-row" data-kind="meal">
+        <div class="tl-time">12<sup>PM</sup></div>
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg></div>
+        <div class="tl-content">
+          <div class="tl-label">Break-fast</div>
+          <div class="tl-detail">Oats jar + banana + 4 eggs + <strong>full avo</strong> · <em>Collagen 10-15g, Vit C 500mg, Omega-3 2-3g, D3 5000 IU, UC-II 40mg</em></div>
+        </div>
+      </div>
+      <div class="tl-row" data-kind="snack">
+        <div class="tl-time">2<sup>PM</sup></div>
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12c0-5 4-9 9-9 4 0 7 2 8 5"/><path d="M3 12c0 5 4 9 9 9 4 0 7-2 8-5"/></svg></div>
+        <div class="tl-content">
+          <div class="tl-label">Snack</div>
+          <div class="tl-detail">Greek yogurt + honey + berries · <em>Zinc 15-30mg, Ashwagandha KSM-66 600mg (8-12 wk cycle)</em></div>
+        </div>
+      </div>
+      <div class="tl-row" data-kind="meal">
+        <div class="tl-time">4<sup>PM</sup></div>
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg></div>
+        <div class="tl-content">
+          <div class="tl-label">Container meal</div>
+          <div class="tl-detail">Chicken / turkey / salmon / beef + 2 cups rice or sweet potato + veg + 1 fruit</div>
+        </div>
+      </div>
+      <div class="tl-row" data-kind="pre">
+        <div class="tl-time">7<sup>PM</sup></div>
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <div class="tl-content">
+          <div class="tl-label">Pre-workout</div>
+          <div class="tl-detail">Mango or banana + rice cake + honey · 60-90 min before lifting</div>
+        </div>
+      </div>
+      <div class="tl-row" data-kind="gym">
+        <div class="tl-time">8:30<sup>PM</sup></div>
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg></div>
+        <div class="tl-content">
+          <div class="tl-label">Gym · 105 min</div>
+          <div class="tl-detail">Workout A / B / C / D · finish with 15-20 min incline walk</div>
+        </div>
+      </div>
+      <div class="tl-row" data-kind="post">
+        <div class="tl-time">10:30<sup>PM</sup></div>
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2v4l-2 4v8a2 2 0 002 2h12a2 2 0 002-2v-8l-2-4V2"/><path d="M6 2h12M6 6h12"/></svg></div>
+        <div class="tl-content">
+          <div class="tl-label">Post-workout shake</div>
+          <div class="tl-detail">2 scoops Vega + <strong>5g creatine</strong> + banana · <em>Magnesium glycinate 200-400mg 30 min later</em> · last food of the day</div>
+        </div>
+      </div>
+      <div class="tl-row" data-kind="sleep">
+        <div class="tl-time">≤12<sup>AM</sup></div>
+        <div class="tl-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+        <div class="tl-content">
+          <div class="tl-label">Lights out</div>
+          <div class="tl-detail">7-8 hrs · drives recovery, T, cortisol, skin retraction</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-detail" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--ink-mute)">
+      <strong style="color:var(--ink-soft)">Saturday shifts:</strong> noon break-fast · 3:30 PM meal · 4:30 PM pre · 5-7 PM gym · 7 PM post-shake.
+    </div>
   </div>
 
-  <div class="compare">
-    <div class="card"><div class="big-num">220-235</div><div class="big-label">goal weight (lbs)</div></div>
-    <div class="card"><div class="big-num">~900</div><div class="big-label">calorie deficit per day</div></div>
-    <div class="card"><div class="big-num">230g</div><div class="big-label">protein per day (1.8 g/kg)</div></div>
-    <div class="card"><div class="big-num">4-20</div><div class="big-label">rep range (strength + hypertrophy)</div></div>
-  </div>
+  <!-- MISSION (collapsible) -->
+  <details class="mission-card">
+    <summary>
+      <span><span class="mission-eye"><span class="dot"></span>The Mission</span><br>Body recomposition · skin-preservation pace · 10-14 months</span>
+    </summary>
+    <div class="mission-body">
+      At 280 lbs and 5'7", estimated 33-38% body fat. Target <strong>220-235 lbs at 15-18% BF</strong> — that's ~45-60 lbs fat loss while building serious muscle. Loose skin is expected; muscle building + slow loss rate is the #1 strategy to minimize it.<br><br>
+      <strong>Calorie math:</strong> TDEE at 280 / 5'7" / 28 / activity 1.55 (Mifflin-St Jeor) = ~3,400 kcal/day. Target <strong>2,500 kcal</strong> = ~900 kcal deficit = ~1.7-1.8 lb/wk. Aggressive enough for visible results, slow enough for skin to retract (Helms 2014 — 0.5-1% BW/wk for natural lifters).<br><br>
+      &bull; <strong>2,500 splits:</strong> 230g protein (1.8 g/kg, Longland 2016) / 235g carbs / 70g fat.<br>
+      &bull; <strong>Loss runs &gt;2 lb/wk × 2 weeks:</strong> add 100-150 kcal (½ cup more rice or extra rice cake).<br>
+      &bull; <strong>Loss stalls &lt;0.5 lb/wk × 2 weeks:</strong> drop 100-150 kcal. Never below 2,200.<br>
+      &bull; <strong>Recalc protein every 10 lb lost:</strong> 270 lb = 220g, 260 lb = 213g (always 1.8 g/kg current BW).
+    </div>
+  </details>
 
   <!-- WHY FULL BODY -->
-  <h2>Why Full Body 3x/Week?</h2>
-  <div class="note note-purple">
-    <strong>Every muscle, every session.</strong> Schoenfeld, Ogborn &amp; Krieger 2016 meta-analysis (<em>Sports Medicine</em>): training each muscle ≥2x/week produces significantly greater hypertrophy than 1x/week. Evidence for 3x &gt; 2x is weaker, but full body 3x guarantees you hit the ≥2x/wk threshold for everything. Lower volume per muscle per session = less soreness, better recovery. At 280, more muscle groups per session also means higher calorie burn per workout.
-  </div>
+  <h2>Why full body, three days.</h2>
+  <p style="margin-top:-6px;margin-bottom:18px;font-size:15.5px;color:var(--ink-soft);max-width:62ch">Each muscle ≥2× per week beats 1× per week for hypertrophy <em>(Schoenfeld, Ogborn &amp; Krieger 2016 meta, Sports Medicine)</em>. Full body 3× nails that floor for everything. Less soreness per session, better recovery, more muscle groups burning calories per workout.</p>
 
-  <table>
-    <tr><th>Workout</th><th>Emphasis</th><th>What Gets Hit</th></tr>
-    <tr><td><strong>A</strong></td><td>Squat + Horizontal Press/Pull</td><td>Quads, Chest, Back, Core</td></tr>
-    <tr><td><strong>B</strong></td><td>Hinge + Vertical Press/Pull</td><td>Hams, Glutes, Shoulders, Lats, Core</td></tr>
-    <tr><td><strong>C</strong></td><td>Single-Leg + Power</td><td>Full lower, Arms, Back, Core</td></tr>
-    <tr><td style="background:#FFF3E0"><strong>D</strong></td><td style="background:#FFF3E0"><strong>HIIT Conditioning — REQUIRED</strong></td><td style="background:#FFF3E0">Visceral fat priority · bike or rower</td></tr>
-    <tr><td><strong>E</strong></td><td><em>Optional — Weak Points + Volume</em></td><td>Whatever needs extra work</td></tr>
-    <tr><td><strong>F</strong></td><td><em>Optional — Pool Day</em></td><td>Full body cardio + joint recovery</td></tr>
-  </table>
-
-  <div class="note note-green">
-    <strong>No fixed days.</strong> Train A → B → C in order. Rest at least 1 day between sessions. Every lifting session ends with a 15-20 min incline walk cooldown (built into the workout card, not optional). Hit HIIT 1-2x/week on a non-lifting day.
-  </div>
-
-  <!-- SAMPLE WEEK -->
-  <div class="card" style="border-left:3px solid #534AB7;background:#F7F6FF">
-    <span class="tag" style="background:#534AB7;color:#fff">SAMPLE WEEK · ONE SHAPE</span>
-    <div class="card-title" style="color:#3C3489">How the pieces fit (swap days freely)</div>
-    <div class="card-detail" style="color:#3C3489;line-height:1.9">
-      <strong>Mon</strong> · Workout A (hack squat + DB bench + chest-supported rows)<br>
-      <strong>Tue</strong> · Rest + 10k steps<br>
-      <strong>Wed</strong> · Workout B (hip thrust + seated DB press + pulldowns)<br>
-      <strong>Thu</strong> · Workout D · HIIT (20 min bike/rower)<br>
-      <strong>Fri</strong> · Workout C (trap bar deadlift + incline DB + reverse lunges)<br>
-      <strong>Sat</strong> · Optional F · pool (60 min) or rest + walk<br>
-      <strong>Sun</strong> · Rest + cheat meal + Sunday prep
+  <div class="act-stack">
+    <div class="act-row" data-act="A">
+      <div class="act-letter">A</div>
+      <div class="act-content">
+        <div class="act-title">Squat + Horizontal Press/Pull</div>
+        <div class="act-meta">Quads · Chest · Back · Core</div>
+      </div>
+      <div class="act-chip">Lift</div>
     </div>
-    <div class="card-detail" style="color:#3C3489;margin-top:10px;font-size:11px;border-top:1px solid #D5D1F5;padding-top:8px">
-      No fixed days required — just hit 3× A/B/C + 1-2× HIIT + daily 10k steps + vacuum holds every morning. Stack HIIT onto Workout A with a 10-min break if time is tight. <strong>Don't</strong> stack HIIT on Workout C (deadlift) — too much CNS load.<br>
-      <strong>Traveling or gym closed?</strong> Swap any lift day for <a href="travel-workouts.html" style="color:#534AB7;font-weight:600">Travel Workouts</a>.
+    <div class="act-row" data-act="B">
+      <div class="act-letter">B</div>
+      <div class="act-content">
+        <div class="act-title">Hinge + Vertical Press/Pull</div>
+        <div class="act-meta">Hams · Glutes · Delts · Lats · Core</div>
+      </div>
+      <div class="act-chip">Lift</div>
+    </div>
+    <div class="act-row" data-act="C">
+      <div class="act-letter">C</div>
+      <div class="act-content">
+        <div class="act-title">Single-Leg + Power</div>
+        <div class="act-meta">Full Lower · Arms · Back · Core</div>
+      </div>
+      <div class="act-chip">Lift</div>
+    </div>
+    <div class="act-row" data-act="D">
+      <div class="act-letter">D</div>
+      <div class="act-content">
+        <div class="act-title">HIIT Conditioning</div>
+        <div class="act-meta">Visceral Fat Lever · Bike or Rower · 20-25 min</div>
+      </div>
+      <div class="act-chip" data-tone="required">Required</div>
+    </div>
+    <div class="act-row" data-act="E">
+      <div class="act-letter">E</div>
+      <div class="act-content">
+        <div class="act-title">Weak Points + Volume</div>
+        <div class="act-meta">Pick 5-6 lifts · whatever felt weak</div>
+      </div>
+      <div class="act-chip" data-tone="optional">Optional</div>
+    </div>
+    <div class="act-row" data-act="F">
+      <div class="act-letter">F</div>
+      <div class="act-content">
+        <div class="act-title">Pool Day</div>
+        <div class="act-meta">Zero impact · 400-700 cal/hr · 60 min</div>
+      </div>
+      <div class="act-chip" data-tone="optional">Optional</div>
     </div>
   </div>
+
+  <p style="font-size:14px;color:var(--ink-mute);max-width:62ch"><strong style="color:var(--ink-soft)">No fixed days.</strong> Run A → B → C in order, ≥1 day between sessions. Every lift ends with a 15-20 min incline walk. HIIT 1-2× on a non-lifting day. Don't stack HIIT on C (deadlift day) — too much CNS load.</p>
+
+  <!-- SAMPLE WEEK · DAY STRIP -->
+  <h2>One sample shape.</h2>
+  <p style="margin-top:-6px;margin-bottom:14px;font-size:15.5px;color:var(--ink-soft)">Swap days freely — the order is what matters, not the calendar.</p>
+  <div class="daystrip">
+    <div class="day" data-w="A">
+      <div class="dn">Mon</div>
+      <svg class="dico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg>
+      <div class="dlabel">Workout A</div>
+    </div>
+    <div class="day" data-w="REST">
+      <div class="dn">Tue</div>
+      <svg class="dico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>
+      <div class="dlabel">Rest · 10k</div>
+    </div>
+    <div class="day" data-w="B">
+      <div class="dn">Wed</div>
+      <svg class="dico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg>
+      <div class="dlabel">Workout B</div>
+    </div>
+    <div class="day" data-w="HIIT">
+      <div class="dn">Thu</div>
+      <svg class="dico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      <div class="dlabel">HIIT</div>
+    </div>
+    <div class="day" data-w="C">
+      <div class="dn">Fri</div>
+      <svg class="dico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg>
+      <div class="dlabel">Workout C</div>
+    </div>
+    <div class="day" data-w="POOL">
+      <div class="dn">Sat</div>
+      <svg class="dico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg>
+      <div class="dlabel">Pool / Rest</div>
+    </div>
+    <div class="day" data-w="REST">
+      <div class="dn">Sun</div>
+      <svg class="dico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2 0 3-1 3-3s1-3 3-3 3 1 3 3 1 3 3 3 3-1 3-3"/><path d="M5 17h14"/></svg>
+      <div class="dlabel">Prep</div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--ink-mute);max-width:62ch;margin-bottom:18px">Vacuum holds every morning. Stack HIIT onto Workout A with a 10-min break if time is tight. Traveling or gym closed? Swap any lift day for <a href="travel-workouts.html" style="color:var(--ink-soft);font-weight:600;text-decoration:underline">Travel Workouts</a>.</p>
 
   <!-- WARM-UP -->
   <h2>Warm-Up (Every Session)</h2>
@@ -202,6 +298,17 @@ ul{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
         <tr><td style="padding:8px;border-bottom:1px solid #eee">Jump Squats (hotel)</td><td style="padding:8px;border-bottom:1px solid #eee">Explosive bodyweight squats (no airtime) OR 10 reverse lunges</td><td style="padding:8px;border-bottom:1px solid #eee">Repeat landings = patellofemoral stress</td></tr>
         <tr><td style="padding:8px">Box Jumps (mountain)</td><td style="padding:8px">Step-ups onto same box</td><td style="padding:8px">Same training stimulus, zero landing impact</td></tr>
       </table>
+    </div>
+  </div>
+
+  <!-- BACK / DISK FLARE PROTOCOL -->
+  <div class="card" style="border-left:3px solid #B71C1C;background:#FFF5F5">
+    <span class="tag" style="background:#B71C1C;color:#fff">BACK FLARE PROTOCOL</span>
+    <div class="card-title" style="color:#B71C1C">If anything in the lumbar tweaks — even mildly</div>
+    <div class="card-detail">
+      <strong>Rule:</strong> any new lower-back pain, stiffness, or radiating sensation = <strong>skip Workout C (trap bar deadlift) entirely</strong> until you have <em>one full pain-free week</em> of warm-ups (cat-cow, dead bug, glute bridges) with no flare-up. Then re-enter at 50% working weight, build back over 2-3 sessions.<br><br>
+      During the pause: keep Workouts A + B (hack squat, hip thrust, chest-supported row, seated press are all axial-load-friendly). Drop the trap bar but don't drop training — losing the lifting habit is a bigger setback than skipping one lift for a week.<br><br>
+      <strong>Sharp / radiating / down-the-leg pain = stop training, see a doctor.</strong> Don't self-rehab nerve symptoms. Disk history is asymptomatic now and the goal is keeping it that way.
     </div>
   </div>
 
@@ -507,7 +614,7 @@ ul{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
       &bull; <strong>Incline treadmill walks</strong> — already in your cardio protocol, 15-20 min post-lifting<br>
       &bull; <strong>Pool sessions</strong> — zero joint impact, burns 400-700 cal/hour, hits the moderate intensity zone<br>
       &bull; <strong>Bike or rower HIIT</strong> — 20-30 sec hard / 60-90 sec easy, 15-20 min total (NO running at your weight)<br>
-      &bull; <strong>Cycling</strong> — study showed just 2x45min/week at moderate pace reduced visceral fat 48% in 2 months (Mourier et al., 1997)<br><br>
+      &bull; <strong>Cycling</strong> — older small study (Mourier et al., 1997, n=24, 2 months) showed substantial VAT reduction on 2x45min/week moderate cycling. Treat as directional support for the bigger meta-analyses above, not a target percentage.<br><br>
       <strong>Bottom line:</strong> The best cardio is the one you'll actually do consistently. A walk you enjoy 4x/week beats a perfect HIIT protocol you dread and skip.
     </div>
   </div>
@@ -545,7 +652,7 @@ ul{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
     <tr><td><strong>4-5</strong></td><td>Calorie Check</td><td>Review 4 weeks of weekly weight. If loss has run &gt;2 lb/week for two weeks, bump kcal from 2,200 → 2,400-2,500 (phased bump in Mission note above).</td></tr>
     <tr><td><strong>5-8</strong></td><td>Progressive Overload</td><td>Start adding 5 lbs per session on compounds. "Newbie gains" — strength jumps fast.</td></tr>
     <tr><td><strong>9-12</strong></td><td>Push Intensity</td><td>RPE 8-9 on working sets. Take progress photos. You should be visibly different by now.</td></tr>
-    <tr><td><strong>13+</strong></td><td>Reassess</td><td>Deload every 6-8 weeks (50% weight). Reassess calories, photos, measurements.</td></tr>
+    <tr><td><strong>13+</strong></td><td>Reassess</td><td>Deload every 6-8 weeks: same A/B/C exercises, 50% working weight, all sets capped at 5 reps, skip incline walk that week. Reassess calories, photos, measurements after.</td></tr>
   </table>
 
   <!-- SKIN MANAGEMENT -->
@@ -628,7 +735,7 @@ ul{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
     <div class="card-title">Vacuum Hold — Transverse Abdominis Activation <a href="https://www.youtube.com/results?search_query=stomach+vacuum+exercise+how+to+tutorial+beginners" target="_blank" class="watch">Watch &rarr;</a></div>
     <div class="card-detail">
       The transverse abdominis is a deep muscle that wraps around your waist like a natural belt. Vacuums and hypopressive breathing are two of the most direct ways to train it — it's also worked lightly by planks and dead bugs, but not in isolation.<br><br>
-      <strong>What research actually shows:</strong> A small 8-week study on hypopressive training (Bellido-Fernández et al. 2018, n=11 female rugby players) reduced resting waist circumference and improved TVA contraction <em>without</em> changes in body fat. Small sample + no control group, so don't oversell it — but it's evidence that improved TVA tone can tighten the midsection independently of fat loss. This isn't a fat-burner; it's a posture/tone play that complements the deficit.<br><br>
+      <strong>What research actually shows:</strong> Preliminary evidence only — Bellido-Fernández et al. 2018 was n=11 female rugby players, 8 weeks, no control group. They saw waist-circumference + TVA-contraction improvements without body-fat change. Sample is too small (and female-specific) to call this proven. Treat vacuums as a low-cost posture/tone play that complements the deficit, not a validated intervention. The bodybuilding tradition of this practice is the stronger argument than the trial data.<br><br>
       <strong>How to do it:</strong><br>
       &bull; Stand tall. Inhale, then exhale completely.<br>
       &bull; Draw your navel <em>inward and up under your ribs</em> — a hollowing motion, not a crunch.<br>
@@ -706,7 +813,8 @@ ul{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
       &bull; Fasting glucose + insulin (insulin resistance suppresses SHBG and free T)<br>
       &bull; Lipid panel (vascular = erectile health)<br>
       &bull; TSH + free T4<br><br>
-      <strong>Prep:</strong> stop biotin-containing supplements 72 hrs before draw (FDA 2017 / Bowen 2019 — biotin skews thyroid + sex-hormone immunoassays). Fast 10-12 hrs. No heavy lift 24-48 hrs prior. No alcohol 48 hrs prior. Two morning draws on separate days is the standard if you get a low result.
+      <strong>Prep:</strong> stop biotin-containing supplements 72 hrs before draw (FDA 2017 / Bowen 2019 — biotin skews thyroid + sex-hormone immunoassays). Fast 10-12 hrs. No heavy lift 24-48 hrs prior. No alcohol 48 hrs prior. Two morning draws on separate days is the standard if you get a low result.<br><br>
+      <strong>Retest cadence:</strong> after baseline, retest at 3-6 months once you've dropped meaningful weight (15-20+ lb). Most fat-loss-driven hormonal changes show up in that window. After that, annual is plenty unless you start a new intervention (TRT, anastrozole, etc.).
     </div>
   </div>
 
@@ -753,7 +861,7 @@ ul{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
     <tr><th>Approach</th><th>What Research Shows</th></tr>
     <tr><td><strong>Cardio Only</strong></td><td>Loses muscle AND fat. 20-30% of weight lost as lean mass. Higher loose skin risk. Plateau by month 3.</td></tr>
     <tr><td><strong>Lifting + High Protein</strong></td><td>McMaster 2016: high-protein + resistance training preserved 100% of lean mass in a deficit.</td></tr>
-    <tr><td><strong>This Plan</strong></td><td>Full body compounds + incline walking + pool + 240g protein + 700-800 cal deficit. Best outcome for body comp AND skin.</td></tr>
+    <tr><td><strong>This Plan</strong></td><td>Full body compounds + incline walking + pool + 230g protein + 700-800 cal deficit. Best outcome for body comp AND skin.</td></tr>
   </table>
 
   <div class="note note-green">
@@ -795,6 +903,32 @@ ul{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
 
   <div class="footer">yerramazing &middot; Gym Partners</div>
 </div>
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+    <a href="index.html" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="his-plan.html" class="tab" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12M11 10v4M13 10v4"/></svg>
+      <span>Train</span>
+    </a>
+    <a href="eating-guide.html" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M11 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg>
+      <span>Fuel</span>
+    </a>
+    <a href="progress.html" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg>
+      <span>Track</span>
+    </a>
+    <a href="health-profile.html" class="tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+      <span>Profile</span>
+    </a>
+  </div>
+</nav>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script src="../js/supabase-sync.js"></script>

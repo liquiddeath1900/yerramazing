@@ -3,70 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#F5F5F7">
 <title>Progress Tracker — Gym Partners</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style id="auth-hide">body{visibility:hidden}</style>
 <noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f7f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;padding:16px;min-height:100vh}
-.wrap{max-width:640px;margin:0 auto}
-.back{display:inline-block;font-size:13px;color:#534AB7;text-decoration:none;margin-bottom:1.5rem;padding:14px 8px;min-height:44px;line-height:1}
-.back:hover{text-decoration:underline}
-h1{font-size:24px;font-weight:700;margin-bottom:6px}
-.sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:2rem}
-h2{font-size:16px;font-weight:700;margin:2rem 0 .75rem;padding-bottom:6px;border-bottom:2px solid #EEEDFE}
-p{font-size:13px;color:#444;line-height:1.6;margin-bottom:.75rem}
-.note{padding:12px 14px;border-radius:10px;font-size:12px;margin-bottom:10px}
-.note-purple{background:#EEEDFE;color:#3C3489}
-.note-orange{background:#FFF3E0;color:#7A4A00}
-
-/* Tabs */
-.tabs{display:flex;gap:6px;margin-bottom:1.5rem}
-.tab{flex:1;padding:12px 14px;text-align:center;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid #e5e5e5;background:#fff;transition:all .15s;min-height:44px}
-.tab.active-his{border-color:#F57C00;background:#FFF3E0;color:#7A4A00}
-.tab.active-hers{border-color:#43A047;background:#E1F5EE;color:#04342C}
-
-/* Form */
-.form-card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:16px 18px;margin-bottom:16px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-@media(max-width:400px){.form-row{grid-template-columns:1fr}}
-.form-group{display:flex;flex-direction:column;gap:4px}
-.form-group label{font-size:12px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:.5px}
-.form-group input,.form-group textarea{padding:10px 12px;border:1px solid #e5e5e5;border-radius:8px;font-size:14px;font-family:inherit;outline:none;transition:border .15s}
-.form-group input:focus,.form-group textarea:focus{border-color:#534AB7}
-.form-group textarea{resize:vertical;min-height:60px}
-.btn{padding:12px 20px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .15s;width:100%}
-.btn-primary{background:#534AB7;color:#fff}
-.btn-primary:hover{background:#3C3489}
-.btn-danger{background:#fff;color:#e53935;border:1px solid #e53935;margin-top:8px}
-.btn-danger:hover{background:#FFEBEE}
-.btn-export{background:#fff;color:#534AB7;border:1px solid #534AB7;margin-top:8px}
-.btn-export:hover{background:#EEEDFE}
-
-/* History */
-.entry{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:14px 16px;margin-bottom:8px;position:relative}
-.entry-date{font-size:12px;font-weight:700;color:#534AB7;margin-bottom:6px}
-.entry-stats{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:#555}
-.entry-stat{display:flex;flex-direction:column}
-.entry-stat-label{font-size:11px;color:#999;text-transform:uppercase;letter-spacing:.5px}
-.entry-stat-value{font-size:14px;font-weight:600;color:#1a1a1a}
-.entry-notes{font-size:12px;color:#666;margin-top:8px;font-style:italic;line-height:1.4}
-.entry-delete{position:absolute;top:12px;right:14px;font-size:16px;color:#ccc;cursor:pointer;background:none;border:none;padding:8px;min-width:44px;min-height:44px;font-size:14px}
-.entry-delete:hover{color:#e53935}
-.empty{text-align:center;padding:2rem;color:#999;font-size:13px}
-.change{font-size:12px;margin-left:4px}
-.change-down{color:#43A047}
-.change-up{color:#e53935}
-
-/* Summary */
-.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem}
-@media(max-width:400px){.summary{grid-template-columns:1fr}}
-.summary-card{background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:12px;text-align:center}
-.summary-num{font-size:22px;font-weight:700;color:#534AB7}
-.summary-label{font-size:11px;color:#999;text-transform:uppercase;letter-spacing:.5px}
-
-0;color:#999;text-align:center}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="wrap">
@@ -297,6 +240,16 @@ render();
 </script>
 
 <!-- Supabase Sync -->
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+      <a href="index.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+      <a href="his-plan.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg><span>Train</span></a>
+      <a href="eating-guide.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg><span>Fuel</span></a>
+      <a href="progress.html" class="tab" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg><span>Track</span></a>
+      <a href="health-profile.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Profile</span></a>
+  </div>
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script src="../js/supabase-sync.js"></script>

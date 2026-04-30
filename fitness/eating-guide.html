@@ -3,59 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#F5F5F7">
 <title>Eating Guide — Gym Partners</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style id="auth-hide">body{visibility:hidden}</style>
 <noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f7f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;padding:16px;min-height:100vh}
-.wrap{max-width:640px;margin:0 auto}
-.back{display:inline-block;font-size:13px;color:#534AB7;text-decoration:none;margin-bottom:1.5rem;padding:14px 8px;min-height:44px;line-height:1}
-.back:hover{text-decoration:underline}
-h1{font-size:24px;font-weight:700;margin-bottom:6px}
-.sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:2rem}
-h2{font-size:16px;font-weight:700;margin:2rem 0 .75rem;padding-bottom:6px;border-bottom:2px solid #FFF3E0}
-h3{font-size:14px;font-weight:600;margin:1.25rem 0 .5rem}
-p{font-size:13px;color:#444;line-height:1.6;margin-bottom:.75rem}
-.note{padding:12px 14px;border-radius:10px;font-size:12px;margin-bottom:10px}
-.note-orange{background:#FFF3E0;color:#7A4A00}
-.note-purple{background:#EEEDFE;color:#3C3489}
-.note-green{background:#E1F5EE;color:#04342C}
-table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:13px}
-th{padding:10px 12px;text-align:left;font-size:12px;font-weight:600;color:#fff}
-.th-his{background:#F57C00}
-.th-hers{background:#43A047}
-.th-purple{background:#534AB7}
-td{padding:10px 12px;border-bottom:1px solid #e5e5e5;background:#fff;font-size:12px}
-tr:last-child td{border-bottom:none}
-.card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:14px 18px;margin-bottom:10px}
-.card-title{font-size:14px;font-weight:600;margin-bottom:6px}
-.card-detail{font-size:12px;color:#666;line-height:1.6}
-.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:6px;margin-bottom:6px}
-.tag-his{background:#FFF3E0;color:#7A4A00}
-.tag-hers{background:#E1F5EE;color:#04342C}
-.tag-both{background:#EEEDFE;color:#3C3489}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-@media(max-width:500px){.split{grid-template-columns:1fr}}
-.his{border-left:3px solid #F57C00}
-.hers{border-left:3px solid #43A047}
-.watch{font-size:12px;color:#534AB7;text-decoration:none;font-weight:600;margin-left:6px;padding:6px 8px;display:inline-block;border-radius:6px}
-.watch:hover{text-decoration:underline}
-.big-num{font-size:28px;font-weight:700;margin-bottom:2px}
-.big-label{font-size:12px;color:#999}
-.schedule{background:#fff;border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;margin-bottom:16px}
-.schedule-header{padding:12px 16px;font-weight:700;font-size:13px;color:#fff}
-.schedule-row{display:flex;padding:10px 16px;border-bottom:1px solid #f0f0f0;font-size:12px;align-items:flex-start;gap:12px}
-.schedule-row:last-child{border-bottom:none}
-.schedule-time{font-weight:700;min-width:70px;flex-shrink:0;color:#1a1a1a}
-.schedule-meal{color:#555;line-height:1.5}
-.schedule-cals{font-size:12px;color:#999;margin-top:2px}
-0;color:#999;text-align:center}
-.tabs{display:flex;gap:0;margin-bottom:1.5rem;border-radius:10px;overflow:hidden;border:1px solid #e5e5e5}
-.tab{flex:1;padding:12px;text-align:center;font-size:14px;font-weight:600;cursor:pointer;background:#fff;color:#666;transition:all .15s;border:none;min-height:44px}
-.tab.active-his{background:#F57C00;color:#fff}
-.tab.active-hers{background:#43A047;color:#fff}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="wrap">
@@ -84,7 +38,7 @@ tr:last-child td{border-bottom:none}
         <strong>Fat:</strong> 70g<br>
         <strong>Fiber:</strong> 30-40g/day <span style="font-size:11px;color:#888">(oats, sweet potato, black beans, broccoli, spinach, berries, avocado)</span><br>
         <strong>Water:</strong> 128 oz (1 gallon) <span style="font-size:11px;color:#888">— matches skin-preservation section in His Plan</span><br>
-        <strong>Window:</strong> Time-restricted eating — 12 PM – 10:30 PM (~13-14 hr overnight fast)
+        <strong>Window:</strong> Time-restricted eating — 12 PM – 10:30 PM (~13-14 hr overnight fast) <span style="font-size:11px;color:#888">(schedule-driven, not metabolic — Lowe 2020 TREAT + Liu 2022 TREATY-FB found TRE matches simple calorie restriction, no extra fat-loss bonus. The window works because it concentrates eating around training, not because the fast burns fat.)</span>
       </div>
     </div>
   </div>
@@ -492,12 +446,12 @@ tr:last-child td{border-bottom:none}
     <div class="card-detail">Every meal starts with protein. If you only have time for one thing, eat the protein. Carbs and fats are supporting actors — protein is the lead.</div>
   </div>
   <div class="card">
-    <div class="card-title">2. Post-workout shake within 30 min</div>
-    <div class="card-detail">This is the one meal you can't skip or delay. Your muscles are primed to absorb nutrients right after training. Shake + creatine, every time.</div>
+    <div class="card-title">2. Post-workout shake within ~2 hours</div>
+    <div class="card-detail">Don't skip the shake — but don't stress the timing either. The "30-min anabolic window" is dated (Schoenfeld &amp; Aragon 2013 meta — window is ~3-6 hrs, especially with food earlier in the day). Your real ask: hit the shake + creatine before bed so your last protein dose lines up with overnight recovery.</div>
   </div>
   <div class="card">
-    <div class="card-title">3. Pre-workout = carbs only, keep it light</div>
-    <div class="card-detail">No fat, no heavy protein before gym. Just quick carbs (fruit, rice cake, honey). Fat slows digestion — you'll feel sluggish. See <a href="nutrition.html" style="color:#534AB7">Nutrition</a>.</div>
+    <div class="card-title">3. Pre-workout = carb-leaning + light</div>
+    <div class="card-detail">7 PM mini-meal = quick carbs (fruit, rice cake, honey). Heavy fat or a big protein load 60 min before lifting can feel sluggish — not because it ruins the workout, but because digestion competes for blood flow. You've already eaten real food at noon and 4 PM, so this slot is gastric comfort, not fueling. See <a href="nutrition.html" style="color:#534AB7">Nutrition</a>.</div>
   </div>
   <div class="card">
     <div class="card-title">4. Water > everything</div>
@@ -563,6 +517,16 @@ function switchPlan(plan) {
   document.querySelectorAll('.hers-content').forEach(el => el.style.display = plan === 'hers' ? 'block' : 'none');
 }
 </script>
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+      <a href="index.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+      <a href="his-plan.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg><span>Train</span></a>
+      <a href="eating-guide.html" class="tab" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg><span>Fuel</span></a>
+      <a href="progress.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg><span>Track</span></a>
+      <a href="health-profile.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Profile</span></a>
+  </div>
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script src="../js/supabase-sync.js"></script>

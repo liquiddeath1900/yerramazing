@@ -3,71 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#F5F5F7">
 <title>Grocery List — Gym Partners</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style id="auth-hide">body{visibility:hidden}</style>
 <noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f7f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;padding:16px;min-height:100vh}
-.wrap{max-width:640px;margin:0 auto}
-.back{display:inline-block;font-size:13px;color:#534AB7;text-decoration:none;margin-bottom:1.5rem;padding:14px 8px;min-height:44px;line-height:1}
-.back:hover{text-decoration:underline}
-h1{font-size:24px;font-weight:700;margin-bottom:6px}
-.sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:1rem}
-.tabs{display:flex;gap:0;margin-bottom:1rem;border-radius:10px;overflow:hidden;border:1px solid #e5e5e5}
-.tab{flex:1;padding:14px 14px;text-align:center;font-size:13px;font-weight:600;cursor:pointer;background:#fff;color:#666;transition:all .15s;border:none;min-height:44px}
-.tab.active-his{background:#F57C00;color:#fff}
-.tab.active-hers{background:#43A047;color:#fff}
-.toolbar{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap}
-.toolbar button{font-size:12px;padding:8px 14px;border-radius:8px;border:1px solid #e5e5e5;background:#fff;color:#1a1a1a;cursor:pointer;font-weight:600;transition:all .15s;min-height:44px}
-.toolbar button:hover{border-color:#534AB7;background:#EEEDFE}
-.toolbar button.active{background:#534AB7;color:#fff;border-color:#534AB7}
-h2{font-size:11px;font-weight:700;margin:1.5rem 0 .5rem;padding-bottom:4px;border-bottom:2px solid #FFF3E0;text-transform:uppercase;letter-spacing:1px;color:#999}
-.item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#fff;border:1px solid #e5e5e5;border-radius:10px;margin-bottom:6px;cursor:pointer;transition:all .15s;-webkit-user-select:none;user-select:none;flex-wrap:wrap}
-.item:hover{border-color:#F57C00}
-.item.checked{opacity:.5;text-decoration:line-through;background:#fafafa}
-.item.checked .checkbox{background:#F57C00;border-color:#F57C00}
-.item.checked .checkbox::after{content:'✓';color:#fff;font-size:11px}
-.item-hers:hover{border-color:#43A047}
-.item-hers.checked .checkbox{background:#43A047;border-color:#43A047}
-.checkbox{width:22px;height:22px;border:2px solid #ccc;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.item-text{font-size:13px;flex:1;min-width:100px}
-.item-qty{font-size:11px;color:#F57C00;font-weight:600;white-space:nowrap}
-.item-hers .item-qty{color:#43A047}
-.item-meta{width:100%;display:flex;gap:8px;padding-left:32px;margin-top:2px;flex-wrap:wrap}
-.item-note{font-size:12px;color:#999}
-.item-store{font-size:11px;font-weight:700;letter-spacing:.3px;padding:1px 5px;border-radius:4px;white-space:nowrap}
-.store-aldi{background:#003DA5;color:#fff}
-.store-costco{display:none}
-.store-amazon{background:#FF9900;color:#000}
-.store-snp{background:#D32F2F;color:#fff}
-.item-price{font-size:12px;color:#666;font-weight:600}
-.item-life{font-size:11px;padding:1px 5px;border-radius:4px;white-space:nowrap}
-.life-freeze{background:#E3F2FD;color:#0D47A1}
-.life-week1{background:#E8F5E9;color:#2E7D32}
-.life-long{background:#F3E5F5;color:#6A1B9A}
-.counter{font-size:12px;color:#666;margin-bottom:1rem}
-.note{padding:12px 14px;border-radius:10px;font-size:12px;margin-bottom:1rem}
-.note-green{background:#E1F5EE;color:#04342C}
-.note-purple{background:#EEEDFE;color:#3C3489}
-.note-orange{background:#FFF3E0;color:#7A4A00}
-.note-blue{background:#E3F2FD;color:#0D47A1}
-.budget-bar{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap}
-.budget-card{flex:1;min-width:120px;background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:12px;text-align:center}
-.budget-num{font-size:22px;font-weight:700;margin-bottom:2px}
-.budget-label{font-size:11px;color:#999}
-.section-toggle{display:flex;gap:0;margin-bottom:1rem;border-radius:8px;overflow:hidden;border:1px solid #e5e5e5}
-.section-btn{flex:1;padding:8px;text-align:center;font-size:12px;font-weight:600;cursor:pointer;background:#fff;color:#666;transition:all .15s;border:none;min-height:44px}
-.section-btn.active{background:#534AB7;color:#fff}
-.quality-card{background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:12px 14px;margin-bottom:8px}
-.quality-card .label-name{font-size:13px;font-weight:700}
-.quality-card .label-verdict{font-size:11px;font-weight:700;margin-left:6px}
-.verdict-real{color:#2E7D32}
-.verdict-bs{color:#D32F2F}
-.verdict-weak{color:#E65100}
-.quality-card .label-detail{font-size:11px;color:#666;margin-top:4px;line-height:1.5}
-0;color:#999;text-align:center}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
 <div class="wrap">
@@ -492,6 +434,16 @@ updateBudget();
 render();
 </script>
 <!-- Supabase Sync -->
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+      <a href="index.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+      <a href="his-plan.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg><span>Train</span></a>
+      <a href="eating-guide.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg><span>Fuel</span></a>
+      <a href="progress.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg><span>Track</span></a>
+      <a href="health-profile.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Profile</span></a>
+  </div>
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script src="../js/supabase-sync.js"></script>

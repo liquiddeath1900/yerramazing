@@ -3,63 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#F5F5F7">
 <title>Her Health Plan — Gym Partners</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style id="auth-hide">body{visibility:hidden}</style>
 <noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f7f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a1a;padding:16px;min-height:100vh}
-.wrap{max-width:640px;margin:0 auto}
-.back{display:inline-block;font-size:13px;color:#534AB7;text-decoration:none;margin-bottom:1.5rem;padding:14px 8px;min-height:44px;line-height:1}
-.back:hover{text-decoration:underline}
-h1{font-size:24px;font-weight:700;margin-bottom:6px}
-.sub{font-size:13px;color:#666;line-height:1.6;margin-bottom:2rem}
-h2{font-size:16px;font-weight:700;margin:2rem 0 .75rem;padding-bottom:6px;border-bottom:2px solid #E8D5F5}
-h3{font-size:14px;font-weight:600;margin:1.25rem 0 .5rem;color:#7B1FA2}
-p{font-size:13px;color:#444;line-height:1.7;margin-bottom:.75rem}
-.card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:14px 18px;margin-bottom:10px}
-.card-title{font-size:14px;font-weight:600;margin-bottom:4px}
-.card-detail{font-size:12px;color:#666;line-height:1.6}
-.note{padding:12px 14px;border-radius:10px;font-size:12px;margin-bottom:10px;line-height:1.6}
-.note-purple{background:#EEEDFE;color:#3C3489}
-.note-green{background:#E1F5EE;color:#04342C}
-.note-amber{background:#FFF8E1;color:#E65100}
-.note-blue{background:#E3F2FD;color:#0D47A1}
-.note-red{background:#FCE4EC;color:#880E4F}
-.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;padding:2px 7px;border-radius:6px;margin-bottom:8px}
-.tag-urgent{background:#FCE4EC;color:#880E4F}
-.tag-important{background:#FFF8E1;color:#E65100}
-.tag-lifestyle{background:#E1F5EE;color:#04342C}
-.tag-medical{background:#E3F2FD;color:#0D47A1}
-.tag-supplement{background:#EEEDFE;color:#3C3489}
-table{width:100%;border-collapse:collapse;margin-bottom:1rem;font-size:12px}
-th{background:#7B1FA2;color:#fff;padding:10px 12px;text-align:left;font-size:11px;font-weight:600}
-td{padding:10px 12px;border-bottom:1px solid #e5e5e5;background:#fff;line-height:1.5}
-tr:last-child td{border-bottom:none}
-ul,ol{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
-.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:1.5rem}
-@media(max-width:500px){.stats{grid-template-columns:1fr 1fr}}
-.stat-card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:12px;text-align:center}
-.stat-num{font-size:24px;font-weight:700;color:#7B1FA2}
-.stat-label{font-size:11px;color:#999;margin-top:2px}
-.timeline{border-left:3px solid #7B1FA2;padding-left:16px;margin:1rem 0 1.5rem}
-.timeline-item{margin-bottom:16px}
-.timeline-week{font-size:12px;font-weight:700;color:#7B1FA2;margin-bottom:4px}
-.timeline-content{font-size:12px;color:#444;line-height:1.6}
-.spiral{background:linear-gradient(135deg,#FCE4EC 0%,#FFF8E1 50%,#E8EAF6 100%);border-radius:12px;padding:16px;margin-bottom:1.5rem;font-size:12px;line-height:1.8;color:#333}
-.spiral strong{color:#880E4F}
-.checklist{list-style:none;margin-left:0;padding:0}
-.checklist li{padding:8px 0 8px 28px;border-bottom:1px solid #f0f0f0;position:relative;font-size:13px}
-.checklist li::before{content:'☐';position:absolute;left:0;font-size:16px}
-.checklist li:last-child{border-bottom:none}
-.link-card{display:block;background:#EEEDFE;border:2px solid #534AB7;border-radius:12px;padding:14px 18px;text-decoration:none;color:#3C3489;font-size:13px;font-weight:600;margin-bottom:10px;transition:background .15s}
-.link-card:hover{background:#DDD9FE}
-.link-card span{display:block;font-weight:400;font-size:12px;color:#666;margin-top:4px}
-0;color:#999;text-align:center}
-@media(max-width:640px){table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
-<body>
+<body data-side="hers">
 <div class="wrap">
   <a href="index.html" class="back">&larr; Back to Gym Partners</a>
   <h1>Her Health Action Plan</h1>
@@ -632,6 +584,16 @@ ul,ol{margin:0 0 .75rem 18px;font-size:13px;color:#444;line-height:1.8}
     <p style="margin-top:6px;font-size:12px;color:#bbb">This is a research-based wellness plan, not medical advice. Discuss all supplements and changes with a healthcare provider, especially given the perimenopause, family history, and carpal tunnel progression.</p>
   </div>
 </div>
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+      <a href="index.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+      <a href="his-plan.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg><span>Train</span></a>
+      <a href="eating-guide.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg><span>Fuel</span></a>
+      <a href="progress.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg><span>Track</span></a>
+      <a href="health-profile.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Profile</span></a>
+  </div>
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../js/supabase-config.js"></script>
 <script src="../js/supabase-sync.js"></script>
