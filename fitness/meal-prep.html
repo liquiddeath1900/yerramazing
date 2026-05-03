@@ -17,9 +17,10 @@
   <h1>Meal Prep</h1>
   <div class="sub">Two quick preps per week — food always tastes fresh. Everything comes from the <a href="grocery-list.html" style="color:#534AB7">grocery list</a>.</div>
 
-  <div class="tabs">
-    <button class="tab tab-his active" onclick="switchTab('his')">His Portions</button>
-    <button class="tab tab-hers" onclick="switchTab('hers')">Her Portions</button>
+  <div class="seg" role="tablist" aria-label="Filter by side">
+    <button data-side="all" aria-pressed="true">All</button>
+    <button data-side="his" aria-pressed="false">His</button>
+    <button data-side="hers" aria-pressed="false">Hers</button>
   </div>
 
   <div class="note note-purple">
@@ -272,10 +273,10 @@
     <div class="recipe-name">1. Chicken & Rice Bowl <a href="https://www.youtube.com/results?search_query=meal+prep+chicken+rice+bowl+easy" target="_blank" class="watch">Watch ➜</a></div>
     <div class="recipe-meta">Simple. Effective. The bodybuilder classic.</div>
     <div class="split">
-      <div class="card his">
+      <div class="card his-content">
         <div class="card-detail"><strong>His:</strong> 8 oz chicken thigh + 1.5 cups rice + 1 cup broccoli + hot sauce</div>
       </div>
-      <div class="card hers">
+      <div class="card hers-content">
         <div class="card-detail"><strong>Hers:</strong> 5 oz chicken breast + 1 cup rice + 1 cup broccoli + squeeze of lime</div>
       </div>
     </div>
@@ -286,10 +287,10 @@
     <div class="recipe-name">2. Turkey Taco Bowl <a href="https://www.youtube.com/results?search_query=ground+turkey+taco+bowl+meal+prep" target="_blank" class="watch">Watch ➜</a></div>
     <div class="recipe-meta">Seasoned ground turkey over rice with all the fixings.</div>
     <div class="split">
-      <div class="card his">
+      <div class="card his-content">
         <div class="card-detail"><strong>His:</strong> 8 oz turkey + 1.5 cups rice + black beans + salsa + ½ avocado</div>
       </div>
-      <div class="card hers">
+      <div class="card hers-content">
         <div class="card-detail"><strong>Hers:</strong> 5 oz turkey + 1 cup rice + black beans + salsa + ¼ avocado + Greek yogurt (sour cream sub)</div>
       </div>
     </div>
@@ -300,10 +301,10 @@
     <div class="recipe-name">3. Sweet Potato & Salmon Plate <a href="https://www.youtube.com/results?search_query=salmon+sweet+potato+meal+prep" target="_blank" class="watch">Watch ➜</a></div>
     <div class="recipe-meta">Omega-3 powerhouse. Great for recovery and skin health.</div>
     <div class="split">
-      <div class="card his">
+      <div class="card his-content">
         <div class="card-detail"><strong>His:</strong> 8 oz salmon + 1 large sweet potato + spinach salad + olive oil drizzle (Thu–Fri)</div>
       </div>
-      <div class="card hers">
+      <div class="card hers-content">
         <div class="card-detail"><strong>Hers:</strong> 5 oz salmon fillet + 1 medium sweet potato + spinach salad + lemon squeeze</div>
       </div>
     </div>
@@ -314,10 +315,10 @@
     <div class="recipe-name">4. Egg & Oat Power Breakfast <a href="https://www.youtube.com/results?search_query=egg+oats+protein+breakfast+meal+prep" target="_blank" class="watch">Watch ➜</a></div>
     <div class="recipe-meta">Break-fast meal (noon for him) or morning fuel (for her).</div>
     <div class="split">
-      <div class="card his">
+      <div class="card his-content">
         <div class="card-detail"><strong>His:</strong> 4 eggs scrambled + overnight oats jar + ½ avocado + hot sauce</div>
       </div>
-      <div class="card hers">
+      <div class="card hers-content">
         <div class="card-detail"><strong>Hers:</strong> 3 eggs scrambled + overnight oats jar + berries</div>
       </div>
     </div>
@@ -328,11 +329,24 @@
     <div class="recipe-name">5. PB Protein Wrap <a href="https://www.youtube.com/results?search_query=peanut+butter+protein+wrap+quick+meal" target="_blank" class="watch">Watch ➜</a></div>
     <div class="recipe-meta">Quick grab when you don't feel like reheating. 3 min, no microwave needed.</div>
     <div class="split">
-      <div class="card his">
+      <div class="card his-content">
         <div class="card-detail"><strong>His:</strong> 2 whole wheat tortillas + 3 tbsp PB + banana slices + honey drizzle</div>
       </div>
-      <div class="card hers">
+      <div class="card hers-content">
         <div class="card-detail"><strong>Hers:</strong> 1 tortilla + 2 tbsp PB + banana slices + berries</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recipe his-content">
+    <span class="tag tag-his">His</span>
+    <div class="recipe-name">6. Egg &amp; Banana Protein Brownie <a href="https://www.youtube.com/results?search_query=egg+banana+protein+powder+brownie+recipe" target="_blank" class="watch">Watch ➜</a></div>
+    <div class="recipe-meta">Same break-fast macros as 4 scrambled eggs + banana, more enjoyable. Bake 1 batch = 3 days. Adherence beats optimization (Aragon 2017 ISSN diet position stand).</div>
+    <div class="card">
+      <div class="card-detail">
+        <strong>Per batch (1 day's break-fast):</strong> 4 eggs + 1 banana + 1 scoop protein (Vega now, PVL ISOGold whey after 2026-05-16) + 1 tbsp honey + cinnamon. Whisk → pour into greased loaf pan or muffin tin → bake 350°F for 18-22 min until set. Refrigerate, microwave 30 sec to reheat.<br><br>
+        <strong>Macros:</strong> ~50g P / ~22g F / ~45g C / ~580 cal — matches the scrambled-egg version.<br>
+        <strong>If too dense/bitter</strong> (plant protein): use 2 ripe bananas, add 2 tbsp cocoa powder, or wait until you switch to whey (whey bakes way better).
       </div>
     </div>
   </div>
@@ -342,7 +356,7 @@
   <p>Pre-portioned during each prep. Make 3 days' worth at a time.</p>
 
   <div class="split">
-    <div class="card his">
+    <div class="card his-content">
       <span class="tag tag-his">His Snacks</span>
       <div class="card-detail">
         • 2 hard-boiled eggs<br>
@@ -352,7 +366,7 @@
         • Protein shake (Vega)
       </div>
     </div>
-    <div class="card hers">
+    <div class="card hers-content">
       <span class="tag tag-hers">Her Snacks</span>
       <div class="card-detail">
         • 1 hard-boiled egg + fruit<br>
@@ -419,17 +433,23 @@
   <div class="footer">yerramazing &middot; Gym Partners</div>
 </div>
 <script>
-function switchTab(who){
-  document.querySelector('.tab-his').classList.toggle('active',who==='his');
-  document.querySelector('.tab-hers').classList.toggle('active',who==='hers');
-  document.querySelectorAll('.his').forEach(function(el){el.style.display=who==='his'?'block':'none';if(who==='his')el.style.width='100%'});
-  document.querySelectorAll('.hers').forEach(function(el){el.style.display=who==='hers'?'block':'none';if(who==='hers')el.style.width='100%'});
-  document.querySelectorAll('.his-content').forEach(function(el){el.style.display=who==='his'?'block':'none'});
-  document.querySelectorAll('.hers-content').forEach(function(el){el.style.display=who==='hers'?'block':'none'});
-  document.querySelectorAll('.split').forEach(function(el){el.style.gridTemplateColumns='1fr'});
-  document.getElementById('cat-section').style.display=who==='his'?'block':'none';
-}
-switchTab('his');
+(function(){
+  var btns = document.querySelectorAll('.seg button[data-side]');
+  function set(side){
+    if(side==='all') document.body.removeAttribute('data-side');
+    else document.body.setAttribute('data-side', side);
+    btns.forEach(function(b){
+      var pressed = b.getAttribute('data-side')===side;
+      b.setAttribute('aria-pressed', pressed?'true':'false');
+    });
+    try{ localStorage.setItem('hubSide', side); }catch(e){}
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ set(b.getAttribute('data-side')); });
+  });
+  var saved=null; try{ saved=localStorage.getItem('hubSide'); }catch(e){}
+  set(saved || 'all');
+})();
 </script>
 
 <nav class="tabbar" aria-label="Primary">

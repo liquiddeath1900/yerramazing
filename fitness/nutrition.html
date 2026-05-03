@@ -17,24 +17,29 @@
   <h1>Pre-Workout Nutrition</h1>
   <div class="sub">What to eat, how much, and when — scaled for both of you.</div>
 
-  <div class="tabs">
-    <button class="tab active-his" onclick="switchTab('his')">His Nutrition</button>
-    <button class="tab" onclick="switchTab('hers')">Her Nutrition</button>
+  <div class="seg" role="tablist" aria-label="Filter by side">
+    <button data-side="all" aria-pressed="true">All</button>
+    <button data-side="his" aria-pressed="false">His</button>
+    <button data-side="hers" aria-pressed="false">Hers</button>
   </div>
 
   <h2>Carb Targets</h2>
   <p>Pre-workout carbs fuel your session. Too little = gassed out. Too much = sluggish. Here's your sweet spot:</p>
 
   <div class="split">
-    <div class="card his">
-      <span class="tag tag-his">Him — 280 lbs</span>
-      <div class="card-title">40-60g carbs</div>
-      <div class="card-detail">60-90 min before gym. Range = 0.3-0.5 g/kg bodyweight (Kerksick/ISSN 2017 nutrient timing position stand). Aim for the higher end on heavy lift days, lower end on conditioning days.</div>
+    <div class="his-content">
+      <div class="card his">
+        <span class="tag tag-his">Him — 280 lbs</span>
+        <div class="card-title">40-60g carbs</div>
+        <div class="card-detail">60-90 min before gym. Range = 0.3-0.5 g/kg bodyweight (Kerksick/ISSN 2017 nutrient timing position stand). Aim for the higher end on heavy lift days, lower end on conditioning days.</div>
+      </div>
     </div>
-    <div class="card hers">
-      <span class="tag tag-hers">Her — 145 lbs</span>
-      <div class="card-title">15-25g carbs</div>
-      <div class="card-detail">45-60 min before gym. Lighter body, less fuel needed. Don't force more than feels right.</div>
+    <div class="hers-content">
+      <div class="card hers">
+        <span class="tag tag-hers">Her — 145 lbs</span>
+        <div class="card-title">15-25g carbs</div>
+        <div class="card-detail">45-60 min before gym. Lighter body, less fuel needed. Don't force more than feels right.</div>
+      </div>
     </div>
   </div>
 
@@ -57,27 +62,33 @@
 
   <h2>Quick Pre-Workout Combos</h2>
   <div class="split">
-    <div class="card his">
-      <span class="tag tag-his">Him</span>
-      <div class="card-detail">
-        <strong>Option A:</strong> Whole mango + banana (~50g)<br>
-        <strong>Option B:</strong> 1 cup grapes + banana + rice cake (~55g)<br>
-        <strong>Option C:</strong> 2 rice cakes + tbsp honey + banana (~55g)
+    <div class="his-content">
+      <div class="card his">
+        <span class="tag tag-his">Him</span>
+        <div class="card-detail">
+          <strong>Option A:</strong> Whole mango + banana (~50g)<br>
+          <strong>Option B:</strong> 1 cup grapes + banana + rice cake (~55g)<br>
+          <strong>Option C:</strong> 2 rice cakes + tbsp honey + banana (~55g)
+        </div>
       </div>
     </div>
-    <div class="card hers">
-      <span class="tag tag-hers">Her</span>
-      <div class="card-detail">
-        <strong>Option A:</strong> Half mango + few grapes<br>
-        <strong>Option B:</strong> Small banana<br>
-        <strong>Option C:</strong> Rice cake + tablespoon peanut butter
+    <div class="hers-content">
+      <div class="card hers">
+        <span class="tag tag-hers">Her</span>
+        <div class="card-detail">
+          <strong>Option A:</strong> Half mango + few grapes<br>
+          <strong>Option B:</strong> Small banana<br>
+          <strong>Option C:</strong> Rice cake + tablespoon peanut butter
+        </div>
       </div>
     </div>
   </div>
 
-  <h2>Late Night Gym Timing</h2>
-  <div class="note note-orange">
-    <strong>You train after 8:30 PM most weekdays.</strong> Eat your pre-workout snack around 7:00-7:15 PM (~1 hr before). Your 4 PM meal is doing most of the fueling — the snack is just a top-up. Keep it light and carb-focused. If the 4 PM meal was big and you still feel fueled, the fruit snack can be smaller (half banana is fine).
+  <div class="his-content">
+    <h2>Late Night Gym Timing</h2>
+    <div class="note note-orange">
+      <strong>You train after 8:30 PM most weekdays.</strong> Eat your pre-workout snack around 7:00-7:15 PM (~1 hr before). Your 4 PM meal is doing most of the fueling — the snack is just a top-up. Keep it light and carb-focused. If the 4 PM meal was big and you still feel fueled, the fruit snack can be smaller (half banana is fine).
+    </div>
   </div>
 
   <p>Post-workout, eat within 60 min. Protein + carbs. See the <a href="supplements.html" style="color:#534AB7;font-weight:600">Supplement Guide</a> for your shake protocol.</p>
@@ -85,12 +96,23 @@
   <div class="footer">yerramazing &middot; Gym Partners</div>
 </div>
 <script>
-function switchTab(who){
-  var tabs=document.querySelectorAll('.tab');
-  tabs[0].className='tab'+(who==='his'?' active-his':'');
-  tabs[1].className='tab'+(who==='hers'?' active-hers':'');
-  document.body.className=who==='hers'?'show-hers':'';
-}
+(function(){
+  var btns = document.querySelectorAll('.seg button[data-side]');
+  function set(side){
+    if(side==='all') document.body.removeAttribute('data-side');
+    else document.body.setAttribute('data-side', side);
+    btns.forEach(function(b){
+      var pressed = b.getAttribute('data-side')===side;
+      b.setAttribute('aria-pressed', pressed?'true':'false');
+    });
+    try{ localStorage.setItem('hubSide', side); }catch(e){}
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ set(b.getAttribute('data-side')); });
+  });
+  var saved=null; try{ saved=localStorage.getItem('hubSide'); }catch(e){}
+  set(saved || 'all');
+})();
 </script>
 
 <nav class="tabbar" aria-label="Primary">

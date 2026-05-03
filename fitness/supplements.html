@@ -18,16 +18,17 @@
   <div class="sub">Creatine & protein dosing for both — no overthinking, just the protocol.</div>
 
   <!-- Tabs -->
-  <div class="tabs">
-    <button class="tab active-his" id="tab-his" onclick="switchTab('his')">His Protocol</button>
-    <button class="tab" id="tab-hers" onclick="switchTab('hers')">Her Protocol</button>
+  <div class="seg" role="tablist" aria-label="Filter by side">
+    <button data-side="all" aria-pressed="true">All</button>
+    <button data-side="his" aria-pressed="false">His</button>
+    <button data-side="hers" aria-pressed="false">Hers</button>
   </div>
 
   <h2>Creatine</h2>
   <p>Creatine monohydrate. The most researched, most proven supplement. Helps with strength, recovery, and muscle fullness.</p>
 
   <!-- His Creatine Table -->
-  <div class="his-content active">
+  <div class="his-content">
     <table>
       <tr><th></th><th>Him (280 lbs)</th></tr>
       <tr><td><strong>Daily Dose</strong></td><td>5g (1 scoop)</td></tr>
@@ -58,7 +59,7 @@
   <h2>Protein</h2>
 
   <!-- His Protein Card -->
-  <div class="his-content active">
+  <div class="his-content">
     <div class="card" style="border-left:3px solid #F57C00">
       <span class="tag tag-his">Him — Vega Plant Protein</span>
       <div class="card-title">2 scoops post-workout</div>
@@ -79,7 +80,7 @@
   <p>Right after the gym — this is the one you don't skip:</p>
 
   <!-- His Post-Workout Stack -->
-  <div class="his-content active">
+  <div class="his-content">
     <div class="card" style="border-left:3px solid #F57C00">
       <span class="tag tag-his">His Stack</span>
       <div class="card-detail">
@@ -107,7 +108,7 @@
   <h2>Daily Protocol</h2>
 
   <!-- His Daily Protocol Table -->
-  <div class="his-content active">
+  <div class="his-content">
     <table>
       <tr><th>Time</th><th>Him — Full Day</th></tr>
       <tr><td><strong>6 AM – 11:59 AM</strong></td><td>Fasting. Water only.</td></tr>
@@ -138,7 +139,39 @@
   </div>
 
   <!-- His Skin + Joint Stack -->
-  <div class="his-content active">
+  <div class="his-content">
+    <h2>Current Stack Audit · 2026-05-02</h2>
+
+    <div class="note note-purple" style="font-size:13px;line-height:1.55">
+      <strong>What's in your cabinet right now (and what to do with each).</strong><br><br>
+
+      <strong>Evidence-backed core — KEEP:</strong><br>
+      &bull; <strong>Nature Made Zinc 30mg</strong> — USP Verified, top-tier brand. Cycle 5 on / 2 off (or add copper) to prevent depletion.<br>
+      &bull; <strong>NatureWise Vit C 1000mg</strong> — keep but take EVERY OTHER DAY (avg ~500mg/day). Paulsen 2014: 1g daily blunts training adaptations. Next reorder: 500mg dose.<br><br>
+
+      <strong>Evidence-backed for stated purpose — KEEP:</strong><br>
+      &bull; <strong>Nutricost Saffron 88.5mg</strong> — Mohammadzadeh-Moghadam 2013 (<em>J Sex Med</em>) + Modabbernia 2012 meta-analysis: saffron 30-200mg/day improves erectile function and libido. Your dose is in range.<br><br>
+
+      <strong>SWAP (under-dosed / wrong product):</strong><br>
+      &bull; <strong>Bronson Krill Oil 1000mg → Nordic Naturals Ultimate Omega 1280mg</strong> (IFOS-cert). Krill at 1g delivers ~150-200mg EPA+DHA per softgel — would need 10-15/day to hit 2-3g target. Nordic at 4 softgels = 2.24g.<br><br>
+
+      <strong>TO BUY (foundational, currently missing):</strong><br>
+      &bull; <strong>Creatine Monohydrate 5g/day</strong> — TOP-TIER evidence (ISSN 2017). NOT optional. ~$20/kg = 7 mo supply.<br>
+      &bull; <strong>Vitamin D3 5,000 IU</strong> — NOW Foods softgels, ~$13/240ct = 8 mo supply. Pilz 2011 RCT: T support in deficient men.<br>
+      &bull; <strong>Magnesium Glycinate 200-400mg PM</strong> — Doctor's Best chelated, ~$15/240 tabs.<br>
+      &bull; <strong>UC-II 40mg</strong> — NOW Foods, ~$22/60 caps. Lugo 2016 RCT beat glucosamine + chondroitin for knee WOMAC.<br>
+      &bull; <strong>Ashwagandha KSM-66 600mg</strong> — Nutricost, ~$15/60 caps. Cycle 8-12 wk on, 4 wk off.<br>
+      &bull; <strong>Momentous Collagen Peptides</strong> — NSF Sport cert, ~$45/30 servings.<br>
+      &bull; <strong>PVL ISOGold Sport whey 5lb</strong> — buy ~2026-05-16 when Vega runs out, ~$70.<br><br>
+
+      <strong>Personal stack — limited human data, your call:</strong><br>
+      &bull; <strong>Host Defense Turkey Tail</strong> — limited evidence in healthy adults; PSK extract used adjunctively in cancer care. Low harm profile.<br>
+      &bull; <strong>Host Defense MycoBotanicals Energy</strong> (Cordyceps + Reishi + Chaga + Rhodiola + Green Tea) — Cordyceps has weak human evidence for endurance at proper dose; this is a low-dose blend.<br>
+      &bull; <strong>POPSTAR Labs Volume Booster</strong> — outside fitness scope, weak ingredient-level evidence. Zinc overlap with your Nature Made bottle.<br><br>
+
+      <strong>Math:</strong> dropping nothing. Adding ~$131 in foundational supps = breaks even with what you'd save from any drops. Result: full evidence-backed stack + your personal additions.
+    </div>
+
     <h2>Skin + Joint Stack</h2>
 
     <div class="note note-orange" style="border-left:3px solid #D32F2F">
@@ -148,7 +181,9 @@
     <div class="card" style="border-left:3px solid #F57C00">
       <span class="tag tag-his">Collagen Peptides (NO biotin)</span>
       <div class="card-title">10-15g daily at 12 PM break-fast w/ 500mg Vit C</div>
-      <div class="card-detail">Single-ingredient hydrolyzed bovine or marine collagen. Vital Proteins unflavored, BulkSupplements hydrolyzed collagen, or Sports Research Collagen Peptides (the <strong>plain</strong> SKU, not the "Beauty Collagen" version which adds biotin). Proksch 2014 (skin elasticity at 8-12 wks) + Zdzieblik 2017 (knee pain at 24 wks) + Paul 2019 (Vit C cofactor for synthesis).<br><br>
+      <div class="card-detail"><strong>Top pick (2026-05-02): Momentous Collagen Peptides — NSF Certified for Sport.</strong> NSF Sport is the highest tier of third-party testing (one tier above Informed Sport — used by NFL/MLB teams). Verifies no biotin contamination on every batch — matters for future bloodwork. ~$45 / 30 servings. Single-ingredient grass-fed bovine.<br><br>
+      <strong>Alternates:</strong> Vital Proteins Unflavored (~$30, most-studied in clinical trials — Proksch 2014 skin elasticity, Zdzieblik 2017 knee pain), Naked Collagen Peptides (~$30, NSF content cert, budget pick), Sports Research Collagen Peptides PLAIN SKU (NOT Beauty Collagen — that has biotin).<br><br>
+      <strong>Skip:</strong> any "multi-collagen" / "beauty collagen" — biotin distorts thyroid + sex hormone immunoassays (Bowen 2019, FDA 2017). Stop biotin 72 hr before any blood draw.<br><br>
       <strong>Optional pre-training timing for knees:</strong> on heavy leg days, take the daily collagen + Vit C 30-60 min PRE-training instead of at noon. Shaw 2017 (<em>Am J Clin Nutr</em>): pre-loading collagen + Vit C ~1 hr before exercise increased markers of tendon collagen synthesis.</div>
     </div>
 
@@ -160,20 +195,27 @@
 
     <div class="card" style="border-left:3px solid #F57C00">
       <span class="tag tag-his">Vitamin C</span>
-      <div class="card-title">500-1000mg daily</div>
-      <div class="card-detail">Required cofactor for collagen synthesis — without it, collagen supplements are less effective. Get from supplement + citrus/berries in diet.</div>
+      <div class="card-title">500mg daily (NOT 1000mg — drop dose)</div>
+      <div class="card-detail"><strong>Updated 2026-05-02:</strong> drop from 1000mg to 500mg/day. Paulsen 2014 (<em>J Physiol</em>): 1g Vit C + Vit E daily blunted endurance training adaptations. 500mg hits the collagen-synthesis cofactor target without interfering with training. Currently have NatureWise 1000mg — take EVERY OTHER DAY (avg ~500mg/day) until bottle runs out, then reorder NOW Foods C-500 (~$8/250 caps).</div>
     </div>
 
     <div class="card" style="border-left:3px solid #F57C00">
       <span class="tag tag-his">Zinc</span>
-      <div class="card-title">15-30mg daily with a meal</div>
-      <div class="card-detail">Required for skin repair and collagen cross-linking. Don't take on empty stomach (causes nausea).</div>
+      <div class="card-title">30mg with a meal — CYCLE 5 days on, 2 off</div>
+      <div class="card-detail"><strong>Top pick: Nature Made Zinc 30mg — USP Verified.</strong> USP is one of the highest third-party seals (verifies content + no contamination). Best budget zinc on the market. ~$5/100 tabs.<br><br>
+      <strong>Critical (2026-05-02):</strong> zinc at 30mg/day for 3+ months can deplete copper (they compete for absorption). Two fixes:<br>
+      &bull; <strong>Easier — cycle:</strong> M-F on, Sat-Sun off. No copper supplement needed.<br>
+      &bull; <strong>Or:</strong> add 1-2mg copper (NOW Foods Copper 2mg, ~$6/year supply) alongside zinc.<br><br>
+      Required for skin repair and collagen cross-linking. Don't take on empty stomach (causes nausea).</div>
     </div>
 
     <div class="card" style="border-left:3px solid #F57C00">
-      <span class="tag tag-his">Omega-3 (Fish Oil or Krill Oil)</span>
-      <div class="card-title">2-3g EPA+DHA daily</div>
-      <div class="card-detail">Anti-inflammatory, supports skin barrier function (matches the 2-3g dose used in skin-elasticity research, aligned with the "Skin Management Strategy" section of <a href="his-plan.html" style="color:#534AB7">His Plan</a>). <strong>Use IFOS-certified human-grade</strong> fish or krill oil — pet-grade krill oil isn't tested to human heavy-metal / oxidation standards. <strong>Don't share the cats' bottle:</strong> a single bottle rarely delivers 2-3g/day split between three mouths. Buy your own.</div>
+      <span class="tag tag-his">Omega-3 (IFOS-certified fish oil)</span>
+      <div class="card-title">2-3g EPA+DHA daily — Nordic Naturals Ultimate Omega</div>
+      <div class="card-detail"><strong>Top pick (2026-05-02): Nordic Naturals Ultimate Omega 1280mg.</strong> IFOS-certified. 640mg EPA + 480mg DHA per 2 softgels. Take 4 softgels/day = 2.24g EPA+DHA — hits target in 4 pills. ~$30-50 for 60-120 softgels.<br><br>
+      <strong>Budget alternate:</strong> Sports Research Triple Strength Omega-3 1250mg, IFOS-certified, ~$25/90 softgels.<br><br>
+      <strong>SWAP from current Bronson Krill Oil 1000mg.</strong> Krill oil only delivers ~150-200mg EPA+DHA per softgel — would need 10-15 softgels/day to hit target. Bronson is also not IFOS-certified. Astaxanthin + phospholipid claims don't compensate for being 10× under-dosed.<br><br>
+      Anti-inflammatory, supports skin barrier function (matches the 2-3g dose used in skin-elasticity research, aligned with the "Skin Management Strategy" section of <a href="his-plan.html" style="color:#534AB7">His Plan</a>). <strong>Don't share the cats' bottle</strong> — pet-grade krill oil isn't tested to human heavy-metal / oxidation standards.</div>
     </div>
 
     <div class="card" style="border-left:3px solid #F57C00">
@@ -290,7 +332,7 @@
   <h2>What to Buy</h2>
   <div class="note note-green">
     <strong>Keep it simple.</strong><br>
-    <strong>His skin + joint + recovery + T stack:</strong> creatine monohydrate (5g) + Vega Sport plant protein + single-ingredient hydrolyzed collagen (NO biotin) + Vit C 500mg + Zinc 15-30mg + Omega-3 IFOS-certified (2-3g EPA+DHA) + Vitamin D3 5,000 IU + Magnesium glycinate 200-400mg + UC-II 40mg + Ashwagandha KSM-66 600mg.<br><br>
+    <strong>His skin + joint + recovery + T stack (updated 2026-05-02):</strong> creatine monohydrate (5g) + <strong>PVL ISOGold Sport whey</strong> (~$70/5lb, switching from Vega ~2026-05-16) + <strong>Momentous Collagen Peptides</strong> (NSF Sport certified) + Vit C 500mg + Zinc 30mg (Nature Made USP, cycle 5-on/2-off) + <strong>Nordic Naturals Ultimate Omega 1280mg</strong> (4 softgels = 2.24g EPA+DHA, replaces Bronson krill) + Vitamin D3 5,000 IU + Magnesium glycinate 200-400mg + UC-II 40mg + Ashwagandha KSM-66 600mg.<br><br>
     <strong>Her health stack:</strong> magnesium glycinate + L-theanine (Suntheanine) + vitamin D3/K2 + omega-3 (IFOS) + zinc + sage extract + lion's mane (Real Mushrooms, fruiting body) + ashwagandha KSM-66 + tart cherry + methylated B-complex + turmeric w/ piperine.<br><br>
     <strong>Skip everything else:</strong> no fat burners, no BCAAs, no test boosters (tribulus, fenugreek, DAA, ZMA, "Nugenix"-style blends — all failed in trials), no glutamine, no overpriced packet supplements, no "multi-collagen" or "beauty" blends with biotin.
   </div>
@@ -299,24 +341,23 @@
 </div>
 
 <script>
-function switchTab(who) {
-  var hisTab = document.getElementById('tab-his');
-  var hersTab = document.getElementById('tab-hers');
-  var hisBlocks = document.querySelectorAll('.his-content');
-  var hersBlocks = document.querySelectorAll('.hers-content');
-
-  if (who === 'his') {
-    hisTab.className = 'tab active-his';
-    hersTab.className = 'tab';
-    for (var i = 0; i < hisBlocks.length; i++) hisBlocks[i].classList.add('active');
-    for (var i = 0; i < hersBlocks.length; i++) hersBlocks[i].classList.remove('active');
-  } else {
-    hersTab.className = 'tab active-hers';
-    hisTab.className = 'tab';
-    for (var i = 0; i < hersBlocks.length; i++) hersBlocks[i].classList.add('active');
-    for (var i = 0; i < hisBlocks.length; i++) hisBlocks[i].classList.remove('active');
+(function(){
+  var btns = document.querySelectorAll('.seg button[data-side]');
+  function set(side){
+    if(side==='all') document.body.removeAttribute('data-side');
+    else document.body.setAttribute('data-side', side);
+    btns.forEach(function(b){
+      var pressed = b.getAttribute('data-side')===side;
+      b.setAttribute('aria-pressed', pressed?'true':'false');
+    });
+    try{ localStorage.setItem('hubSide', side); }catch(e){}
   }
-}
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ set(b.getAttribute('data-side')); });
+  });
+  var saved=null; try{ saved=localStorage.getItem('hubSide'); }catch(e){}
+  set(saved || 'all');
+})();
 </script>
 
 <nav class="tabbar" aria-label="Primary">

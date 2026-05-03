@@ -295,6 +295,16 @@ a.card:hover .chev{transform:translateX(2px);color:var(--ink)}
 .seg button[data-side="his"][aria-pressed="true"]{background:var(--move);color:#fff}
 .seg button[data-side="hers"][aria-pressed="true"]{background:var(--exercise-ink);color:#fff}
 
+/* 3-STATE PER-PAGE CONTENT VISIBILITY (controlled by body[data-side]) */
+/* Default (no data-side, or data-side="all") = both visible */
+/* Hide opposite when filtered to one side */
+body[data-side="his"] .hers-content,
+body[data-side="his"] .hers-only{display:none!important}
+body[data-side="hers"] .his-content,
+body[data-side="hers"] .his-only{display:none!important}
+/* Section-level optional dim for "shared" content when filtering — keep visible by default */
+.shared-content{display:block}
+
 /* HERO QUICK ACTIONS (index) */
 .hero-qa{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:26px}
 @media(min-width:640px){.hero-qa{gap:12px}}

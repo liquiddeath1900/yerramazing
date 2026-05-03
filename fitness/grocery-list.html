@@ -17,9 +17,10 @@
   <h1>Grocery List</h1>
   <div class="sub">Smart shopping — what to buy, where, how much, and what's real vs marketing BS. Tap to check off.</div>
 
-  <div class="tabs">
-    <button class="tab active-his" id="tab-his" onclick="switchList('his')">His List</button>
-    <button class="tab" id="tab-hers" onclick="switchList('hers')">Her List</button>
+  <div class="seg" role="tablist" aria-label="Filter by side">
+    <button data-side="all" aria-pressed="true">All</button>
+    <button data-side="his" aria-pressed="false">His</button>
+    <button data-side="hers" aria-pressed="false">Hers</button>
   </div>
 
   <!-- Budget at a glance -->
@@ -204,7 +205,7 @@ var HIS_ITEMS = [
   { cat: "Proteins — Fridge", name: "Greek yogurt (plain 32oz)", qty: "4 tubs", note: "1.5 cups/day × 14 days = 21 cups (need ~5 tubs). Buy 2 now, 2 on week 2 restock", price: "$17.16", store: "aldi", life: "week1" },
 
   { cat: "Produce — Buy Week 1 + 2", name: "Bananas", qty: "2 bunches", note: "1 now, 1 on week 2. Freeze ripe ones for shakes — never let them rot", price: "$2.75", store: "aldi", life: "week1" },
-  { cat: "Produce — Buy Week 1 + 2", name: "Avocados", qty: "3 + 3", note: "Week 1: buy ripe. Week 2: buy hard. Freeze halves if unused", price: "$5.34", store: "aldi", life: "week1" },
+  { cat: "Produce — Buy Week 1 + 2", name: "Avocados", qty: "1 + 1", note: "Reduced 2026-05-02 — break-fast swapped to 3 tbsp PB. Keep 1-2 for occasional ¼ slice on chicken/tacos", price: "$1.78", store: "aldi", life: "week1" },
 
   { cat: "Produce — Frozen (no spoilage)", name: "Frozen chopped spinach", qty: "2 bags (16oz)", note: "8-12 months freezer. Toss in shakes, sauté with garlic, or mix into rice. No more wasted spinach", price: "$3.98", store: "aldi", life: "freeze" },
   { cat: "Produce — Frozen (no spoilage)", name: "Frozen broccoli florets", qty: "2 bags (16oz)", note: "Steam from frozen in microwave bag. 8-12 months freezer", price: "$3.98", store: "aldi", life: "freeze" },
@@ -221,7 +222,8 @@ var HIS_ITEMS = [
   { cat: "Carbs & Pantry", name: "Rice cakes", qty: "2 packs", note: "Pre-workout daily", price: "$3.58", store: "aldi", life: "long" },
   { cat: "Carbs & Pantry", name: "Whole wheat tortillas", qty: "2 packs", note: "Freeze extra pack with parchment between", price: "$4.98", store: "aldi", life: "freeze" },
   { cat: "Carbs & Pantry", name: "Bread (Powerseed)", qty: "1 loaf", note: "Slice + freeze. Toast from frozen", price: "$4.99", store: "aldi", life: "freeze" },
-  { cat: "Carbs & Pantry", name: "Peanut butter (natural)", qty: "1 jar (28oz)", note: "6-9 months opened", price: "$4.29", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Peanut butter — Aldi Simply Nature ORGANIC (or Smucker's Natural)", qty: "1 jar (16-28oz)", note: "MUST be 1-2 ingredients only (peanuts, salt). NO hydrogenated oil, NO added sugar. Skip Aldi 'Peanut Delight' — that has hydrogenated vegetable oil + sugar. Stir oil in once when you open, then refrigerate. 6-9 months opened. Now your break-fast fat anchor (3 tbsp/day = ~20g fat).", price: "$3.99", store: "aldi", life: "long" },
+  { cat: "Carbs & Pantry", name: "Raw almonds (backup fat)", qty: "1 bag (16oz)", note: "Snack + backup fat. 1 oz = 14g fat / 6g protein. If 3 tbsp PB feels light at break-fast, sprinkle 1 oz almonds on the oats. Pantry-stable 6 mo.", price: "$5.99", store: "aldi", life: "long" },
   { cat: "Carbs & Pantry", name: "Honey", qty: "1 bottle", note: "Literally never expires", price: "$4.49", store: "aldi", life: "long" },
   { cat: "Carbs & Pantry", name: "Olive oil", qty: "2x 1L bottles", note: "3-6 months opened. Dark cool cabinet", price: "$17.98", store: "aldi", life: "long" },
   { cat: "Carbs & Pantry", name: "Oat milk", qty: "2 cartons", note: "Open 1/week. 7-10 days once opened", price: "$6.98", store: "aldi", life: "week1" },
@@ -230,11 +232,11 @@ var HIS_ITEMS = [
   { cat: "Carbs & Pantry", name: "Zevia", qty: "24-pack", note: "Zero sugar soda swap", price: "$16.76", store: "amazon", life: "long" },
 
   { cat: "Supplements", name: "Creatine Monohydrate", qty: "1 tub", note: "5g daily. ~3 month supply (reorder when low)", price: "$16.99", store: "amazon", life: "long" },
-  { cat: "Supplements", name: "Vega Sport Premium Protein", qty: "1 tub (Subscribe & Save)", note: "2 scoops/day (post-workout) + half-scoop in 4 PM cup on heavy lift days to close 230g target. ~30 scoops/tub lasts ~2 weeks. Subscribe & Save 5-15% off — auto-ships every 2 wk", price: "$54.99", store: "amazon", life: "long" },
-  { cat: "Supplements", name: "Collagen peptides (pure hydrolyzed, NO biotin)", qty: "1 tub", note: "10-15g/day — skin elasticity. CRITICAL: avoid 'multi-collagen' blends — most include biotin which distorts thyroid + sex hormone immunoassays (Bowen 2019, FDA 2017). Stick with Vital Proteins / BulkSupplements / Sports Research single-source bovine. ~1 month supply", price: "$26.99", store: "amazon", life: "long" },
-  { cat: "Supplements", name: "Vitamin C (500mg)", qty: "1 bottle", note: "Collagen synthesis cofactor. ~3 month supply (reorder when low)", price: "$8.99", store: "amazon", life: "long" },
-  { cat: "Supplements", name: "Zinc (15-30mg)", qty: "1 bottle", note: "With food — skin repair. ~3 month supply (reorder when low)", price: "$7.99", store: "amazon", life: "long" },
-  { cat: "Supplements", name: "Krill oil / Fish oil (IFOS human-grade)", qty: "1 bottle", note: "2-3g EPA+DHA daily — skin + anti-inflammatory. IFOS certified. Don't share cats' bottle. ~2 month supply", price: "$22.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "PVL ISOGold Sport Whey (5 lb) — REPLACES Vega ~2026-05-16", qty: "1 tub", note: "Whey isolate + hydrolysate, 27g protein/scoop, Informed-Choice certified, sucralose only (no aspartame). Switching from Vega when current tub runs out (~2 weeks). 2 scoops post-workout + half-scoop in 4 PM cup on heavy lift days. Alternate: ON Gold Standard 5 lb (~$60). AVOID PVL Clean Mass XL — that's a mass gainer, wrong product for a deficit.", price: "$70.00", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Momentous Collagen Peptides (NSF Certified for Sport)", qty: "1 tub (30 servings)", note: "TOP PICK 2026-05-02. NSF Sport cert is the highest tier of third-party testing — verifies no biotin contamination (matters for future bloodwork). Single-ingredient grass-fed bovine. 15g/serving. Alternates: Vital Proteins Unflavored ($30, most studied), Naked Collagen ($30, NSF content cert, budget pick). AVOID anything labeled 'multi-collagen' or 'beauty collagen' (biotin distorts thyroid + sex hormone immunoassays — Bowen 2019, FDA 2017).", price: "$45.00", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Vitamin C (500mg) — NEXT REORDER ONLY", qty: "1 bottle", note: "Currently have NatureWise 1000mg. Take EVERY OTHER DAY (avg ~500mg/day) until bottle runs out. Paulsen 2014 — 1g Vit C daily blunted training adaptations. Next reorder: NOW Foods C-500 (~$8 / 250 caps) for 500mg dose.", price: "$8.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Zinc (Nature Made 30mg, USP Verified) — HAVE", qty: "1 bottle", note: "Already buying Nature Made 30mg (USP Verified — top third-party seal). CYCLE 5 days on, 2 days off (M-F on, weekends off) to prevent copper depletion. Or add 1-2mg copper (NOW Foods Copper 2mg, ~$6) alongside.", price: "$4.99", store: "amazon", life: "long" },
+  { cat: "Supplements", name: "Nordic Naturals Ultimate Omega 1280mg — REPLACES Bronson krill", qty: "1 bottle (60-120 softgels)", note: "TOP PICK 2026-05-02. IFOS-certified. 640mg EPA + 480mg DHA per 2 softgels. Take 4/day = 2.24g EPA+DHA (hits target in 4 pills, not 12 krill). Bronson krill is under-dosed AND not IFOS-certified — would need 10-15 softgels/day to match target. Budget alternate: Sports Research Triple Strength Omega-3 ($25 IFOS).", price: "$40.00", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Vitamin D3 5000 IU", qty: "1 bottle", note: "Daily AM with fat (avo, eggs). Pilz 2011 — D3 supports T in deficient men. NOW Foods softgels. ~6 month supply", price: "$13.49", store: "amazon", life: "long" },
   { cat: "Supplements", name: "Magnesium Glycinate (200-400mg)", qty: "1 bottle", note: "PM with dinner — sleep + recovery. Doctor's Best chelated form, no laxative effect. ~2 month supply", price: "$14.99", store: "amazon", life: "long" },
   { cat: "Supplements", name: "UC-II Undenatured Type II Collagen (40mg)", qty: "1 bottle", note: "Daily for knees. Lugo 2016: UC-II beat glucosamine+chondroitin head-to-head. NOT the same as 'Type II' in multi-collagen blends. NOW Foods or Now Sports brand. ~2 month supply", price: "$22.99", store: "amazon", life: "long" },
@@ -317,38 +319,36 @@ var HERS_BUDGET = { food: 215, supps: 215, total: 430 };
 var STORAGE_HIS = 'gym-grocery-his-v2';
 var STORAGE_HERS = 'gym-grocery-hers-v2';
 
-var currentList = 'his';
+var currentSide = 'all';
 var currentFilter = 'all';
 
-function getItems() { return currentList === 'his' ? HIS_ITEMS : HERS_ITEMS; }
-function getKey() { return currentList === 'his' ? STORAGE_HIS : STORAGE_HERS; }
-function getBudget() { return currentList === 'his' ? HIS_BUDGET : HERS_BUDGET; }
-
-function getChecked() {
-  try { return JSON.parse(localStorage.getItem(getKey())) || []; }
+function getCheckedFor(side) {
+  var key = side === 'his' ? STORAGE_HIS : STORAGE_HERS;
+  try { return JSON.parse(localStorage.getItem(key)) || []; }
   catch(e) { return []; }
 }
-function saveChecked(arr) { localStorage.setItem(getKey(), JSON.stringify(arr)); }
-
-function switchList(list) {
-  currentList = list;
-  currentFilter = 'all';
-  document.getElementById('tab-his').className = list === 'his' ? 'tab active-his' : 'tab';
-  document.getElementById('tab-hers').className = list === 'hers' ? 'tab active-hers' : 'tab';
-  document.querySelectorAll('.toolbar button').forEach(function(b, i) {
-    b.classList.toggle('active', i === 0);
-  });
-  updateBudget();
-  render();
+function saveCheckedFor(side, arr) {
+  var key = side === 'his' ? STORAGE_HIS : STORAGE_HERS;
+  localStorage.setItem(key, JSON.stringify(arr));
 }
 
 function updateBudget() {
-  var b = getBudget();
-  var color = currentList === 'his' ? '#F57C00' : '#43A047';
-  document.getElementById('budget-food').textContent = '$' + b.food;
-  document.getElementById('budget-food').style.color = color;
-  document.getElementById('budget-supps').textContent = '$' + b.supps;
-  document.getElementById('budget-total').textContent = '$' + b.total;
+  var foodEl = document.getElementById('budget-food');
+  var suppsEl = document.getElementById('budget-supps');
+  var totalEl = document.getElementById('budget-total');
+  if (currentSide === 'all') {
+    foodEl.textContent = '$' + (HIS_BUDGET.food + HERS_BUDGET.food);
+    foodEl.style.color = '#534AB7';
+    suppsEl.textContent = '$' + (HIS_BUDGET.supps + HERS_BUDGET.supps);
+    totalEl.textContent = '$' + (HIS_BUDGET.total + HERS_BUDGET.total);
+  } else {
+    var b = currentSide === 'his' ? HIS_BUDGET : HERS_BUDGET;
+    var color = currentSide === 'his' ? '#F57C00' : '#43A047';
+    foodEl.textContent = '$' + b.food;
+    foodEl.style.color = color;
+    suppsEl.textContent = '$' + b.supps;
+    totalEl.textContent = '$' + b.total;
+  }
 }
 
 function showSection(section) {
@@ -363,22 +363,52 @@ function showSection(section) {
   });
 }
 
+// Build a flat render list of {item, side, idx} entries based on currentSide.
+// idx is the index into that side's HIS_ITEMS/HERS_ITEMS array — preserved so
+// checkbox state keys (which are per-side localStorage indices) stay stable
+// regardless of which view is active.
+function buildEntries() {
+  var entries = [];
+  if (currentSide === 'all' || currentSide === 'his') {
+    HIS_ITEMS.forEach(function(item, i) { entries.push({ item: item, side: 'his', idx: i }); });
+  }
+  if (currentSide === 'all' || currentSide === 'hers') {
+    HERS_ITEMS.forEach(function(item, i) { entries.push({ item: item, side: 'hers', idx: i }); });
+  }
+  return entries;
+}
+
 function render() {
-  var items = getItems();
-  var checked = getChecked();
+  var entries = buildEntries();
+  var hisChecked = getCheckedFor('his');
+  var hersChecked = getCheckedFor('hers');
   var list = document.getElementById('list');
-  var isHers = currentList === 'hers';
   var html = '';
   var currentCat = '';
-  var total = items.length;
-  var done = checked.length;
+  var total = entries.length;
+  var done = 0;
 
-  items.forEach(function(item, i) {
-    var isChecked = checked.indexOf(i) !== -1;
+  entries.forEach(function(e) {
+    var checkedArr = e.side === 'his' ? hisChecked : hersChecked;
+    var isChecked = checkedArr.indexOf(e.idx) !== -1;
+    if (isChecked) done++;
+  });
+
+  entries.forEach(function(e) {
+    var item = e.item;
+    var checkedArr = e.side === 'his' ? hisChecked : hersChecked;
+    var isChecked = checkedArr.indexOf(e.idx) !== -1;
     if (currentFilter === 'unchecked' && isChecked) return;
 
-    if (item.cat !== currentCat) {
-      currentCat = item.cat;
+    // In all mode, prefix the category with "His — " / "Hers — " so the
+    // section headers tell you which side each block belongs to. In single-
+    // side mode, the original category text is unchanged.
+    var catLabel = currentSide === 'all'
+      ? (e.side === 'his' ? 'His — ' : 'Hers — ') + item.cat
+      : item.cat;
+
+    if (catLabel !== currentCat) {
+      currentCat = catLabel;
       html += '<h2>' + currentCat + '</h2>';
     }
 
@@ -386,8 +416,9 @@ function render() {
     var storeLabel = item.store === 'snp' ? 'S&S' : item.store.charAt(0).toUpperCase() + item.store.slice(1);
     var lifeClass = item.life === 'freeze' ? 'life-freeze' : item.life === 'week1' ? 'life-week1' : 'life-long';
     var lifeLabel = item.life === 'freeze' ? 'Freeze' : item.life === 'week1' ? 'Restock Wk2' : 'Lasts';
+    var isHers = e.side === 'hers';
 
-    html += '<div class="item ' + (isHers ? 'item-hers ' : '') + (isChecked ? 'checked' : '') + '" onclick="toggle(' + i + ')">' +
+    html += '<div class="item ' + (isHers ? 'item-hers ' : '') + (isChecked ? 'checked' : '') + '" onclick="toggle(\'' + e.side + '\',' + e.idx + ')">' +
       '<div class="checkbox"></div>' +
       '<div class="item-text">' + item.name + '</div>' +
       '<div class="item-qty">' + item.qty + '</div>' +
@@ -404,15 +435,15 @@ function render() {
   document.getElementById('counter').textContent = done + ' of ' + total + ' items checked';
 }
 
-function toggle(index) {
-  var checked = getChecked();
+function toggle(side, index) {
+  var checked = getCheckedFor(side);
   var pos = checked.indexOf(index);
   if (pos !== -1) {
     checked.splice(pos, 1);
   } else {
     checked.push(index);
   }
-  saveChecked(checked);
+  saveCheckedFor(side, checked);
   render();
 }
 
@@ -425,13 +456,38 @@ function filterItems(filter) {
 
 function clearAll() {
   if (confirm('Reset all checked items?')) {
-    saveChecked([]);
+    if (currentSide === 'all' || currentSide === 'his') saveCheckedFor('his', []);
+    if (currentSide === 'all' || currentSide === 'hers') saveCheckedFor('hers', []);
     render();
   }
 }
 
-updateBudget();
-render();
+(function(){
+  var btns = document.querySelectorAll('.seg button[data-side]');
+  function set(side){
+    currentSide = side;
+    if (side === 'all') document.body.removeAttribute('data-side');
+    else document.body.setAttribute('data-side', side);
+    btns.forEach(function(b){
+      var pressed = b.getAttribute('data-side') === side;
+      b.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+    });
+    try { localStorage.setItem('hubSide', side); } catch(e){}
+    // Reset filter + toolbar to "All" on every side switch (matches old behavior)
+    currentFilter = 'all';
+    document.querySelectorAll('.toolbar button').forEach(function(b, i) {
+      b.classList.toggle('active', i === 0);
+    });
+    updateBudget();
+    render();
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ set(b.getAttribute('data-side')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('hubSide'); } catch(e){}
+  set(saved || 'all');
+})();
 </script>
 <!-- Supabase Sync -->
 
@@ -455,10 +511,11 @@ async function onAuthSync() {
   if (r1 === 'pulled' || r2 === 'pulled') render();
 }
 
-var _origSaveChecked = saveChecked;
-saveChecked = function(arr) {
-  _origSaveChecked(arr);
-  pushChecklist(getKey(), arr).catch(function() {});
+var _origSaveCheckedFor = saveCheckedFor;
+saveCheckedFor = function(side, arr) {
+  _origSaveCheckedFor(side, arr);
+  var key = side === 'his' ? STORAGE_HIS : STORAGE_HERS;
+  pushChecklist(key, arr).catch(function() {});
 };
 
 getSession().then(function(s) { if (s && s.user) onAuthSync(); });

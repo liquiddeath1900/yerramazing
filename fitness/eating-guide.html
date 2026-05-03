@@ -17,9 +17,10 @@
   <h1>Eating Guide</h1>
   <div class="sub">When to eat, how much, what — like a recipe for results. Follow this and the workouts handle themselves.</div>
 
-  <div class="tabs">
-    <button class="tab active-his" id="tab-his" onclick="switchPlan('his')">His Plan</button>
-    <button class="tab" id="tab-hers" onclick="switchPlan('hers')">Her Plan</button>
+  <div class="seg" role="tablist" aria-label="Filter by side">
+    <button data-side="all" aria-pressed="true">All</button>
+    <button data-side="his" aria-pressed="false">His</button>
+    <button data-side="hers" aria-pressed="false">Hers</button>
   </div>
 
   <!-- DAILY TARGETS -->
@@ -43,7 +44,7 @@
     </div>
   </div>
 
-  <div class="hers-content" style="display:none">
+  <div class="hers-content">
     <div class="card hers">
       <span class="tag tag-hers">Her — 145 lbs, muscle gain (glutes/thighs/core)</span>
       <div style="text-align:center;margin:8px 0">
@@ -137,7 +138,7 @@
   </div>
   </div>
 
-  <div class="hers-content" style="display:none">
+  <div class="hers-content">
   <div class="card hers">
     <span class="tag tag-hers">Prep 1 — Sunday → Mon, Tue, Wed</span>
     <div class="card-detail" style="line-height:1.8">
@@ -168,7 +169,7 @@
     </div>
     <div class="schedule-row">
       <div class="schedule-time">12:00 PM</div>
-      <div class="schedule-meal"><strong>Break-fast.</strong> Overnight oats jar (from prep) w/ banana sliced in + 4 scrambled eggs + <strong>full avocado</strong> + hot sauce. <em style="color:#534AB7">+ Collagen 10-15g + Vit C 500mg + Omega-3 2-3g + Vitamin D3 5000 IU + UC-II 40mg with food</em>.<div class="schedule-cals">~830 cal</div></div>
+      <div class="schedule-meal"><strong>Break-fast.</strong> Overnight oats jar (from prep) w/ banana sliced in + 4 scrambled eggs + <strong>3 tbsp natural PB</strong> + hot sauce. <em style="color:#534AB7">+ Collagen 10-15g + Vit C 500mg + Omega-3 2-3g + Vitamin D3 5000 IU + UC-II 40mg with food</em>.<div class="schedule-cals">~830 cal</div></div>
     </div>
     <div class="schedule-row">
       <div class="schedule-time">2:00 PM</div>
@@ -194,7 +195,7 @@
   <div class="note note-orange">
     <strong>Daily total:</strong> ~2,500 cal · ~230g protein · ~30g fiber. Protein distribution across 5 feedings matches Morton 2018 + Schoenfeld/Aragon 2018 (~0.4 g/kg/meal × 4-5 feedings = ~50g per meal ceiling at 127 kg).<br><br>
     <strong>What each meal contributes (230g protein target):</strong><br>
-    &bull; Break-fast: oats jar w/ 1 scoop Vega (37g) + sliced banana + 4 eggs (24g) + <strong>full avo</strong> (3g) + 12g collagen → <strong>~76g</strong><br>
+    &bull; Break-fast: oats jar w/ 1 scoop Vega (37g) + sliced banana + 4 eggs (24g) + <strong>3 tbsp PB</strong> (12g) + 12g collagen → <strong>~85g</strong><br>
     &bull; 2 PM yogurt + honey + berries → <strong>~30g</strong><br>
     &bull; 4 PM container: 8 oz meat + 2 cups rice + veg + 1 piece fruit → <strong>~50g</strong><br>
     &bull; 7 PM pre-workout fruit + rice cake → <strong>~3g</strong><br>
@@ -203,7 +204,7 @@
   </div>
   </div>
 
-  <div class="hers-content" style="display:none">
+  <div class="hers-content">
   <div class="schedule">
     <div class="schedule-header" style="background:#43A047">Her Mon–Wed</div>
     <div class="schedule-row">
@@ -268,7 +269,7 @@
     </div>
     <div class="schedule-row">
       <div class="schedule-time">12:00 PM</div>
-      <div class="schedule-meal"><strong>Break-fast.</strong> Overnight oats jar w/ banana + 4 scrambled eggs + <strong>full avocado</strong> + hot sauce. <em style="color:#534AB7">+ Collagen + Vit C + Omega-3 + D3 + UC-II with food</em>.<div class="schedule-cals">~830 cal</div></div>
+      <div class="schedule-meal"><strong>Break-fast.</strong> Overnight oats jar w/ banana + 4 scrambled eggs + <strong>3 tbsp natural PB</strong> + hot sauce. <em style="color:#534AB7">+ Collagen + Vit C + Omega-3 + D3 + UC-II with food</em>.<div class="schedule-cals">~830 cal</div></div>
     </div>
     <div class="schedule-row">
       <div class="schedule-time">2:00 PM</div>
@@ -296,7 +297,7 @@
     <div class="schedule-header" style="background:#F57C00">His Saturday — 5-7 PM Gym</div>
     <div class="schedule-row">
       <div class="schedule-time">12:00 PM</div>
-      <div class="schedule-meal"><strong>Break-fast.</strong> Overnight oats jar w/ banana + 4 scrambled eggs + <strong>full avocado</strong>. <em style="color:#534AB7">+ Collagen + Vit C + Omega-3 + D3 + UC-II with food</em>.<div class="schedule-cals">~830 cal</div></div>
+      <div class="schedule-meal"><strong>Break-fast.</strong> Overnight oats jar w/ banana + 4 scrambled eggs + <strong>3 tbsp natural PB</strong>. <em style="color:#534AB7">+ Collagen + Vit C + Omega-3 + D3 + UC-II with food</em>.<div class="schedule-cals">~830 cal</div></div>
     </div>
     <div class="schedule-row">
       <div class="schedule-time">2:00 PM</div>
@@ -321,7 +322,7 @@
   </div>
   </div>
 
-  <div class="hers-content" style="display:none">
+  <div class="hers-content">
   <div class="schedule">
     <div class="schedule-header" style="background:#43A047">Her Thu–Fri — Salmon Days</div>
     <div class="schedule-row">
@@ -414,7 +415,7 @@
   </div>
 
   <!-- HER GAINS SHAKE -->
-  <div class="hers-content" style="display:none">
+  <div class="hers-content">
   <h2 id="gains-shake">Her Weight Gain Shake</h2>
   <div class="card hers" style="border:2px solid #43A047">
     <span class="tag tag-hers">High-Calorie Recovery Shake — Post-Workout</span>
@@ -483,7 +484,7 @@
     <div class="card-title">Optional simple cycle (if you want to test it)</div>
     <div class="card-detail" style="line-height:1.8">
       <strong>Training day (A/B/C/D):</strong> +40g carbs, -15g fat. Calories unchanged. Easy way: add ½ cup extra cooked rice to the 4 PM container.<br>
-      <strong>Rest day (Thu/Sun):</strong> -40g carbs, +15g fat. Easy way: drop ½ cup rice from the 4 PM meal, add an extra ½ avocado at break-fast.<br>
+      <strong>Rest day (Thu/Sun):</strong> -40g carbs, +15g fat. Easy way: drop ½ cup rice from the 4 PM meal, add an extra 1 tbsp PB at break-fast.<br>
       <strong>Net protein/cals stay constant.</strong> Run for 4 weeks, track weekly weight + waist. If scale moves the same as the simple plan would have — drop it. Don't add this on top of the new 2,500 cal target until Week 4+.
     </div>
   </div>
@@ -510,12 +511,23 @@
   <div class="footer">yerramazing &middot; Gym Partners</div>
 </div>
 <script>
-function switchPlan(plan) {
-  document.getElementById('tab-his').className = plan === 'his' ? 'tab active-his' : 'tab';
-  document.getElementById('tab-hers').className = plan === 'hers' ? 'tab active-hers' : 'tab';
-  document.querySelectorAll('.his-content').forEach(el => el.style.display = plan === 'his' ? 'block' : 'none');
-  document.querySelectorAll('.hers-content').forEach(el => el.style.display = plan === 'hers' ? 'block' : 'none');
-}
+(function(){
+  var btns = document.querySelectorAll('.seg button[data-side]');
+  function set(side){
+    if(side==='all') document.body.removeAttribute('data-side');
+    else document.body.setAttribute('data-side', side);
+    btns.forEach(function(b){
+      var pressed = b.getAttribute('data-side')===side;
+      b.setAttribute('aria-pressed', pressed?'true':'false');
+    });
+    try{ localStorage.setItem('hubSide', side); }catch(e){}
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ set(b.getAttribute('data-side')); });
+  });
+  var saved=null; try{ saved=localStorage.getItem('hubSide'); }catch(e){}
+  set(saved || 'all');
+})();
 </script>
 
 <nav class="tabbar" aria-label="Primary">
