@@ -33,14 +33,52 @@
     <strong>Better for the goals AND the wrists.</strong> Schoenfeld's research: 2-3x/week frequency per muscle is optimal. Full body 3x hits glutes every session. And instead of one brutal upper body day (7 exercises beating up wrists), each session has just 2-3 upper body moves. If wrists flare mid-workout, skip those 2 exercises and keep going — the rest of the workout is still there.
   </div>
 
-  <table>
-    <tr><th>Workout</th><th>Emphasis</th><th>What Gets Hit</th><th>Wrist Load</th></tr>
-    <tr><td><strong>A</strong></td><td>Quad + Glute + Push</td><td>Quads, Glutes, Chest, Shoulders</td><td>Low (2 exercises)</td></tr>
-    <tr><td><strong>B</strong></td><td>Hinge + Glute + Pull</td><td>Hams, Glutes, Back, Arms</td><td>Low (2-3 exercises)</td></tr>
-    <tr><td><strong>C</strong></td><td>Glute Heavy + Upper Mix</td><td>Glutes, Thighs, Shoulders, Back</td><td>Low (2 exercises)</td></tr>
-    <tr><td><strong>L</strong></td><td>Lower Body & Core Only</td><td>Glutes, Quads, Hams, Abs</td><td>Zero</td></tr>
-    <tr><td><strong>D</strong></td><td><em>Optional — Extra Volume</em></td><td>Whatever needs more work</td><td>Your call</td></tr>
-  </table>
+  <style>
+    .act-row[data-act="L"]{--act-color:var(--plum,#7B1FA2)}
+    .act-chip[data-tone="wrist-free"]{background:#F3E5F5;color:#4A148C}
+  </style>
+  <div class="act-stack">
+    <a class="act-row" data-act="A" href="#workout-a">
+      <div class="act-letter">A</div>
+      <div class="act-content">
+        <div class="act-title">Quad + Glute + Push</div>
+        <div class="act-meta">Quads · Glutes · Chest · Shoulders · Wrists Low</div>
+      </div>
+      <div class="act-chip">Lift</div>
+    </a>
+    <a class="act-row" data-act="B" href="#workout-b">
+      <div class="act-letter">B</div>
+      <div class="act-content">
+        <div class="act-title">Hinge + Glute + Pull</div>
+        <div class="act-meta">Hams · Glutes · Back · Arms · Wrists Low</div>
+      </div>
+      <div class="act-chip">Lift</div>
+    </a>
+    <a class="act-row" data-act="C" href="#workout-c">
+      <div class="act-letter">C</div>
+      <div class="act-content">
+        <div class="act-title">Glute Heavy + Upper Mix</div>
+        <div class="act-meta">Glutes · Thighs · Shoulders · Back · Wrists Low</div>
+      </div>
+      <div class="act-chip">Lift</div>
+    </a>
+    <a class="act-row" data-act="L" href="#workout-l">
+      <div class="act-letter">L</div>
+      <div class="act-content">
+        <div class="act-title">Lower Body & Core Only</div>
+        <div class="act-meta">Glutes · Quads · Hams · Abs · Zero wrist load</div>
+      </div>
+      <div class="act-chip" data-tone="wrist-free">Wrist-free</div>
+    </a>
+    <a class="act-row" data-act="D" href="#workout-d">
+      <div class="act-letter">D</div>
+      <div class="act-content">
+        <div class="act-title">Extra Volume</div>
+        <div class="act-meta">Pick whatever needs more work · your call</div>
+      </div>
+      <div class="act-chip" data-tone="optional">Optional</div>
+    </a>
+  </div>
 
   <div class="note note-green">
     <strong>No fixed days.</strong> Train A → B → C in order. Rest at least 1 day between. If wrists act up during a session, drop the upper body exercises and add an extra lower body or core move instead. The workout still works.<br><br>
@@ -94,7 +132,7 @@
   </div>
 
   <!-- ======================== WORKOUT A ======================== -->
-  <h2>Workout A — Quad + Glute + Push</h2>
+  <h2 id="workout-a">Workout A — Quad + Glute + Push</h2>
 
   <div class="card" style="border-left:3px solid #43A047">
     <span class="tag tag-lower">Lower — Quads</span>
@@ -139,7 +177,7 @@
   </div>
 
   <!-- ======================== WORKOUT B ======================== -->
-  <h2>Workout B — Hinge + Glute + Pull</h2>
+  <h2 id="workout-b">Workout B — Hinge + Glute + Pull</h2>
 
   <div class="card" style="border-left:3px solid #43A047">
     <span class="tag tag-lower">Lower — Hams + Glutes</span>
@@ -188,7 +226,7 @@
   </div>
 
   <!-- ======================== WORKOUT C ======================== -->
-  <h2>Workout C — Glute Heavy + Upper Mix</h2>
+  <h2 id="workout-c">Workout C — Glute Heavy + Upper Mix</h2>
 
   <div class="card" style="border-left:3px solid #43A047">
     <span class="tag tag-lower">Lower — Glutes (Heavy)</span>
@@ -239,7 +277,7 @@
   </div>
 
   <!-- ======================== WORKOUT L ======================== -->
-  <h2>Workout L — Lower Body & Core Focus</h2>
+  <h2 id="workout-l">Workout L — Lower Body & Core Focus</h2>
   <div class="note note-purple">
     <strong>Swap this in for any A/B/C session when you want to skip upper body entirely.</strong> Zero arm work, zero wrist load. All legs, glutes, and abs — higher volume than a normal day. This one builds the foundation for everything that comes next.
   </div>
@@ -307,7 +345,7 @@
 
   <!-- ======================== OPTIONAL D ======================== -->
   <div class="optional-banner">
-    <h2>Optional Workout D — Extra Volume</h2>
+    <h2 id="workout-d">Optional Workout D — Extra Volume</h2>
     <p>When you can squeeze in a 4th day. Same full-body mix concept.</p>
   </div>
 
