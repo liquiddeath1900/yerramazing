@@ -58,7 +58,7 @@ const ALLOWED_EMAILS = [
     btn.type = 'button';
     btn.textContent = 'Sign out';
     btn.setAttribute('aria-label', 'Sign out of ' + email);
-    btn.style.cssText = 'position:fixed;bottom:16px;right:16px;z-index:9999;padding:8px 14px;min-height:36px;background:rgba(0,0,0,.75);color:#fff;border:none;border-radius:999px;font:600 12px/1 -apple-system,system-ui,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);backdrop-filter:blur(8px)';
+    btn.style.cssText = 'position:fixed;top:calc(env(safe-area-inset-top) + 10px);right:14px;z-index:9999;padding:6px 12px;min-height:32px;background:rgba(0,0,0,.7);color:#fff;border:none;border-radius:999px;font:600 11px/1 -apple-system,system-ui,sans-serif;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)';
     btn.addEventListener('click', async () => {
       btn.disabled = true;
       btn.textContent = 'Signing out...';
