@@ -23,8 +23,60 @@
     <button data-side="hers" aria-pressed="false">Hers</button>
   </div>
 
+  <!-- QUICK JUMP -->
+  <div class="act-stack" aria-label="Jump to section">
+    <a class="act-row" data-act="A" href="#targets">
+      <div class="act-letter">T</div>
+      <div class="act-content">
+        <div class="act-title">Daily Targets</div>
+        <div class="act-meta">Cals · Macros · Water</div>
+      </div>
+      <div class="act-chip">Numbers</div>
+    </a>
+    <a class="act-row" data-act="B" href="#mon-wed">
+      <div class="act-letter">M</div>
+      <div class="act-content">
+        <div class="act-title">Mon – Wed Schedule</div>
+        <div class="act-meta">Eating from Prep 1</div>
+      </div>
+      <div class="act-chip">Schedule</div>
+    </a>
+    <a class="act-row" data-act="C" href="#thu-sat">
+      <div class="act-letter">R</div>
+      <div class="act-content">
+        <div class="act-title">Thu – Sat Schedule</div>
+        <div class="act-meta">Eating from Prep 2</div>
+      </div>
+      <div class="act-chip">Schedule</div>
+    </a>
+    <a class="act-row" data-act="D" href="#sunday">
+      <div class="act-letter">S</div>
+      <div class="act-content">
+        <div class="act-title">Sunday</div>
+        <div class="act-meta">Cheat meal + prep</div>
+      </div>
+      <div class="act-chip" data-tone="optional">1×/wk</div>
+    </a>
+    <a class="act-row" data-act="E" href="#rest-day">
+      <div class="act-letter">Z</div>
+      <div class="act-content">
+        <div class="act-title">Rest Day Eating</div>
+        <div class="act-meta">Same targets, no shake panic</div>
+      </div>
+      <div class="act-chip" data-tone="optional">Recovery</div>
+    </a>
+    <a class="act-row" data-act="F" href="#rules">
+      <div class="act-letter">!</div>
+      <div class="act-content">
+        <div class="act-title">The Non-Negotiable Rules</div>
+        <div class="act-meta">6 things you don't skip</div>
+      </div>
+      <div class="act-chip" data-tone="required">Rules</div>
+    </a>
+  </div>
+
   <!-- DAILY TARGETS -->
-  <h2>Daily Targets</h2>
+  <h2 id="targets">Daily Targets</h2>
 
   <div class="his-content">
     <div class="card his">
@@ -164,7 +216,7 @@
   </div>
 
   <!-- MON-WED -->
-  <h2>Mon–Wed (Eating from Prep 1)</h2>
+  <h2 id="mon-wed">Mon–Wed (Eating from Prep 1)</h2>
 
   <div class="his-content">
   <div class="schedule">
@@ -264,7 +316,7 @@
   </div>
 
   <!-- THU-SAT -->
-  <h2>Thu–Sat (Eating from Prep 2)</h2>
+  <h2 id="thu-sat">Thu–Sat (Eating from Prep 2)</h2>
 
   <div class="his-content">
   <div class="schedule">
@@ -415,7 +467,7 @@
   </div>
 
   <!-- SUNDAY -->
-  <h2>Sunday — Cheat Meal + Prep Day</h2>
+  <h2 id="sunday">Sunday — Cheat Meal + Prep Day</h2>
   <div class="note note-green">
     <strong>One cheat meal.</strong> Lunch or dinner — eat whatever you want, enjoy it. Then spend ~1 hour doing your Prep 1 for the week ahead. See <a href="meal-prep.html" style="color:#534AB7">Meal Prep</a>. Don't overthink Sunday — enjoy the meal, do the prep, set yourself up for Mon–Wed.
   </div>
@@ -446,7 +498,7 @@
   </div>
 
   <!-- RULES -->
-  <h2>The Non-Negotiable Rules</h2>
+  <h2 id="rules">The Non-Negotiable Rules</h2>
 
   <div class="card">
     <div class="card-title">1. Protein first, always</div>
@@ -474,7 +526,7 @@
   </div>
 
   <!-- REST DAY -->
-  <h2>Rest Day Eating</h2>
+  <h2 id="rest-day">Rest Day Eating</h2>
   <div class="note note-green">
     <strong>Same targets every day — training or rest.</strong> Total weekly calories + protein are what drive recomp; day-to-day carb shuffling adds complexity without measurable benefit at your training age (Morton 2018 / Helms 2014). Keep the same containers, same snack, same shake target. Still take creatine with any meal. Keep it simple.
   </div>

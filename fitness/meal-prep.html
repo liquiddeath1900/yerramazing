@@ -23,6 +23,50 @@
     <button data-side="hers" aria-pressed="false">Hers</button>
   </div>
 
+  <!-- QUICK JUMP -->
+  <div class="act-stack" aria-label="Jump to section">
+    <a class="act-row" data-act="A" href="#prep-1">
+      <div class="act-letter">1</div>
+      <div class="act-content">
+        <div class="act-title">Sunday Prep</div>
+        <div class="act-meta">Mon · Tue · Wed containers</div>
+      </div>
+      <div class="act-chip" data-tone="required">~1 hr</div>
+    </a>
+    <a class="act-row" data-act="B" href="#prep-2">
+      <div class="act-letter">2</div>
+      <div class="act-content">
+        <div class="act-title">Wednesday Prep</div>
+        <div class="act-meta">Thu · Fri · Sat containers</div>
+      </div>
+      <div class="act-chip" data-tone="required">~1 hr</div>
+    </a>
+    <a class="act-row" data-act="C" href="#meals">
+      <div class="act-letter">M</div>
+      <div class="act-content">
+        <div class="act-title">The 5 Meals</div>
+        <div class="act-meta">Recipes + portions</div>
+      </div>
+      <div class="act-chip">Recipes</div>
+    </a>
+    <a class="act-row" data-act="D" href="#snacks">
+      <div class="act-letter">S</div>
+      <div class="act-content">
+        <div class="act-title">Grab-and-Go Snacks</div>
+        <div class="act-meta">No-cook backups</div>
+      </div>
+      <div class="act-chip" data-tone="optional">Easy</div>
+    </a>
+    <a class="act-row" data-act="E" href="#calendar">
+      <div class="act-letter">📅</div>
+      <div class="act-content">
+        <div class="act-title">Weekly Calendar</div>
+        <div class="act-meta">What you eat each day</div>
+      </div>
+      <div class="act-chip">Overview</div>
+    </a>
+  </div>
+
   <div class="note note-purple">
     <strong>The system:</strong> Prep twice a week, 3 days at a time. Sunday covers Mon–Wed. Wednesday covers Thu–Sat. Food never sits more than 3 days — always fresh, always hits different. Each person preps their own food independently — different cuts, different portions, your own process.
   </div>
@@ -32,6 +76,7 @@
   </div>
 
   <!-- PREP 1: SUNDAY — HIS -->
+  <span id="prep-1" aria-hidden="true"></span>
   <div class="his-content">
   <h2>Prep 1: Sunday → Mon, Tue, Wed</h2>
   <p>~1 hour. Your food, your kitchen time. Put on some music, knock it out.</p>
@@ -91,6 +136,7 @@
     Post-workout shake is blended fresh each night (Vega + creatine + banana).
   </div>
 
+  <span id="prep-2" aria-hidden="true"></span>
   <h2>Prep 2: Wednesday → Thu, Fri, Sat</h2>
   <p>~40 min. Quicker because you've got the flow. Switch up proteins to keep it interesting.</p>
 
@@ -266,7 +312,7 @@
     <strong>The split:</strong> Sunday prep = chicken + turkey meals (Mon–Wed). Wednesday prep = salmon + ground beef (Thu–Sat). Different proteins each half keeps taste buds happy and macros covered. Sunday itself = cheat meal or fresh cook night.
   </div>
 
-  <h2>The 5 Meals You're Rotating</h2>
+  <h2 id="meals">The 5 Meals You're Rotating</h2>
 
   <div class="recipe">
     <span class="tag tag-both">Both</span>
@@ -352,7 +398,7 @@
   </div>
 
   <!-- SNACKS -->
-  <h2>Grab-and-Go Snacks</h2>
+  <h2 id="snacks">Grab-and-Go Snacks</h2>
   <p>Pre-portioned during each prep. Make 3 days' worth at a time.</p>
 
   <div class="split">
@@ -388,7 +434,7 @@
     <strong>Containers:</strong> Each person needs a 6-pack of glass meal prep containers from Aldi or Amazon. Glass > plastic — no microwave chemicals, easier to clean. Label with masking tape so nothing gets mixed up.
   </div>
 
-  <h2>The Weekly Calendar</h2>
+  <h2 id="calendar">The Weekly Calendar</h2>
   <div class="card">
     <div class="card-detail" style="line-height:2">
       <strong>Sunday:</strong> Prep 1 — each person preps their own proteins (him: chicken + turkey | her: chicken + ground beef)<br>
