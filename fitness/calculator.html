@@ -20,7 +20,7 @@
   <!-- Quick Presets -->
   <p style="font-weight:600;font-size:13px;margin-bottom:8px">Quick fill:</p>
   <div class="presets">
-    <button class="preset" id="pre-his" onclick="fillPreset('his')">Him (280 lbs)</button>
+    <button class="preset" id="pre-his" onclick="fillPreset('his')">Him (275 lbs)</button>
     <button class="preset" id="pre-hers" onclick="fillPreset('hers')">Her (145 lbs)</button>
     <button class="preset" onclick="clearForm()">Clear</button>
   </div>
@@ -43,7 +43,7 @@
     <div class="form-row">
       <div class="form-group">
         <label>Weight (lbs)</label>
-        <input type="number" id="weight" placeholder="280" min="80" max="500">
+        <input type="number" id="weight" placeholder="275" min="80" max="500">
       </div>
       <div class="form-group">
         <label>Height</label>
@@ -176,7 +176,7 @@ function fillPreset(who) {
   if (who === 'his') {
     document.getElementById('gender').value = 'male';
     document.getElementById('age').value = '28';
-    document.getElementById('weight').value = '280';
+    document.getElementById('weight').value = '275';
     document.getElementById('height').value = '70';
     document.getElementById('activity').value = '1.55';
     document.getElementById('goal').value = 'recomp';
