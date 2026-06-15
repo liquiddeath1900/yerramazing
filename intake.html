@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Free Roadmap Intake — YERRAMAZING</title>
+<meta name="description" content="Tell me where you're at and I'll build your personalized workout + meal plan. Free. The same system I run on myself.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#534AB7;--purple-dark:#3C3489;--purple-light:#EEEDFE;--purple-glow:rgba(83,74,183,.12);
+  --green:#43A047;--green-light:#E1F5EE;
+  --orange:#F57C00;--orange-light:#FFF3E0;
+  --bg:#fafafa;--bg-secondary:#fff;--surface:#fff;
+  --text:#0f0f0f;--text-secondary:#555;--text-muted:#999;
+  --border:rgba(0,0,0,.08);--border-hover:rgba(83,74,183,.3);
+  --card-bg:rgba(255,255,255,.7);--card-blur:16px;
+  --shadow:0 1px 3px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --shadow-hover:0 8px 40px rgba(83,74,183,.15);
+  --radius:20px;
+  --mesh-1:#e8e4ff;--mesh-2:#d4f5e4;--mesh-3:#fce4ec;--mesh-4:#e3f2fd;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#0a0a0f;--bg-secondary:#111118;--surface:#18182a;
+    --text:#f0f0f5;--text-secondary:rgba(255,255,255,.6);--text-muted:rgba(255,255,255,.35);
+    --border:rgba(255,255,255,.08);--border-hover:rgba(83,74,183,.4);
+    --card-bg:rgba(255,255,255,.04);--card-blur:20px;
+    --shadow:0 1px 3px rgba(0,0,0,.2),0 8px 24px rgba(0,0,0,.4);
+    --mesh-1:rgba(83,74,183,.15);--mesh-2:rgba(67,160,71,.08);--mesh-3:rgba(239,83,80,.06);--mesh-4:rgba(33,150,243,.08);
+  }
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom)}
+
+/* mesh bg */
+.mesh-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.mesh-blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.55;animation:drift 22s ease-in-out infinite}
+.mesh-blob:nth-child(1){width:480px;height:480px;background:var(--mesh-1);top:-12%;left:-12%}
+.mesh-blob:nth-child(2){width:420px;height:420px;background:var(--mesh-2);bottom:-10%;right:-10%;animation-delay:-7s}
+.mesh-blob:nth-child(3){width:360px;height:360px;background:var(--mesh-3);top:40%;left:55%;animation-delay:-12s}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-20px,30px) scale(1.05)}}
+@media(max-width:640px){.mesh-blob{filter:blur(70px);opacity:.4}.mesh-blob:nth-child(1){width:300px;height:300px}.mesh-blob:nth-child(2){width:260px;height:260px}.mesh-blob:nth-child(3){width:220px;height:220px}}
+
+.wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:28px 20px 60px}
+
+.back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-secondary);text-decoration:none;margin-bottom:22px;transition:color .2s}
+.back:hover{color:var(--purple)}
+.brand{font-size:15px;font-weight:900;letter-spacing:-.02em;margin-bottom:18px}
+.brand span{background:linear-gradient(135deg,#7c6cf0,#534AB7,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+h1{font-size:clamp(28px,6vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-bottom:10px}
+.sub{font-size:15px;color:var(--text-secondary);line-height:1.6;margin-bottom:22px}
+.intro-box{background:var(--purple-glow);border:1px solid var(--border);border-radius:14px;padding:16px 18px;font-size:13.5px;line-height:1.6;color:var(--text-secondary);margin-bottom:24px}
+.intro-box strong{color:var(--text)}
+
+/* progress */
+.progress-text{font-size:12px;font-weight:700;color:var(--purple);letter-spacing:.5px;margin-bottom:8px}
+.progress-bar{height:8px;border-radius:8px;background:var(--border);overflow:hidden;margin-bottom:16px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--purple),#a78bfa);border-radius:8px;transition:width .35s cubic-bezier(.4,0,.2,1)}
+.section-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .2s}
+.dot.active{background:var(--purple);transform:scale(1.25)}
+.dot.done{background:var(--green)}
+
+/* sections */
+.form-section{background:var(--card-bg);backdrop-filter:blur(var(--card-blur));-webkit-backdrop-filter:blur(var(--card-blur));border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow);animation:fade .4s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.section-header{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.section-header .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--purple);color:#fff;font-size:14px;font-weight:800;flex-shrink:0}
+.section-tip{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5}
+.section-body{display:flex;flex-direction:column;gap:18px}
+
+.q{display:flex;flex-direction:column;gap:7px}
+.q>label{font-size:14px;font-weight:700;letter-spacing:-.01em}
+.q .hint{font-size:12px;font-weight:500;color:var(--text-muted)}
+.q input[type=text],.q input[type=email],.q input[type=number],.q select,.q textarea{
+  font-family:inherit;font-size:16px;padding:13px 14px;border-radius:12px;border:1px solid var(--border);
+  background:var(--surface);color:var(--text);transition:border-color .2s;width:100%
+}
+.q input:focus,.q select:focus,.q textarea:focus{outline:none;border-color:var(--purple)}
+.q textarea{resize:vertical;min-height:80px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+.check-group{display:flex;flex-wrap:wrap;gap:8px}
+.check-group label{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:9px 13px;cursor:pointer;transition:all .15s;min-height:42px}
+.check-group label:hover{border-color:var(--border-hover)}
+.check-group input{accent-color:var(--purple);width:17px;height:17px}
+.check-group input:checked + span,.check-group label:has(input:checked){color:var(--purple)}
+.check-group label:has(input:checked){border-color:var(--purple);background:var(--purple-light)}
+@media(prefers-color-scheme:dark){.check-group label:has(input:checked){background:rgba(83,74,183,.18)}}
+
+.scale{display:flex;align-items:center;gap:10px}
+.scale .label{font-size:11px;color:var(--text-muted);font-weight:600;flex-shrink:0;width:48px}
+.scale .label:last-child{text-align:right}
+.scale-circles{display:flex;gap:5px;flex:1;flex-wrap:wrap;justify-content:center}
+.scale-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text-secondary);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.scale-btn:hover{border-color:var(--purple)}
+.scale-btn.selected{background:var(--purple);color:#fff;border-color:var(--purple);transform:scale(1.1)}
+
+/* selfie upload */
+.selfie-drop{display:flex;flex-direction:column;align-items:center;gap:12px;border:2px dashed var(--border);border-radius:16px;padding:28px 18px;text-align:center;cursor:pointer;transition:border-color .2s;background:var(--surface)}
+.selfie-drop:hover{border-color:var(--purple)}
+.selfie-drop .ico{font-size:38px}
+.selfie-drop .t{font-size:14px;font-weight:700}
+.selfie-drop .s{font-size:12px;color:var(--text-muted);line-height:1.5}
+.selfie-preview{display:none;flex-direction:column;align-items:center;gap:12px}
+.selfie-preview.show{display:flex}
+.selfie-preview img{width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid var(--purple);box-shadow:var(--shadow-hover)}
+.selfie-preview button{background:none;border:none;color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer;text-decoration:underline}
+
+/* buttons */
+.btn{padding:15px 26px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .2s cubic-bezier(.4,0,.2,1);font-family:inherit}
+.btn-primary{background:var(--purple);color:#fff;box-shadow:0 4px 14px rgba(83,74,183,.3)}
+.btn-primary:hover{background:var(--purple-dark);transform:translateY(-2px)}
+.btn-secondary{background:var(--card-bg);border:1px solid var(--border);color:var(--text)}
+.btn-secondary:hover{border-color:var(--border-hover)}
+.nav-buttons{display:flex;gap:10px;margin-top:18px}
+.nav-buttons .btn{flex:1}
+
+/* required + validation */
+.req{color:#e53935;font-weight:800}
+.q.invalid > label{color:#e53935}
+.q.invalid input,.q.invalid select,.q.invalid textarea{border-color:#e53935}
+.q.invalid .check-group{outline:1.5px solid #e53935;outline-offset:5px;border-radius:10px}
+.form-error{display:none;background:rgba(229,57,53,.1);color:#e53935;border:1px solid rgba(229,57,53,.3);border-radius:12px;padding:12px 14px;font-size:13px;font-weight:700;margin-top:14px;text-align:center}
+.form-error.show{display:block;animation:fade .25s ease both}
+
+/* success / results */
+.results{display:none;background:var(--card-bg);backdrop-filter:blur(var(--card-blur));border:1px solid var(--border);border-radius:var(--radius);padding:30px 24px;box-shadow:var(--shadow);text-align:center}
+.results.show{display:block;animation:fade .5s ease both}
+.results .big{font-size:48px}
+.results h2{font-size:24px;font-weight:800;margin:12px 0 8px;letter-spacing:-.02em}
+.results p{font-size:14px;color:var(--text-secondary);line-height:1.7;max-width:420px;margin:0 auto 20px}
+.results pre{display:none;text-align:left;white-space:pre-wrap;word-break:break-word;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;font-size:12px;line-height:1.6;max-height:240px;overflow:auto;margin-bottom:16px}
+.results pre.show{display:block}
+.results-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--text);color:var(--bg);padding:12px 22px;border-radius:12px;font-size:14px;font-weight:700;opacity:0;transition:all .3s;z-index:200}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+.footer{text-align:center;font-size:12px;color:var(--text-muted);line-height:1.7;margin-top:30px}
+
+@media(max-width:480px){
+  .wrap{padding:22px 16px 50px}
+  .form-section{padding:22px 18px}
+  .row2{grid-template-columns:1fr}
+  .scale-btn{width:28px;height:28px;font-size:11px}
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+</head>
+<body>
+
+<div class="mesh-bg" aria-hidden="true"><div class="mesh-blob"></div><div class="mesh-blob"></div><div class="mesh-blob"></div></div>
+
+<div class="wrap">
+  <a href="index.html" class="back">&larr; Back to home</a>
+  <div class="brand"><span>YERR</span>AMAZING</div>
+  <h1>Let's build your roadmap</h1>
+  <div class="sub">Tell me where you're at. I'll build you a personalized workout plan + meal plan — the same system I run on myself. Free.</div>
+
+  <div class="intro-box">
+    <strong>Be real with the answers.</strong> The more honest and detailed you are, the better I can build a plan that actually fits your life. Takes about 5 minutes. It saves as you go, so you won't lose anything.
+  </div>
+
+  <div class="progress-text"><span id="progressLabel">Step 1 of 8</span></div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:12.5%"></div></div>
+  <div class="section-nav" id="sectionNav"></div>
+
+  <form id="intakeForm" autocomplete="on">
+
+  <!-- 1 ABOUT YOU -->
+  <div class="form-section" data-section="1">
+    <div class="section-header"><span class="num">1</span> About you</div>
+    <div class="section-tip">The basics so the math (calories, protein, training load) is built around you.</div>
+    <div class="section-body">
+      <div class="row2">
+        <div class="q"><label>First name</label><input type="text" name="name" placeholder="What do I call you?"></div>
+        <div class="q"><label>Google email <span class="hint">(how you'll log into your dashboard)</span></label><input type="email" name="email" placeholder="you@gmail.com"></div>
+      </div>
+      <div class="row2">
+        <div class="q"><label>Age</label><input type="number" name="age" inputmode="numeric" placeholder="e.g. 32"></div>
+        <div class="q"><label>Sex <span class="hint">(for calorie & macro math)</span></label>
+          <select name="sex"><option value="" disabled selected>Pick one</option><option>Male</option><option>Female</option><option>Prefer to self-describe</option></select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="q"><label>Height</label><input type="text" name="height" placeholder="e.g. 5'10&quot;"></div>
+        <div class="q"><label>Current weight (lbs)</label><input type="number" name="weight" inputmode="numeric" placeholder="e.g. 200"></div>
+      </div>
+      <div class="q"><label>Goal weight or body-comp goal <span class="hint">(or "not sure")</span></label><input type="text" name="goal_weight" placeholder="e.g. 180 and leaner, or build muscle, or not sure"></div>
+    </div>
+  </div>
+
+  <!-- 2 YOUR GOAL -->
+  <div class="form-section" data-section="2" style="display:none">
+    <div class="section-header"><span class="num">2</span> Your goal</div>
+    <div class="section-tip">Where you're trying to go — and why. This drives the whole plan.</div>
+    <div class="section-body">
+      <div class="q"><label>Main goal</label>
+        <select name="goal"><option value="" disabled selected>Pick one</option><option>Lose fat</option><option>Build muscle</option><option>Both — recomp</option><option>Get healthier / more energy</option><option>Performance / strength</option></select>
+      </div>
+      <div class="q"><label>Why now? What made you decide to start?</label><textarea name="why" placeholder="The real reason — this is what keeps you going on the hard days"></textarea></div>
+      <div class="q"><label>What does success look like for you?</label><input type="text" name="success" placeholder="e.g. fit my old jeans, keep up with my kids, hit 225 bench"></div>
+      <div class="q"><label>Any deadline or event you're working toward?</label><input type="text" name="timeline" placeholder="e.g. wedding in 6 months, no rush"></div>
+    </div>
+  </div>
+
+  <!-- 3 TRAINING -->
+  <div class="form-section" data-section="3" style="display:none">
+    <div class="section-header"><span class="num">3</span> Training</div>
+    <div class="section-tip">So your split fits your schedule, your equipment, and your level.</div>
+    <div class="section-body">
+      <div class="q"><label>Experience level</label>
+        <select name="experience"><option value="" disabled selected>Pick one</option><option>Brand new</option><option>Started before, fell off</option><option>Train on and off</option><option>Train consistently</option><option>Advanced</option></select>
+      </div>
+      <div class="row2">
+        <div class="q"><label>Days/week you can train</label><select name="days"><option value="" disabled selected>Pick</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+        <div class="q"><label>Time per session</label><select name="session_time"><option value="" disabled selected>Pick</option><option>30 min</option><option>45 min</option><option>60 min</option><option>75+ min</option></select></div>
+      </div>
+      <div class="q"><label>Where will you train?</label>
+        <div class="check-group">
+          <label><input type="checkbox" name="location" value="Full gym"> Full gym</label>
+          <label><input type="checkbox" name="location" value="Home — dumbbells/bands"> Home (dumbbells/bands)</label>
+          <label><input type="checkbox" name="location" value="Bodyweight only"> Bodyweight only</label>
+          <label><input type="checkbox" name="location" value="Outdoors"> Outdoors</label>
+        </div>
+      </div>
+      <div class="q"><label>What equipment do you have access to?</label><input type="text" name="equipment" placeholder="e.g. full gym, or just adjustable dumbbells + a bench"></div>
+      <div class="q"><label>How do you feel about cardio?</label><input type="text" name="cardio" placeholder="e.g. hate it but I'll do it, love walking, can't run"></div>
+      <div class="q"><label>Exercises you love or hate?</label><input type="text" name="exercise_prefs" placeholder="e.g. love deadlifts, knees hate squats"></div>
+    </div>
+  </div>
+
+  <!-- 4 INJURIES & LIMITATIONS -->
+  <div class="form-section" data-section="4" style="display:none">
+    <div class="section-header"><span class="num">4</span> Injuries &amp; limits</div>
+    <div class="section-tip">So I program around what hurts — and keep you safe. Be specific.</div>
+    <div class="section-body">
+      <div class="q"><label>Any injuries — past or current?</label><textarea name="injuries" placeholder="e.g. herniated disc 3 yrs ago (fine now), bad right shoulder"></textarea></div>
+      <div class="q"><label>Any pain or trouble spots?</label>
+        <div class="check-group">
+          <label><input type="checkbox" name="pain" value="Lower back"> Lower back</label>
+          <label><input type="checkbox" name="pain" value="Knees"> Knees</label>
+          <label><input type="checkbox" name="pain" value="Shoulders"> Shoulders</label>
+          <label><input type="checkbox" name="pain" value="Neck"> Neck</label>
+          <label><input type="checkbox" name="pain" value="Hips"> Hips</label>
+          <label><input type="checkbox" name="pain" value="Wrists/elbows"> Wrists/elbows</label>
+          <label><input type="checkbox" name="pain" value="None"> None</label>
+        </div>
+      </div>
+      <div class="q"><label>Any surgeries?</label><input type="text" name="surgeries" placeholder="e.g. knee scope 2018, none"></div>
+      <div class="q"><label>Any condition that affects how you move or train?</label><input type="text" name="movement_conditions" placeholder="e.g. asthma, limited shoulder mobility, none"></div>
+      <div class="q"><label>Cleared by a doctor to exercise?</label><input type="text" name="doctor_clearance" placeholder="Yes / No / Haven't asked"></div>
+    </div>
+  </div>
+
+  <!-- 5 NUTRITION -->
+  <div class="form-section" data-section="5" style="display:none">
+    <div class="section-header"><span class="num">5</span> Nutrition</div>
+    <div class="section-tip">So the meal plan + grocery list are food you'll actually eat.</div>
+    <div class="section-body">
+      <div class="q"><label>How do you eat?</label>
+        <select name="diet_style"><option value="" disabled selected>Pick one</option><option>Eat everything</option><option>Vegetarian</option><option>Vegan</option><option>Pescatarian</option><option>Halal</option><option>Kosher</option><option>Other</option></select>
+      </div>
+      <div class="q"><label>Allergies or intolerances?</label><input type="text" name="allergies" placeholder="e.g. lactose, no nuts, none"></div>
+      <div class="q"><label>Foods you flat-out won't eat?</label><input type="text" name="wont_eat" placeholder="e.g. no seafood, hate eggs"></div>
+      <div class="row2">
+        <div class="q"><label>Meals/day you prefer</label><select name="meals"><option value="" disabled selected>Pick</option><option>2</option><option>3</option><option>4</option><option>5+</option><option>Flexible</option></select></div>
+        <div class="q"><label>Cook or takeout?</label><select name="cooking"><option value="" disabled selected>Pick</option><option>Cook most days</option><option>Mix of both</option><option>Mostly takeout</option><option>Can't cook</option></select></div>
+      </div>
+      <div class="q"><label>Time you can spend on food/prep?</label><input type="text" name="prep_time" placeholder="e.g. 20 min max, I meal prep Sundays"></div>
+      <div class="q"><label>Grocery budget feel?</label><input type="text" name="budget" placeholder="e.g. tight, normal, doesn't matter"></div>
+      <div class="row2">
+        <div class="q"><label>Water/day <span class="hint">(be honest)</span></label><input type="text" name="water" placeholder="e.g. barely any, 1 gallon"></div>
+        <div class="q"><label>Caffeine / alcohol?</label><input type="text" name="caffeine_alcohol" placeholder="e.g. 2 coffees, drinks weekends"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 LIFESTYLE & SLEEP -->
+  <div class="form-section" data-section="6" style="display:none">
+    <div class="section-header"><span class="num">6</span> Lifestyle &amp; sleep</div>
+    <div class="section-tip">Recovery and daily movement matter as much as the workouts.</div>
+    <div class="section-body">
+      <div class="q"><label>How active is your day outside the gym?</label>
+        <select name="daily_activity"><option value="" disabled selected>Pick one</option><option>Desk job, barely move</option><option>Some walking</option><option>On my feet a lot</option><option>Physical/labor job</option></select>
+      </div>
+      <div class="q"><label>Rough daily steps <span class="hint">(if you track)</span></label><input type="text" name="steps" placeholder="e.g. 4,000, no idea"></div>
+      <div class="row2">
+        <div class="q"><label>Hours of sleep/night</label><input type="text" name="sleep_hours" placeholder="e.g. 6, 7-8"></div>
+        <div class="q"><label>Work schedule</label><input type="text" name="schedule" placeholder="e.g. 9-5, night shift, irregular"></div>
+      </div>
+      <div class="q"><label>How's your sleep quality?</label>
+        <div class="scale"><span class="label">Trash</span><div class="scale-circles" data-name="sleep_scale"></div><span class="label">Great</span></div>
+      </div>
+      <div class="q"><label>Stress level right now?</label>
+        <div class="scale"><span class="label">Zen</span><div class="scale-circles" data-name="stress_scale"></div><span class="label">Maxed</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 HEALTH & HISTORY -->
+  <div class="form-section" data-section="7" style="display:none">
+    <div class="section-header"><span class="num">7</span> Health &amp; history</div>
+    <div class="section-tip">Only what's relevant to training and nutrition. Stays between us.</div>
+    <div class="section-body">
+      <div class="q"><label>Any diagnosed conditions?</label>
+        <div class="check-group">
+          <label><input type="checkbox" name="conditions" value="High blood pressure"> High BP</label>
+          <label><input type="checkbox" name="conditions" value="Diabetes/pre-diabetes"> Diabetes</label>
+          <label><input type="checkbox" name="conditions" value="Thyroid"> Thyroid</label>
+          <label><input type="checkbox" name="conditions" value="Heart condition"> Heart</label>
+          <label><input type="checkbox" name="conditions" value="Cholesterol"> Cholesterol</label>
+          <label><input type="checkbox" name="conditions" value="Asthma"> Asthma</label>
+          <label><input type="checkbox" name="conditions" value="None"> None</label>
+        </div>
+        <input type="text" name="conditions_other" placeholder="Anything else..." style="margin-top:8px">
+      </div>
+      <div class="q"><label>Current medications?</label><input type="text" name="medications" placeholder="e.g. blood pressure med, none"></div>
+      <div class="q"><label>Supplements you currently take?</label><input type="text" name="supplements" placeholder="e.g. creatine + multivitamin, nothing"></div>
+      <div class="q"><label>Recent bloodwork or known deficiencies?</label><input type="text" name="bloodwork" placeholder="e.g. low vitamin D, none that I know"></div>
+      <div class="q"><label>Relevant family history?</label><input type="text" name="family" placeholder="e.g. diabetes runs in family, heart disease"></div>
+      <div class="q"><label>Menstrual cycle notes <span class="hint">(only if it applies — affects energy & programming)</span></label><input type="text" name="cycle" placeholder="e.g. regular, PCOS, N/A"></div>
+    </div>
+  </div>
+
+  <!-- 8 SELFIE & FINISH -->
+  <div class="form-section" data-section="8" style="display:none">
+    <div class="section-header"><span class="num">8</span> Photo &amp; finish</div>
+    <div class="section-tip">Drop a current photo — it becomes your profile pic and your day-one progress shot. Totally optional.</div>
+    <div class="section-body">
+      <div class="q">
+        <label>Add a selfie / starting photo <span class="hint">(optional, stays private)</span></label>
+        <label class="selfie-drop" id="selfieDrop" for="selfieInput">
+          <span class="ico">📸</span>
+          <span class="t">Tap to add a photo</span>
+          <span class="s">Front-facing works best. This is just for your profile + baseline — nobody else sees it.</span>
+        </label>
+        <input type="file" id="selfieInput" accept="image/*" capture="user" style="display:none">
+        <div class="selfie-preview" id="selfiePreview">
+          <img id="selfieImg" alt="Your selfie preview">
+          <button type="button" id="selfieRemove">Remove photo</button>
+        </div>
+      </div>
+      <div class="q"><label>Anything else I should know?</label><textarea name="anything_else" placeholder="Schedule quirks, past stuff that worked or didn't, questions — anything"></textarea></div>
+      <div class="q"><label>Best way to reach you back?</label><input type="text" name="contact" placeholder="e.g. email is fine, IG @handle, text"></div>
+    </div>
+  </div>
+
+  </form>
+
+  <div class="form-error" id="formError">Please fill in the required fields (marked <span style="color:#e53935">*</span>) to keep going.</div>
+
+  <div class="nav-buttons" id="navButtons">
+    <button class="btn btn-secondary" id="prevBtn" style="display:none" onclick="navigate(-1)">Back</button>
+    <button class="btn btn-primary" id="nextBtn" onclick="navigate(1)">Next</button>
+  </div>
+
+  <!-- success -->
+  <div class="results" id="results">
+    <div class="big">🤝</div>
+    <h2>Got you. We're in this now.</h2>
+    <p>I'll build your roadmap + meal plan and get it to your email in a few days. While you wait — follow the journey and start showing up. YERR.</p>
+    <pre id="resultText"></pre>
+    <div class="results-btns">
+      <button class="btn btn-primary" onclick="copyResults()">Copy my answers</button>
+      <button class="btn btn-secondary" onclick="shareResults()">Send via text</button>
+      <a class="btn btn-secondary" href="index.html">Back to home</a>
+    </div>
+  </div>
+
+  <div class="footer">YERRAMAZING · This info stays between us — only used to build your plan.</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+var TOTAL = 8;
+var current = 1;
+var scaleValues = {};
+var SAVE_PREFIX = 'yerr-intake-';
+
+// Mandatory fields per step — the info the roadmap + login profile can't be built without.
+var REQUIRED = {
+  1: ['name','email','age','sex','height','weight'],
+  2: ['goal'],
+  3: ['experience','days','session_time','location','equipment'],
+  4: ['pain'],
+  5: ['diet_style'],
+  6: ['daily_activity'],
+  7: ['conditions'],
+  8: []
+};
+
+// build scale circles
+document.querySelectorAll('.scale-circles').forEach(function(container){
+  var name = container.dataset.name;
+  for (var i=1;i<=10;i++){
+    var b=document.createElement('button');
+    b.type='button';b.className='scale-btn';b.textContent=i;b.dataset.value=i;b.dataset.scaleName=name;
+    b.addEventListener('click',function(){
+      var n=this.dataset.scaleName;scaleValues[n]=this.dataset.value;
+      this.parentNode.querySelectorAll('.scale-btn').forEach(function(x){x.classList.remove('selected');});
+      this.classList.add('selected');
+      localStorage.setItem(SAVE_PREFIX+'scale-'+n,scaleValues[n]);
+    });
+    container.appendChild(b);
+  }
+  var saved=localStorage.getItem(SAVE_PREFIX+'scale-'+name);
+  if(saved){scaleValues[name]=saved;container.querySelectorAll('.scale-btn').forEach(function(x){if(x.dataset.value===saved)x.classList.add('selected');});}
+});
+
+// section nav dots
+var nav=document.getElementById('sectionNav');
+for(var d=1;d<=TOTAL;d++){
+  var dot=document.createElement('span');
+  dot.className='dot'+(d===1?' active':'');dot.dataset.section=d;
+  dot.addEventListener('click',function(){goTo(parseInt(this.dataset.section));});
+  nav.appendChild(dot);
+}
+
+// autosave inputs
+document.querySelectorAll('#intakeForm input, #intakeForm textarea, #intakeForm select').forEach(function(el){
+  if(el.type==='file')return;
+  var key=SAVE_PREFIX+(el.name||'')+'-'+(el.value&&el.type==='checkbox'?el.value:'');
+  var saved=localStorage.getItem(key);
+  if(saved!==null){ if(el.type==='checkbox'){el.checked=saved==='true';}else{el.value=saved;} }
+  var handler=function(){ localStorage.setItem(key, el.type==='checkbox'?el.checked:el.value); };
+  el.addEventListener('change',handler);
+  el.addEventListener('input',handler);
+});
+
+// selfie
+var selfieData='';
+document.getElementById('selfieInput').addEventListener('change',function(e){
+  var f=e.target.files[0]; if(!f)return;
+  var r=new FileReader();
+  r.onload=function(ev){
+    selfieData=ev.target.result;
+    document.getElementById('selfieImg').src=selfieData;
+    document.getElementById('selfieDrop').style.display='none';
+    document.getElementById('selfiePreview').classList.add('show');
+  };
+  r.readAsDataURL(f);
+});
+document.getElementById('selfieRemove').addEventListener('click',function(){
+  selfieData='';document.getElementById('selfieInput').value='';
+  document.getElementById('selfiePreview').classList.remove('show');
+  document.getElementById('selfieDrop').style.display='';
+});
+
+// mark required fields with an asterisk
+Object.keys(REQUIRED).forEach(function(n){
+  REQUIRED[n].forEach(function(name){
+    var el=document.querySelector('.form-section[data-section="'+n+'"] [name="'+name+'"]');
+    if(!el)return;
+    var q=el.closest('.q'), label=q&&q.querySelector('label');
+    if(label&&!label.querySelector('.req')){
+      var s=document.createElement('span');s.className='req';s.textContent=' *';label.appendChild(s);
+    }
+  });
+});
+
+var EMAIL_RE=/^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+function validateSection(n){
+  var sec=document.querySelector('.form-section[data-section="'+n+'"]');
+  if(!sec)return true;
+  sec.querySelectorAll('.q.invalid').forEach(function(q){q.classList.remove('invalid');});
+  var firstBad=null;
+  (REQUIRED[n]||[]).forEach(function(name){
+    var els=sec.querySelectorAll('[name="'+name+'"]');
+    if(!els.length)return;
+    var ok;
+    if(els[0].type==='checkbox'){
+      ok=Array.prototype.some.call(els,function(c){return c.checked;});
+    } else {
+      var v=(els[0].value||'').trim();
+      ok=!!v && (els[0].type!=='email' || EMAIL_RE.test(v));
+    }
+    if(!ok){ var q=els[0].closest('.q'); q.classList.add('invalid'); if(!firstBad)firstBad=q; }
+  });
+  var err=document.getElementById('formError');
+  if(firstBad){ err.classList.add('show'); firstBad.scrollIntoView({behavior:'smooth',block:'center'}); return false; }
+  err.classList.remove('show'); return true;
+}
+
+// clear the invalid highlight as soon as they start fixing it
+['input','change'].forEach(function(evt){
+  document.getElementById('intakeForm').addEventListener(evt,function(e){
+    var q=e.target.closest('.q'); if(q)q.classList.remove('invalid');
+    if(!document.querySelector('.q.invalid'))document.getElementById('formError').classList.remove('show');
+  });
+});
+
+function updateUI(){
+  document.querySelectorAll('.form-section').forEach(function(s){ s.style.display=parseInt(s.dataset.section)===current?'':'none'; });
+  document.getElementById('prevBtn').style.display=current>1?'':'none';
+  document.getElementById('nextBtn').textContent=current===TOTAL?'Send it 🤝':'Next';
+  document.getElementById('progressLabel').textContent='Step '+current+' of '+TOTAL;
+  document.getElementById('progressFill').style.width=(current/TOTAL*100)+'%';
+  document.querySelectorAll('.dot').forEach(function(x){
+    var s=parseInt(x.dataset.section);
+    x.className='dot'+(s===current?' active':'')+(s<current?' done':'');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function navigate(dir){
+  if(dir===1 && !validateSection(current)) return;       // can't move forward until required filled
+  if(dir===1&&current===TOTAL){submitIntake();return;}
+  current=Math.max(1,Math.min(TOTAL,current+dir));updateUI();
+}
+function goTo(s){
+  if(s>current && !validateSection(current)) return;     // jumping ahead also validates
+  current=s;updateUI();
+}
+
+function collect(){
+  var data={};
+  var form=document.getElementById('intakeForm');
+  // text/select
+  form.querySelectorAll('input[type=text],input[type=email],input[type=number],textarea,select').forEach(function(el){
+    if(el.name) data[el.name]=el.value.trim();
+  });
+  // checkboxes grouped
+  form.querySelectorAll('input[type=checkbox]:checked').forEach(function(cb){
+    (data[cb.name]=data[cb.name]||[]).push(cb.value);
+  });
+  Object.keys(scaleValues).forEach(function(k){ data[k]=scaleValues[k]+'/10'; });
+  data.hasSelfie=!!selfieData;
+  data.submittedAt=new Date().toISOString();
+  return data;
+}
+
+function buildSummary(data){
+  var lines=['YERRAMAZING — ROADMAP INTAKE','============================',''];
+  Object.keys(data).forEach(function(k){
+    if(k==='submittedAt'||k==='hasSelfie')return;
+    var v=Array.isArray(data[k])?data[k].join(', '):data[k];
+    if(v) lines.push(k.replace(/_/g,' ')+': '+v);
+  });
+  lines.push('');lines.push('Selfie attached: '+(data.hasSelfie?'yes':'no'));
+  return lines.join('\n');
+}
+
+function sbClient(){
+  if(typeof supabase==='undefined'||typeof SUPABASE_URL==='undefined')return null;
+  return supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+
+async function submitIntake(){
+  for(var i=1;i<=TOTAL;i++){ if(!validateSection(i)){ current=i; updateUI(); return; } }
+
+  var nextBtn=document.getElementById('nextBtn');
+  nextBtn.disabled=true; nextBtn.textContent='Sending…';
+
+  var data=collect();
+  document.getElementById('resultText').textContent=buildSummary(data);
+
+  var finish=function(){
+    document.querySelectorAll('.form-section').forEach(function(s){s.style.display='none';});
+    document.getElementById('navButtons').style.display='none';
+    document.querySelector('.section-nav').style.display='none';
+    document.querySelector('.progress-bar').style.display='none';
+    document.querySelector('.progress-text').style.display='none';
+    document.querySelector('.intro-box').style.display='none';
+    document.getElementById('results').classList.add('show');
+    Object.keys(localStorage).forEach(function(k){if(k.indexOf(SAVE_PREFIX)===0)localStorage.removeItem(k);});
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+
+  try{
+    var sb=sbClient();
+    var selfie_path=null;
+    if(sb && selfieData){
+      try{
+        var blob=await (await fetch(selfieData)).blob();
+        var path='selfie-'+Date.now()+'-'+Math.floor(Math.random()*1e6)+'.jpg';
+        var up=await sb.storage.from('intake-selfies').upload(path, blob, {contentType:blob.type||'image/jpeg', upsert:false});
+        if(!up.error) selfie_path=path;
+      }catch(e){ console.warn('selfie upload failed',e); }
+    }
+    if(sb){
+      var res=await sb.from('yerr_intakes').insert({
+        name: data.name||null,
+        email: data.email||null,
+        goal: data.goal||null,
+        answers: data,
+        selfie_path: selfie_path
+      });
+      if(res.error) console.warn('intake insert error', res.error);
+    }
+  }catch(e){ console.warn('intake save failed', e); }
+
+  finish();
+}
+
+function copyResults(){
+  navigator.clipboard.writeText(document.getElementById('resultText').textContent).then(function(){
+    var t=document.getElementById('toast');t.classList.add('show');setTimeout(function(){t.classList.remove('show');},1800);
+  });
+}
+function shareResults(){
+  var text=document.getElementById('resultText').textContent;
+  if(navigator.share){navigator.share({title:'My YERRAMAZING intake',text:text});}
+  else{window.location.href='sms:?&body='+encodeURIComponent(text);}
+}
+
+updateUI();
+</script>
+</body>
+</html>

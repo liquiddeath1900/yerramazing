@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#F5F5F7">
+<title>Intakes — Admin</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<style id="auth-hide">body{visibility:hidden}</style>
+<noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=../index.html"></noscript>
+<link rel="stylesheet" href="app.css">
+<style>
+.admin-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.count-pill{font-size:12px;font-weight:700;color:#534AB7;background:rgba(83,74,183,.1);padding:4px 10px;border-radius:999px}
+.intake-card{background:var(--card,#fff);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:16px 16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.intake-top{display:flex;align-items:center;gap:12px}
+.intake-selfie{width:54px;height:54px;border-radius:50%;object-fit:cover;background:#eee;flex-shrink:0;border:2px solid rgba(83,74,183,.3)}
+.intake-selfie.placeholder{display:flex;align-items:center;justify-content:center;font-size:22px;color:#bbb}
+.intake-id{flex:1;min-width:0}
+.intake-name{font-weight:800;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill-new{font-size:9px;font-weight:800;letter-spacing:.5px;background:#43A047;color:#fff;padding:2px 6px;border-radius:5px}
+.intake-meta{font-size:12px;color:#888;margin-top:2px}
+.intake-meta a{color:#534AB7;text-decoration:none}
+.intake-goal{font-size:13px;font-weight:600;color:#534AB7;margin-top:4px}
+details{margin-top:12px;border-top:1px solid rgba(0,0,0,.06);padding-top:10px}
+summary{cursor:pointer;font-size:13px;font-weight:700;color:#555;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▸ ';color:#999}
+details[open] summary::before{content:'▾ '}
+.ans{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin-top:12px;font-size:13px}
+.ans dt{font-weight:700;color:#666;text-transform:capitalize}
+.ans dd{color:#222;word-break:break-word}
+.empty{text-align:center;color:#999;padding:48px 16px;font-size:14px}
+.err-note{background:rgba(229,57,53,.08);border:1px solid rgba(229,57,53,.25);color:#c62828;border-radius:12px;padding:14px;font-size:13px;line-height:1.5;margin-top:16px}
+.selfie-big{max-width:240px;width:100%;border-radius:12px;margin-top:10px;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="index.html" class="back">&larr; Back to Hub</a>
+  <div class="admin-head">
+    <h1>Intakes</h1>
+    <span class="count-pill" id="countPill">…</span>
+  </div>
+  <div class="sub">Everyone who completed the free roadmap intake. Newest first.</div>
+
+  <div id="list"><div class="empty">Loading…</div></div>
+  <div id="errNote"></div>
+
+  <div class="footer">YERRAMAZING · Admin · Intake submissions</div>
+</div>
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner">
+    <a href="index.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+    <a href="his-plan.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg><span>Train</span></a>
+    <a href="eating-guide.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg><span>Fuel</span></a>
+    <a href="progress.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V3"/><path d="M3 21h18"/><path d="M7 16v-4M12 16V8M17 16v-6"/></svg><span>Track</span></a>
+    <a href="intakes.html" class="tab" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h6"/></svg><span>Intakes</span></a>
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase-config.js"></script>
+<script src="../js/supabase-sync.js"></script>
+<script src="../js/auth-guard.js"></script>
+<script>
+var OWNER='fatfatproductions@gmail.com';
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+function answersHtml(ans){
+  if(!ans||typeof ans!=='object')return '';
+  var skip={submittedAt:1,hasSelfie:1,name:1,email:1,goal:1};
+  var rows='';
+  Object.keys(ans).forEach(function(k){
+    if(skip[k])return;
+    var v=ans[k]; if(Array.isArray(v))v=v.join(', ');
+    if(v===''||v==null)return;
+    rows+='<dt>'+esc(k.replace(/_/g,' '))+'</dt><dd>'+esc(v)+'</dd>';
+  });
+  return '<dl class="ans">'+rows+'</dl>';
+}
+
+function fmtDate(s){ try{return new Date(s).toLocaleString();}catch(e){return s;} }
+
+(async function(){
+  // wait for auth-guard to settle the session
+  var session=null;
+  for(var i=0;i<20 && !session;i++){
+    session=await getSession();
+    if(session&&session.user)break;
+    await new Promise(function(r){setTimeout(r,150);});
+  }
+  var email=(session&&session.user&&session.user.email||'').toLowerCase();
+  var list=document.getElementById('list');
+
+  if(email!==OWNER){
+    document.getElementById('countPill').style.display='none';
+    list.innerHTML='<div class="err-note">This page is admin-only. Signed in as '+esc(email||'nobody')+'.</div>';
+    return;
+  }
+
+  var sb=getSupabase();
+  var res=await sb.from('yerr_intakes').select('*').order('created_at',{ascending:false});
+  if(res.error){
+    list.innerHTML='';
+    document.getElementById('errNote').innerHTML='<div class="err-note">Couldn\'t load intakes: '+esc(res.error.message)+'<br><br>If the table doesn\'t exist yet, run <b>SUPABASE-INTAKE-SETUP.sql</b> in the Supabase SQL editor.</div>';
+    document.getElementById('countPill').style.display='none';
+    return;
+  }
+  var rows=res.data||[];
+  document.getElementById('countPill').textContent=rows.length+(rows.length===1?' total':' total');
+
+  if(!rows.length){ list.innerHTML='<div class="empty">No intakes yet. When someone completes the form, they show up here.</div>'; return; }
+
+  var html='';
+  for(var r=0;r<rows.length;r++){
+    var it=rows[r];
+    var sel='<div class="intake-selfie placeholder">🙂</div>';
+    if(it.selfie_path){
+      try{
+        var su=await sb.storage.from('intake-selfies').createSignedUrl(it.selfie_path, 3600);
+        if(su.data&&su.data.signedUrl){
+          sel='<img class="intake-selfie" src="'+su.data.signedUrl+'" alt="selfie" data-full="'+su.data.signedUrl+'">';
+        }
+      }catch(e){}
+    }
+    html+='<div class="intake-card">'
+      +'<div class="intake-top">'+sel
+      +'<div class="intake-id">'
+      +'<div class="intake-name">'+esc(it.name||'(no name)')+(it.seen?'':' <span class="pill-new">NEW</span>')+'</div>'
+      +'<div class="intake-meta">'+fmtDate(it.created_at)+(it.email?' · <a href="mailto:'+esc(it.email)+'">'+esc(it.email)+'</a>':'')+'</div>'
+      +(it.goal?'<div class="intake-goal">'+esc(it.goal)+'</div>':'')
+      +'</div></div>'
+      +'<details><summary>Full answers</summary>'
+      +(it.selfie_path&&sel.indexOf('<img')===0?'':'')
+      +answersHtml(it.answers)+'</details>'
+      +'</div>';
+  }
+  list.innerHTML=html;
+
+  // open full selfie in new tab on click
+  list.querySelectorAll('img.intake-selfie').forEach(function(img){
+    img.style.cursor='zoom-in';
+    img.addEventListener('click',function(){window.open(this.dataset.full,'_blank');});
+  });
+
+  // mark unseen as seen so the hub badge clears
+  var unseen=rows.filter(function(x){return !x.seen;}).map(function(x){return x.id;});
+  if(unseen.length){ await sb.from('yerr_intakes').update({seen:true}).in('id',unseen); }
+})();
+</script>
+</body>
+</html>
