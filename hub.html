@@ -36,6 +36,14 @@ a.card:hover{border-color:#534AB7;background:#EEEDFE}
   <div class="logo"><span>YERR</span>AMAZING</div>
   <div class="sub">Your private hub — everything in one place.</div>
 
+  <div class="section-label admin-only" id="adminLabel" style="display:none">Admin</div>
+  <div class="links admin-only" id="adminLinks" style="display:none">
+    <a href="fitness/intakes.html" class="card">
+      <div class="link-title">Intake Submissions <span class="link-badge" id="intakeBadge" style="display:none;background:#43A047;color:#fff">0 new</span></div>
+      <div class="link-desc">Everyone who completed the free roadmap intake — goals, stats, selfie. Newest first.</div>
+    </a>
+  </div>
+
   <div class="section-label">Fitness</div>
   <div class="links">
     <a href="fitness/index.html" class="card">
@@ -86,5 +94,27 @@ a.card:hover{border-color:#534AB7;background:#EEEDFE}
 <script src="js/supabase-config.js"></script>
 <script src="js/supabase-sync.js"></script>
 <script src="js/auth-guard.js"></script>
+<script>
+// Owner-only admin tile + "new intakes" badge
+(async function(){
+  try{
+    var session=null;
+    for(var i=0;i<20 && !(session&&session.user);i++){
+      session=await getSession(); if(session&&session.user)break;
+      await new Promise(function(r){setTimeout(r,150);});
+    }
+    var email=(session&&session.user&&session.user.email||'').toLowerCase();
+    if(email!=='fatfatproductions@gmail.com')return;
+    document.getElementById('adminLabel').style.display='';
+    document.getElementById('adminLinks').style.display='';
+    var sb=getSupabase();
+    var res=await sb.from('yerr_intakes').select('id',{count:'exact',head:true}).eq('seen',false);
+    if(!res.error && res.count){
+      var b=document.getElementById('intakeBadge');
+      b.textContent=res.count+' new'; b.style.display='';
+    }
+  }catch(e){ /* table may not exist yet */ }
+})();
+</script>
 </body>
 </html>
