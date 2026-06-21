@@ -106,7 +106,7 @@ section,.footer-wrap{position:relative;z-index:1}
 @keyframes fade-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
 /* Scroll indicator */
-.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text-muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;animation:fade-up .8s ease .5s both}
+.scroll-hint{position:absolute;bottom:32px;left:0;right:0;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text-muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;animation:fade-up .8s ease .5s both}
 .scroll-arrow{width:18px;height:18px;border-right:2px solid var(--text-muted);border-bottom:2px solid var(--text-muted);transform:rotate(45deg);animation:bounce 2s ease-in-out infinite}
 @keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
 
@@ -232,7 +232,8 @@ section,.footer-wrap{position:relative;z-index:1}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px;gap:4px;box-shadow:var(--shadow)}
   .nav-links.open{display:flex}
   .nav-toggle{display:block}
-  .identity-grid,.hub-grid,.offer-grid,.adventure-grid{grid-template-columns:1fr}
+  .identity-grid,.hub-grid,.offer-grid,.adventure-grid,.system-wrap{grid-template-columns:1fr}
+  .system-wrap{gap:36px}
   .hub-featured{grid-column:1;grid-template-columns:1fr}
   .hub-featured .hub-visual{padding:24px}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
