@@ -52,7 +52,8 @@ body{background:var(--bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,'
 .mesh-blob:nth-child(2){width:420px;height:420px;background:var(--mesh-2);bottom:-10%;right:-10%;animation-delay:-7s}
 .mesh-blob:nth-child(3){width:360px;height:360px;background:var(--mesh-3);top:40%;left:55%;animation-delay:-12s}
 @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-20px,30px) scale(1.05)}}
-@media(max-width:640px){.mesh-blob{filter:blur(70px);opacity:.4}.mesh-blob:nth-child(1){width:300px;height:300px}.mesh-blob:nth-child(2){width:260px;height:260px}.mesh-blob:nth-child(3){width:220px;height:220px}}
+@media(max-width:640px){.mesh-blob{filter:blur(40px);opacity:.4}.mesh-blob:nth-child(1){width:300px;height:300px}.mesh-blob:nth-child(2){width:260px;height:260px}.mesh-blob:nth-child(3){width:220px;height:220px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 .wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:28px 20px 60px}
 
@@ -159,8 +160,8 @@ h1{font-size:clamp(28px,6vw,40px);font-weight:900;letter-spacing:-.03em;line-hei
   .scale-btn{width:28px;height:28px;font-size:11px}
 }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase-config.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="js/supabase-config.js"></script>
 </head>
 <body>
 

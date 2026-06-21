@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#F5F5F7">
 <title>Gym Partners — yerramazing</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -270,12 +270,14 @@
   applyFilter('all');
 })();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../js/supabase-config.js"></script>
-<script src="../js/supabase-sync.js"></script>
-<script src="../js/auth-guard.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="../js/supabase-config.js"></script>
+<script defer src="../js/supabase-sync.js"></script>
+<script defer src="../js/auth-guard.js"></script>
 <script>
 // Owner-only admin tile + "new intakes" badge
+// Deferred auth scripts (getSession/getSupabase) load before DOMContentLoaded.
+window.addEventListener('DOMContentLoaded',function(){
 (async function(){
   try{
     var session=null;
@@ -294,6 +296,7 @@
     }
   }catch(e){ /* table may not exist yet */ }
 })();
+});
 </script>
 </body>
 </html>

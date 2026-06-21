@@ -59,6 +59,7 @@ body{background:var(--bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,'
   50%{transform:translate(-20px,40px) scale(.95)}
   75%{transform:translate(30px,20px) scale(1.02)}
 }
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* ══════ NAV ══════ */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
@@ -227,6 +228,11 @@ section,.footer-wrap{position:relative;z-index:1}
 .footer-copy{font-size:11px;color:var(--text-muted)}
 
 /* ══════ RESPONSIVE ══════ */
+/* Mobile GPU relief: lighten backdrop blur on all glass cards */
+@media(max-width:768px){
+  :root{--card-blur:8px}
+  .nav.scrolled{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+}
 @media(max-width:640px){
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;padding:8px 16px;gap:4px;box-shadow:var(--shadow)}
   .nav-links.open{display:flex}
@@ -237,7 +243,7 @@ section,.footer-wrap{position:relative;z-index:1}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
   .hero-cta{flex-direction:column;align-items:center}
   .btn{width:100%;max-width:300px;justify-content:center}
-  .mesh-blob{opacity:.4;filter:blur(80px)}
+  .mesh-blob{opacity:.4;filter:blur(50px)}
   .mesh-blob:nth-child(1){width:350px;height:350px}
   .mesh-blob:nth-child(2){width:300px;height:300px}
   .mesh-blob:nth-child(3){width:250px;height:250px}
@@ -373,28 +379,28 @@ section,.footer-wrap{position:relative;z-index:1}
   </div>
   <div class="offer-grid">
     <div class="offer-card">
-      <img class="offer-img" src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=480&h=180&fit=crop&crop=center" alt="Hotel room workout" loading="lazy">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=480&h=180&fit=crop&crop=center" alt="Hotel room workout" loading="lazy" decoding="async" width="480" height="180">
       <div class="offer-body">
         <div class="offer-title">Train anywhere</div>
         <div class="offer-text">Hotel room, beach, a park, a stairwell. Bands and bodyweight do the job — no gym required. The workout travels with me, every trip.</div>
       </div>
     </div>
     <div class="offer-card">
-      <img class="offer-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&h=180&fit=crop&crop=center" alt="Local food" loading="lazy">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&h=180&fit=crop&crop=center" alt="Local food" loading="lazy" decoding="async" width="480" height="180">
       <div class="offer-body">
         <div class="offer-title">Eat smart on the go</div>
         <div class="offer-text">New food everywhere — I still hit protein and stay close to my targets without missing the local spots. Enjoy the trip, don't blow the progress.</div>
       </div>
     </div>
     <div class="offer-card">
-      <img class="offer-img" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=480&h=180&fit=crop&crop=center" alt="Exploring a new city" loading="lazy">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=480&h=180&fit=crop&crop=center" alt="Exploring a new city" loading="lazy" decoding="async" width="480" height="180">
       <div class="offer-body">
         <div class="offer-title">Explore + move</div>
         <div class="offer-text">Steps add up. Walking a new city, hiking, swimming — the trip itself becomes the cardio. Movement is the default, not a chore.</div>
       </div>
     </div>
     <div class="offer-card">
-      <img class="offer-img" src="https://images.unsplash.com/photo-1499591934245-40b55745b905?w=480&h=180&fit=crop&crop=center" alt="Documenting the journey" loading="lazy">
+      <img class="offer-img" src="https://images.unsplash.com/photo-1499591934245-40b55745b905?w=480&h=180&fit=crop&crop=center" alt="Documenting the journey" loading="lazy" decoding="async" width="480" height="180">
       <div class="offer-body">
         <div class="offer-title">Document it real</div>
         <div class="offer-text">The wins and the off-days, no filter. If I can stay consistent across time zones, so can you. That's the whole point.</div>
@@ -416,7 +422,7 @@ section,.footer-wrap{position:relative;z-index:1}
   <div class="adventure-grid">
     <div class="adventure-card">
       <div class="adventure-video">
-        <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=480&h=270&fit=crop&crop=center" alt="Ocean view" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=480&h=270&fit=crop&crop=center" alt="Ocean view" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy" decoding="async" width="480" height="270">
         <div class="adventure-placeholder" style="position:relative;z-index:1;background:rgba(0,0,0,.4);color:#fff;inset:0;position:absolute">
           First one dropping soon
         </div>
@@ -428,7 +434,7 @@ section,.footer-wrap{position:relative;z-index:1}
     </div>
     <div class="adventure-card">
       <div class="adventure-video">
-        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=480&h=270&fit=crop&crop=center" alt="Island sunset" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=480&h=270&fit=crop&crop=center" alt="Island sunset" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy" decoding="async" width="480" height="270">
         <div class="adventure-placeholder" style="position:relative;z-index:1;background:rgba(0,0,0,.4);color:#fff;inset:0;position:absolute">
           More on the way
         </div>

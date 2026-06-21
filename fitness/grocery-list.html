@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#F5F5F7">
 <title>Grocery List — Gym Partners</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -503,10 +503,10 @@ function clearAll() {
       <a href="health-profile.html" class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>Profile</span></a>
   </div>
 </nav>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../js/supabase-config.js"></script>
-<script src="../js/supabase-sync.js"></script>
-<script src="../js/auth-guard.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="../js/supabase-config.js"></script>
+<script defer src="../js/supabase-sync.js"></script>
+<script defer src="../js/auth-guard.js"></script>
 <script>
 async function onAuthSync() {
   var r1 = await syncChecklist(STORAGE_HIS);
@@ -521,7 +521,10 @@ saveCheckedFor = function(side, arr) {
   pushChecklist(key, arr).catch(function() {});
 };
 
-getSession().then(function(s) { if (s && s.user) onAuthSync(); });
+// Deferred auth scripts load before DOMContentLoaded.
+window.addEventListener('DOMContentLoaded', function() {
+  getSession().then(function(s) { if (s && s.user) onAuthSync(); });
+});
 </script>
 </body>
 </html>

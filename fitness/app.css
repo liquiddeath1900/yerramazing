@@ -334,7 +334,78 @@ a.card.is-hidden{display:none}
 .tabbar .tab[aria-current="page"]{color:var(--primary)}
 .tabbar .tab:active{background:var(--line-soft)}
 
+/* FORM CONTROLS — base styling + iOS no-zoom (font-size>=16px) */
+input,select,textarea{
+  font-family:inherit;font-size:16px;color:var(--ink);
+  width:100%;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;
+  padding:12px 14px;line-height:1.3;
+  -webkit-appearance:none;appearance:none;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2386868B' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;background-size:16px;
+  padding-right:38px;cursor:pointer;
+}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{
+  outline:none;border-color:var(--primary);
+  box-shadow:0 0 0 3px var(--primary-soft);
+}
+input::placeholder,textarea::placeholder{color:var(--ink-mute)}
+
+/* CALCULATOR / PROGRESS FORM LAYOUT */
+.form-card{background:var(--surface);border:1px solid var(--line-soft);border-radius:20px;padding:20px 18px;margin-bottom:14px;box-shadow:var(--shadow-1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.form-row:last-child{margin-bottom:0}
+@media(max-width:420px){.form-row{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:6px;min-width:0}
+.form-group label{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-mute)}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.preset{flex:1;min-width:96px;min-height:44px;width:auto;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink-soft);font-size:14px;font-weight:600;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.preset:active{background:var(--line-soft)}
+.preset.preset-his{background:var(--move);color:#fff;border-color:var(--move)}
+.preset.preset-hers{background:var(--exercise-ink);color:#fff;border-color:var(--exercise-ink)}
+
+/* PRIMARY BUTTON */
+.btn{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:50px;padding:14px 20px;border:none;border-radius:14px;background:var(--primary);color:#fff;font-family:var(--font-display);font-size:16px;font-weight:800;letter-spacing:-.01em;cursor:pointer;transition:transform .12s ease,box-shadow .15s ease;box-shadow:var(--shadow-1);margin-bottom:10px}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--primary)}
+.btn-export{background:var(--stand-ink)}
+.btn-danger{background:var(--surface);color:var(--warn-ink);border:1px solid var(--warn-soft)}
+
+/* PROGRESS HISTORY ENTRIES */
+.entry{position:relative;background:var(--surface);border:1px solid var(--line-soft);border-radius:18px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow-1)}
+.entry-date{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px}
+.entry-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:10px}
+.entry-stat-label{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)}
+.entry-stat-value{font-size:14px;font-weight:600;color:var(--ink);margin-top:2px}
+.entry-notes{font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:10px}
+.entry-delete{position:absolute;top:12px;right:12px;width:32px;height:32px;min-height:32px;display:grid;place-items:center;border:none;border-radius:999px;background:var(--line-soft);color:var(--ink-mute);font-size:18px;line-height:1;cursor:pointer;padding:0;margin:0}
+.entry-delete:active{background:var(--warn-soft);color:var(--warn-ink)}
+
+/* RESULTS */
+.results{display:none;margin-top:8px}
+.results.show{display:block}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.result-card{background:var(--surface);border:1px solid var(--line-soft);border-radius:18px;padding:18px 16px;text-align:center;box-shadow:var(--shadow-1)}
+.result-card.highlight{background:var(--primary-soft);border-color:transparent}
+.result-num{font-family:var(--font-display);font-weight:900;font-size:32px;letter-spacing:-.03em;line-height:1.05;color:var(--primary);font-variant-numeric:tabular-nums}
+.result-label{font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-top:4px}
+.result-sub{font-size:11.5px;color:var(--ink-mute);margin-top:3px;line-height:1.35}
+
+/* RESPONSIVE TABLES — scroll instead of blowing out the viewport */
+@media(max-width:540px){
+  table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+
+/* MOBILE PERF — lighter tabbar blur to cut GPU jank */
+@media(max-width:768px){
+  .tabbar{backdrop-filter:saturate(160%) blur(8px);-webkit-backdrop-filter:saturate(160%) blur(8px)}
+}
+
 /* ACCESSIBILITY */
 @media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }

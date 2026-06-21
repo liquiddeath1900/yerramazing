@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>YERRAMAZING — Stay Consistent. Become Who You Didn't Think You Could.</title>
 <meta name="description" content="One regular guy's real transformation — and the exact free workout + meal plan I'll build for you, the same system I run on myself. No shortcuts. Just showing up. YERR.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -59,6 +59,7 @@ body{background:var(--bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,'
   50%{transform:translate(-20px,40px) scale(.95)}
   75%{transform:translate(30px,20px) scale(1.02)}
 }
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* ══════ NAV ══════ */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
@@ -237,7 +238,7 @@ section,.footer-wrap{position:relative;z-index:1}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
   .hero-cta{flex-direction:column;align-items:center}
   .btn{width:100%;max-width:300px;justify-content:center}
-  .mesh-blob{opacity:.4;filter:blur(80px)}
+  .mesh-blob{opacity:.4;filter:blur(40px)}
   .mesh-blob:nth-child(1){width:350px;height:350px}
   .mesh-blob:nth-child(2){width:300px;height:300px}
   .mesh-blob:nth-child(3){width:250px;height:250px}
@@ -389,7 +390,7 @@ section,.footer-wrap{position:relative;z-index:1}
   <div class="hero-content">
     <div class="hero-badge"><span class="dot"></span> Real progress, documented in public</div>
     <h1 class="hero-title"><span class="yerr">YERR</span>AMAZING</h1>
-    <p class="hero-sub">Just a regular dude who got tired of waiting. I stayed <strong>consistent</strong>, built a <strong>system</strong>, and started becoming someone I didn't think I could. <strong>YERR</strong> — you're not doing it alone. Let me build you the same plan, free.</p>
+    <p class="hero-sub">Just a regular dude who, after years, started to give a <strong>FUK</strong> about himself. I stayed <strong>consistent</strong>, built a <strong>plan</strong>, and started becoming someone I didn't think I could be. <strong>YERR</strong> — not alone. Let me build you the same plan, for free.</p>
     <div class="hero-cta">
       <a href="intake.html" class="btn btn-primary">Get my free roadmap</a>
       <a href="#system" class="btn btn-ghost">See the system</a>
