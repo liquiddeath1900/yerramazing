@@ -267,14 +267,14 @@ section,.footer-wrap{position:relative;z-index:1}
 /* ══════ SYSTEM SHOWCASE (the surprise) ══════ */
 .system{padding:100px 24px}
 .system-wrap{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.phone{position:relative;width:100%;max-width:300px;margin:0 auto;aspect-ratio:9/18.5;background:var(--surface);border:1px solid var(--border);border-radius:42px;box-shadow:var(--shadow-hover),0 0 0 10px rgba(0,0,0,.04);padding:13px}
-.phone::before{content:'';position:absolute;top:13px;left:50%;transform:translateX(-50%);width:88px;height:20px;background:var(--text);opacity:.85;border-radius:0 0 14px 14px;z-index:3}
+.phone{position:relative;width:100%;max-width:300px;margin:0 auto;aspect-ratio:9/16;background:var(--surface);border:1px solid var(--border);border-radius:42px;box-shadow:var(--shadow-hover),0 0 0 10px rgba(0,0,0,.04);padding:13px}
+.phone::before{content:'';position:absolute;top:26px;left:50%;transform:translateX(-50%);width:80px;height:24px;background:#0a0a0c;border-radius:100px;z-index:3}
 .phone-screen{height:100%;border-radius:30px;overflow:hidden;background:linear-gradient(165deg,var(--purple-light),var(--green-light));display:flex;flex-direction:column}
 @media(prefers-color-scheme:dark){.phone-screen{background:linear-gradient(165deg,rgba(83,74,183,.2),rgba(67,160,71,.12))}}
 .phone-head{padding:44px 20px 14px}
 .phone-hi{font-size:12px;color:var(--text-muted);font-weight:700}
 .phone-name{font-size:21px;font-weight:900;letter-spacing:-.02em}
-.phone-rows{flex:1;padding:4px 13px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.phone-rows{flex:1;padding:4px 13px;display:flex;flex-direction:column;justify-content:center;gap:9px;overflow:hidden}
 .p-row{display:flex;align-items:center;gap:11px;background:var(--card-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:14px;padding:11px 13px}
 .p-ico{font-size:19px;width:24px;text-align:center;flex-shrink:0}
 .p-txt{flex:1;min-width:0}
