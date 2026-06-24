@@ -26,22 +26,33 @@ async function getSession() {
 
 // --- Auth ---
 
-async function signInWithEmail(email) {
+// Optional `redirect` (e.g. 'my-plan.html') is carried through the auth round-trip
+// so the user lands on the right page after sign-in. Defaults to plain login.html.
+function _loginReturnUrl(redirect) {
+  var base = window.location.origin + '/login.html';
+  // Only forward same-site relative paths through the auth round-trip (no open redirect).
+  if (!redirect || /^[a-z][a-z0-9+.-]*:/i.test(redirect) || redirect.indexOf('//') === 0 || redirect.indexOf('\\') === 0) {
+    return base;
+  }
+  return base + '?redirect=' + encodeURIComponent(redirect.replace(/^\/+/, ''));
+}
+
+async function signInWithEmail(email, redirect) {
   const sb = getSupabase();
   if (!sb) return { error: 'Supabase not loaded' };
   const { data, error } = await sb.auth.signInWithOtp({
     email,
-    options: { shouldCreateUser: true, emailRedirectTo: window.location.origin + '/login.html' }
+    options: { shouldCreateUser: true, emailRedirectTo: _loginReturnUrl(redirect) }
   });
   return { data, error };
 }
 
-async function signInWithGoogle() {
+async function signInWithGoogle(redirect) {
   const sb = getSupabase();
   if (!sb) return { error: 'Supabase not loaded' };
   const { data, error } = await sb.auth.signInWithOAuth({
     provider: 'google',
-    options: { redirectTo: window.location.origin + '/login.html' }
+    options: { redirectTo: _loginReturnUrl(redirect) }
   });
   return { data, error };
 }

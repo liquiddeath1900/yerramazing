@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F5F5F7">
+<title>My Plan — YERRAMAZING</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,900,500&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<style id="auth-hide">body{visibility:hidden}</style>
+<noscript><style>body{visibility:visible}</style><meta http-equiv="refresh" content="0;url=index.html"></noscript>
+<link rel="stylesheet" href="fitness/app.css">
+<style>
+.state{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.state-inner{max-width:420px}
+.state .ico{font-size:46px;margin-bottom:14px}
+.state h2{margin:0 0 10px;font-size:26px}
+.state p{font-size:15px;color:var(--ink-soft);line-height:1.6}
+.avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--primary);box-shadow:var(--shadow-2);flex-shrink:0;background:var(--line-soft)}
+.profile-row{display:flex;align-items:center;gap:14px;margin:6px 0 4px}
+.coach-note{background:var(--primary-soft);color:var(--primary-ink);border-radius:18px;padding:16px 18px;font-size:15px;line-height:1.6;margin:16px 0 4px}
+.coach-note strong{font-weight:700}
+.adminbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#1a1a1a;color:#fff;border-radius:14px;padding:10px 14px;margin-bottom:14px;font-size:13px}
+.adminbar .draft{background:var(--warmup-soft);color:var(--warmup-ink);font-weight:800;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px}
+.adminbar .pub{background:var(--exercise-soft);color:var(--exercise-ink);font-weight:800;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:6px}
+
+.ex-list{list-style:none;margin:0;padding:0}
+.ex-row{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.ex-row:last-child{border-bottom:none}
+.ex-main{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+.ex-name{font-weight:700;font-size:15px;color:var(--ink);line-height:1.3}
+.ex-sets{font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--primary-ink);white-space:nowrap;align-self:start;padding-top:2px}
+.ex-note{grid-column:1/-1;font-size:13px;color:var(--ink-mute);line-height:1.5}
+.ex-note.levelup{color:var(--exercise-ink);font-weight:600}
+.simple-list{margin:0;padding-left:20px;font-size:15px;color:var(--ink-soft);line-height:1.8}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:15px}
+.kv dt{font-weight:700;color:var(--ink-mute)}
+.kv dd{color:var(--ink);font-family:var(--font-mono);font-weight:700}
+.meal-row{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:9px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px}
+.meal-row:last-child{border-bottom:none}
+.meal-row dt{font-weight:700;color:var(--primary-ink);white-space:nowrap}
+.meal-row dd{color:var(--ink-soft)}
+.grocery-cat{font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--ink);margin:14px 0 6px}
+.grocery-cat:first-child{margin-top:0}
+
+/* level up — locked teaser cards */
+.lvl-card{position:relative;background:var(--surface);border:1px dashed var(--primary);border-radius:18px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow-1)}
+.lvl-card .lvl-title{font-family:var(--font-display);font-weight:800;font-size:15px;color:var(--ink);display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.lvl-lock{font-size:13px}
+.lvl-card .lvl-teaser{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.lvl-cta{display:block;text-align:center;background:var(--primary);color:#fff;font-weight:800;font-size:15px;text-decoration:none;border-radius:16px;padding:15px 18px;margin-top:14px;box-shadow:var(--shadow-2)}
+.lvl-cta:hover{filter:brightness(1.05)}
+.lvl-note{text-align:center;font-size:12.5px;color:var(--ink-mute);margin-top:8px}
+.disclaimer{margin-top:18px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--bg-soft);font-size:11.5px;line-height:1.55;color:var(--ink-mute)}
+.disclaimer strong{color:var(--ink-soft);font-weight:700}
+
+/* tab panels */
+[data-panel]{animation:rise .4s cubic-bezier(.16,1,.3,1)}
+.panel-eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin:18px 0 2px}
+
+/* active tab */
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;background:none;border:none;cursor:pointer;font:inherit;color:var(--ink-mute);text-decoration:none;width:100%}
+.tab svg{width:22px;height:22px}
+.tab span{font-size:10.5px;font-weight:700;letter-spacing:.02em}
+.tab[aria-current="page"]{color:var(--primary)}
+#signout{position:fixed;top:calc(env(safe-area-inset-top) + 10px);right:14px;z-index:9999;padding:6px 12px;min-height:32px;background:rgba(0,0,0,.7);color:#fff;border:none;border-radius:999px;font:600 11px/1 var(--font-body);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18);backdrop-filter:blur(8px)}
+</style>
+</head>
+<body data-side="his">
+<div class="wrap fade-in">
+
+  <a href="index.html" class="back">&larr; yerramazing</a>
+  <div id="adminbar" class="adminbar" style="display:none"></div>
+
+  <div id="loading" class="state"><div class="state-inner"><div class="ico">⏳</div><p>Loading your plan…</p></div></div>
+
+  <div id="empty" class="state" style="display:none"><div class="state-inner">
+    <div class="ico">💪</div>
+    <h2>Your roadmap is being built</h2>
+    <p>I'm putting your plan together right now — workouts, food, the whole thing, dialed to what you told me. Check back soon.<br><br><strong>YERR.</strong></p>
+  </div></div>
+
+  <div id="plan" style="display:none">
+    <!-- HOME — greeting / quick profile -->
+    <div data-panel="home" style="display:none">
+      <div class="hero-head" style="padding-bottom:6px">
+        <div class="eyebrow"><span class="dot"></span><span id="heroEyebrow">Welcome</span></div>
+        <div class="profile-row">
+          <img id="avatar" class="avatar" alt="" style="display:none">
+          <div>
+            <h1 id="planName" style="font-size:34px;margin-bottom:2px">Your Plan</h1>
+            <div class="sub" id="planHeadline" style="font-size:14.5px"></div>
+          </div>
+        </div>
+      </div>
+      <div id="coachNote" class="coach-note" style="display:none"></div>
+      <div id="statGrid" class="stat-grid" style="display:none"></div>
+      <div id="roadmapCard" style="display:none">
+        <div class="panel-eyebrow">What this roadmap does for you</div>
+        <div class="card"><ul class="simple-list" id="roadmapGoals"></ul></div>
+      </div>
+      <div id="howToNote"></div>
+      <div class="note note-green" style="margin-top:12px;display:flex;align-items:flex-start;gap:8px">
+        <span>💬</span><div>Questions, or something feels off? <a href="sms:+13477498146" style="color:var(--primary-ink);font-weight:700;text-decoration:underline">Text me at 347-749-8146</a> — we adjust as you go.</div>
+      </div>
+      <div class="disclaimer">
+        <strong>Before you start — please read.</strong> This plan is general fitness and nutrition information for educational purposes only. It is <strong>not medical advice</strong>, diagnosis, or treatment, and does not replace your doctor. Talk to a physician before beginning any new exercise or nutrition program — especially if you have an injury, a medical condition, are pregnant, or take medication. Exercise carries an inherent risk of injury: work within your ability, use proper form, and stop immediately if you feel pain, dizziness, or discomfort. By using this plan you accept full responsibility for your own health decisions and agree that YERRAMAZING and its creator are not liable for any injury, loss, or damage arising from its use. Results vary and are not guaranteed.
+      </div>
+    </div>
+
+    <!-- TRAIN -->
+    <div data-panel="train" style="display:none">
+      <div id="trainingNote"></div>
+      <div id="trainingDays"></div>
+    </div>
+
+    <!-- FUEL -->
+    <div data-panel="fuel" style="display:none">
+      <div class="panel-eyebrow">Daily targets</div>
+      <div class="card"><dl class="kv" id="targetsKv"></dl></div>
+      <div id="nutritionBody"></div>
+      <div id="grocerySection" style="display:none">
+        <div class="panel-eyebrow">Grocery starter</div>
+        <div class="card" id="groceryBody"></div>
+      </div>
+    </div>
+
+    <!-- SUPPS -->
+    <div data-panel="supps" style="display:none">
+      <div class="panel-eyebrow">Your stack</div>
+      <div id="suppBody"></div>
+      <div id="week1Section" style="display:none">
+        <div class="panel-eyebrow">Start here — week 1</div>
+        <div class="card"><ul class="simple-list" id="week1Body"></ul></div>
+      </div>
+    </div>
+
+    <!-- LEVEL UP -->
+    <div data-panel="levelup" style="display:none">
+      <div id="levelupBody"></div>
+    </div>
+  </div>
+
+  <div class="footer" style="text-align:center;color:var(--ink-mute);font-size:12px;padding:24px 0 8px">YERRAMAZING · Your private plan</div>
+</div>
+
+<nav class="tabbar" aria-label="Primary">
+  <div class="tabbar-inner" style="grid-template-columns:repeat(5,1fr)">
+    <button type="button" class="tab" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></button>
+    <button type="button" class="tab" data-tab="train"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2M19 12h2M7 8v8M17 8v8M9 6v12M15 6v12"/></svg><span>Train</span></button>
+    <button type="button" class="tab" data-tab="fuel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v9a3 3 0 003 3v6M8 3v6M16 3c-1.5 3-1.5 6 0 9v9"/></svg><span>Fuel</span></button>
+    <button type="button" class="tab" data-tab="supps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L3.5 13.5a5 5 0 017-7l7 7a5 5 0 01-7 7z"/><path d="M8.5 8.5l7 7"/></svg><span>Supps</span></button>
+    <button type="button" class="tab" data-tab="levelup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><span>Level Up</span></button>
+  </div>
+</nav>
+
+<button type="button" id="signout">Sign out</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/supabase-sync.js"></script>
+<script>
+var OWNER='fatfatproductions@gmail.com';
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function show(id){var el=$(id);if(el)el.style.display='';}
+function hide(id){var el=$(id);if(el)el.style.display='none';}
+function reveal(){document.body.style.visibility='visible';var h=$('auth-hide');if(h)h.remove();}
+function toLogin(){window.location.replace('login.html?redirect='+encodeURIComponent('my-plan.html'));}
+function ytUrl(name){return 'https://www.youtube.com/results?search_query='+encodeURIComponent(name+' exercise form');}
+
+// tabs
+function showTab(name){
+  var panels=document.querySelectorAll('[data-panel]');
+  for(var i=0;i<panels.length;i++) panels[i].style.display = (panels[i].getAttribute('data-panel')===name)?'':'none';
+  var tabs=document.querySelectorAll('.tab[data-tab]');
+  for(var j=0;j<tabs.length;j++) tabs[j].setAttribute('aria-current', tabs[j].getAttribute('data-tab')===name?'page':'false');
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('.tab[data-tab]').forEach(function(t){ t.addEventListener('click',function(){ showTab(t.getAttribute('data-tab')); }); });
+
+$('signout').addEventListener('click', async function(){ this.disabled=true; try{await signOut();}catch(e){} window.location.replace('login.html'); });
+
+// ---- render ----
+function renderStats(stats){
+  if(!stats||typeof stats!=='object')return;
+  var tones=['exercise','kcal','stand','plum'];
+  var keys=Object.keys(stats).filter(function(k){return stats[k]!=null&&stats[k]!=='';});
+  if(!keys.length)return;
+  var html='';
+  keys.slice(0,4).forEach(function(k,i){
+    html+='<div class="stat-tile" data-tone="'+tones[i%tones.length]+'"><div class="stat-overline">'+esc(k.replace(/_/g,' '))+'</div><div class="stat-num" style="font-size:30px">'+esc(stats[k])+'</div></div>';
+  });
+  $('statGrid').innerHTML=html; show('statGrid');
+}
+function renderTargets(t){
+  if(!t||typeof t!=='object')return;
+  var labels={calories:'Calories',protein:'Protein',carbs:'Carbs',fat:'Fat',water_oz:'Water',steps:'Steps'};
+  var rows='';
+  Object.keys(t).forEach(function(k){ if(t[k]==null||t[k]==='')return; rows+='<dt>'+esc(labels[k]||k.replace(/_/g,' '))+'</dt><dd>'+esc(t[k])+'</dd>'; });
+  if(rows) $('targetsKv').innerHTML=rows;
+}
+function renderTraining(tr){
+  if(!tr||typeof tr!=='object')return;
+  if(tr.note) $('trainingNote').innerHTML='<div class="note note-green">'+(tr.split_name?'<strong>'+esc(tr.split_name)+'</strong> — ':'')+esc(tr.note)+'</div>';
+  else if(tr.split_name) $('trainingNote').innerHTML='<div class="note note-green"><strong>'+esc(tr.split_name)+'</strong></div>';
+  var days=Array.isArray(tr.days)?tr.days:[];
+  var html='';
+  days.forEach(function(d){
+    var exs=Array.isArray(d.exercises)?d.exercises:[];
+    var rows='';
+    exs.forEach(function(e){
+      var yt=e.youtube||ytUrl(e.name);
+      rows+='<li class="ex-row"><div class="ex-main"><span class="ex-name">'+esc(e.name)+'</span>'
+        +'<a class="watch" href="'+esc(yt)+'" target="_blank" rel="noopener">▸ Watch</a></div>'
+        +'<span class="ex-sets">'+esc(e.sets||'')+(e.reps?' × '+esc(e.reps):'')+'</span>';
+      if(e.note) rows+='<span class="ex-note">'+esc(e.note)+'</span>';
+      if(e.levelUp) rows+='<span class="ex-note levelup">↑ Level up: '+esc(e.levelUp)+'</span>';
+      rows+='</li>';
+    });
+    html+='<details class="mission-card"'+(days.length<=3?' open':'')+'><summary><span>'+esc(d.label||'Day')+(d.focus?' · '+esc(d.focus):'')+'</span></summary><div class="mission-body"><ul class="ex-list">'+rows+'</ul></div></details>';
+  });
+  $('trainingDays').innerHTML=html;
+}
+function renderNutrition(n){
+  if(!n||typeof n!=='object')return;
+  var html='';
+  if(n.style) html+='<div class="note note-orange"><strong>'+esc(n.style)+'</strong></div>';
+  if(Array.isArray(n.avoid)&&n.avoid.length) html+='<div class="note note-red"><strong>Skips:</strong> '+esc(n.avoid.join(', '))+'</div>';
+  if(Array.isArray(n.principles)&&n.principles.length){ html+='<div class="card"><ul class="simple-list">'; n.principles.forEach(function(p){html+='<li>'+esc(p)+'</li>';}); html+='</ul></div>'; }
+  if(Array.isArray(n.week_plan)&&n.week_plan.length){
+    html+='<div class="panel-eyebrow">Your week — meal plan</div>';
+    if(n.week_note) html+='<div class="note note-orange">'+esc(n.week_note)+'</div>';
+    n.week_plan.forEach(function(d){
+      var meals='';
+      (d.meals||[]).forEach(function(m){ meals+='<div class="meal-row"><dt>'+esc(m.meal||'')+'</dt><dd>'+esc(m.items||'')+'</dd></div>'; });
+      html+='<details class="mission-card"><summary><span>'+esc(d.day||'Day')+(d.tag?' · '+esc(d.tag):'')+'</span></summary><div class="mission-body"><dl>'+meals+'</dl></div></details>';
+    });
+  } else if(Array.isArray(n.sample_day)&&n.sample_day.length){
+    html+='<div class="card"><div class="card-title">A typical day</div><dl>';
+    n.sample_day.forEach(function(m){html+='<div class="meal-row"><dt>'+esc(m.meal||'')+'</dt><dd>'+esc(m.items||'')+'</dd></div>';}); html+='</dl></div>';
+  }
+  $('nutritionBody').innerHTML=html;
+}
+function renderGrocery(g){
+  if(!Array.isArray(g)||!g.length)return;
+  var html='';
+  g.forEach(function(cat){ html+='<div class="grocery-cat">'+esc(cat.category||'')+'</div><ul class="simple-list">'; (cat.items||[]).forEach(function(it){html+='<li>'+esc(it)+'</li>';}); html+='</ul>'; });
+  $('groceryBody').innerHTML=html; show('grocerySection');
+}
+function renderSupps(s){
+  if(!Array.isArray(s)||!s.length)return;
+  var html='';
+  s.forEach(function(sp){ html+='<div class="card"><div class="card-title">'+esc(sp.name)+(sp.dose?' <span class="pill pill-save">'+esc(sp.dose)+'</span>':'')+'</div><div class="card-detail">'+(sp.timing&&sp.timing!=='—'?'<strong>'+esc(sp.timing)+'.</strong> ':'')+esc(sp.why||'')+'</div></div>'; });
+  $('suppBody').innerHTML=html;
+}
+function renderWeek1(w){
+  if(!Array.isArray(w)||!w.length)return;
+  $('week1Body').innerHTML=w.map(function(x){return '<li>'+esc(x)+'</li>';}).join(''); show('week1Section');
+}
+function renderLevelUp(l){
+  if(!l||typeof l!=='object'){ $('levelupBody').innerHTML='<div class="note note-purple">More advanced options unlock as you progress. YERR.</div>'; return; }
+  var html='';
+  if(l.intro) html+='<div class="coach-note" style="margin-top:14px">'+esc(l.intro)+'</div>';
+  (l.items||[]).forEach(function(it){ html+='<div class="lvl-card"><div class="lvl-title"><span class="lvl-lock">🔒</span>'+esc(it.title)+'</div><div class="lvl-teaser">'+esc(it.teaser)+'</div></div>'; });
+  if(l.cta){ html+='<a class="lvl-cta" href="'+esc(l.cta.href||'#')+'"'+(l.cta.href&&l.cta.href.indexOf('http')===0?' target="_blank" rel="noopener"':'')+'>'+esc(l.cta.label||'Level up')+'</a>'; if(l.cta.note) html+='<div class="lvl-note">'+esc(l.cta.note)+'</div>'; }
+  $('levelupBody').innerHTML=html;
+}
+function renderHome(p){
+  var home=p.home||{};
+  var goals=home.roadmapGoals||p.roadmapGoals;
+  if(Array.isArray(goals)&&goals.length){
+    $('roadmapGoals').innerHTML=goals.map(function(g){return '<li>'+esc(g)+'</li>';}).join('');
+    show('roadmapCard');
+  }
+  var howTo=home.howTo||'Tap the buttons below: <strong>Train</strong> for your workouts, <strong>Fuel</strong> for food + macros, <strong>Supps</strong> for your stack, and <strong>Level Up</strong> for what comes next.';
+  $('howToNote').innerHTML='<div class="note note-purple" style="margin-top:14px">'+howTo+'</div>';
+}
+function renderPlan(row){
+  var p=row.plan||{};
+  if(p.side) document.body.setAttribute('data-side',p.side);
+  $('planName').textContent=p.name||row.email||'Your Plan';
+  if(p.headline) $('planHeadline').textContent=p.headline;
+  if(p.eyebrow) $('heroEyebrow').textContent=p.eyebrow;
+  if(row.selfie_url){ var av=$('avatar'); av.src=row.selfie_url; av.style.display=''; }
+  if(p.coachNote){ $('coachNote').innerHTML=esc(p.coachNote); show('coachNote'); }
+  renderHome(p);
+  renderStats(p.stats);
+  renderTargets(p.targets);
+  renderTraining(p.training);
+  renderNutrition(p.nutrition);
+  renderGrocery(p.grocery);
+  renderSupps(p.supplements);
+  renderWeek1(p.week1);
+  renderLevelUp(p.levelUp);
+  hide('loading'); hide('empty'); show('plan');
+  showTab('home');
+}
+
+// ---- boot ----
+(async function(){
+  // Stay hidden (auth-hide) until a session is confirmed — no content flash for logged-out visitors.
+  var session=await getSession();
+  if(!session||!session.user){
+    session=await new Promise(function(resolve){
+      var sb=getSupabase(); var to=setTimeout(function(){resolve(null);},2500);
+      if(!sb){clearTimeout(to);resolve(null);return;}
+      sb.auth.onAuthStateChange(function(_e,s){clearTimeout(to);resolve(s);});
+    });
+  }
+  if(!session||!session.user){ toLogin(); return; }
+  reveal(); // session confirmed — safe to show the page
+  var email=(session.user.email||'').toLowerCase();
+  var isOwner=(email===OWNER);
+  var sb=getSupabase();
+  if(!sb){ hide('loading'); show('empty'); return; }
+  var previewEmail=new URLSearchParams(window.location.search).get('email');
+  var targetEmail=(isOwner&&previewEmail)?previewEmail.toLowerCase():email;
+  var res=await sb.from('yerr_plans').select('*').eq('email',targetEmail).order('updated_at',{ascending:false}).limit(1);
+  if(res.error){ hide('loading'); show('empty'); return; }
+  var row=(res.data&&res.data[0])||null;
+  if(isOwner){
+    var bar=$('adminbar');
+    if(row) bar.innerHTML='Admin preview · <strong>'+esc(row.email)+'</strong> '+(row.status==='published'?'<span class="pub">published</span>':'<span class="draft">draft</span>');
+    else bar.innerHTML='Admin · no plan row for <strong>'+esc(targetEmail)+'</strong>. Append <code>?email=…</code> to preview a draft.';
+    bar.style.display='';
+  }
+  if(!row){ hide('loading'); show('empty'); return; }
+  renderPlan(row);
+})();
+</script>
+</body>
+</html>

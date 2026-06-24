@@ -144,6 +144,15 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 <script src="js/supabase-sync.js"></script>
 <script>
 (async function() {
+  // Where to send the user after sign-in. Read + sanitize ONCE, up front (before any
+  // Supabase call cleans the URL). Only same-site relative paths allowed — no open redirect.
+  const DEST = (function(){
+    var r = new URLSearchParams(window.location.search).get('redirect') || '';
+    if (!r) return 'hub.html';
+    if (/^[a-z][a-z0-9+.-]*:/i.test(r) || r.indexOf('//') === 0 || r.indexOf('\\') === 0) return 'hub.html';
+    return r.replace(/^\/+/, '');
+  })();
+
   // Show denied message if redirected with error
   if (new URLSearchParams(window.location.search).get('error') === 'denied') {
     document.getElementById('denied-box').style.display = 'block';
@@ -152,8 +161,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
   // Check if already logged in
   const session = await getSession();
   if (session && session.user) {
-    const redirect = new URLSearchParams(window.location.search).get('redirect') || 'hub.html';
-    window.location.replace(redirect);
+    window.location.replace(DEST);
     return;
   }
 
@@ -161,14 +169,13 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
   const sb = getSupabase();
   sb.auth.onAuthStateChange((event, session) => {
     if (event === 'SIGNED_IN' && session) {
-      const redirect = new URLSearchParams(window.location.search).get('redirect') || 'hub.html';
-      window.location.replace(redirect);
+      window.location.replace(DEST);
     }
   });
 
   // Google sign in
   document.getElementById('google-btn').addEventListener('click', async () => {
-    const { error } = await signInWithGoogle();
+    const { error } = await signInWithGoogle(DEST);
     if (error) {
       const msg = document.getElementById('msg');
       msg.className = 'msg error';
@@ -190,7 +197,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
     msg.className = 'msg';
     msg.textContent = '';
 
-    const { error } = await signInWithEmail(email);
+    const { error } = await signInWithEmail(email, DEST);
 
     if (error) {
       msg.className = 'msg error';

@@ -116,6 +116,13 @@ function fmtDate(s){ try{return new Date(s).toLocaleString();}catch(e){return s;
   var rows=res.data||[];
   document.getElementById('countPill').textContent=rows.length+(rows.length===1?' total':' total');
 
+  // map each person's plan status (owner can read all rows via RLS)
+  var planByEmail={};
+  try{
+    var pres=await sb.from('yerr_plans').select('email,status,updated_at');
+    (pres.data||[]).forEach(function(p){ if(p.email) planByEmail[p.email.toLowerCase()]=p.status; });
+  }catch(e){}
+
   if(!rows.length){ list.innerHTML='<div class="empty">No intakes yet. When someone completes the form, they show up here.</div>'; return; }
 
   var html='';
@@ -130,13 +137,18 @@ function fmtDate(s){ try{return new Date(s).toLocaleString();}catch(e){return s;
         }
       }catch(e){}
     }
+    var pstatus=it.email?(planByEmail[it.email.toLowerCase()]||'none'):'none';
+    var pstyle=pstatus==='published'?'background:#43A047;color:#fff':(pstatus==='draft'?'background:#FFD60A;color:#7A6500':'background:#eee;color:#999');
+    var plabel=pstatus==='published'?'PROFILE LIVE':(pstatus==='draft'?'DRAFT':'NO PLAN YET');
+    var viewBtn=it.email?'<a href="../my-plan.html?email='+encodeURIComponent(it.email)+'" style="display:inline-block;margin-top:10px;padding:9px 14px;background:#534AB7;color:#fff;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none">View profile &rarr;</a>':'';
     html+='<div class="intake-card">'
       +'<div class="intake-top">'+sel
       +'<div class="intake-id">'
-      +'<div class="intake-name">'+esc(it.name||'(no name)')+(it.seen?'':' <span class="pill-new">NEW</span>')+'</div>'
+      +'<div class="intake-name">'+esc(it.name||'(no name)')+(it.seen?'':' <span class="pill-new">NEW</span>')+' <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:2px 6px;border-radius:5px;'+pstyle+'">'+plabel+'</span></div>'
       +'<div class="intake-meta">'+fmtDate(it.created_at)+(it.email?' · <a href="mailto:'+esc(it.email)+'">'+esc(it.email)+'</a>':'')+'</div>'
       +(it.goal?'<div class="intake-goal">'+esc(it.goal)+'</div>':'')
       +'</div></div>'
+      +viewBtn
       +'<details><summary>Full answers</summary>'
       +(it.selfie_path&&sel.indexOf('<img')===0?'':'')
       +answersHtml(it.answers)+'</details>'
