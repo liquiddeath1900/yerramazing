@@ -116,12 +116,16 @@ function fmtDate(s){ try{return new Date(s).toLocaleString();}catch(e){return s;
   var rows=res.data||[];
   document.getElementById('countPill').textContent=rows.length+(rows.length===1?' total':' total');
 
-  // map each person's plan status (owner can read all rows via RLS)
+  // map each person's plan row (owner can read all via RLS)
   var planByEmail={};
   try{
-    var pres=await sb.from('yerr_plans').select('email,status,updated_at');
-    (pres.data||[]).forEach(function(p){ if(p.email) planByEmail[p.email.toLowerCase()]=p.status; });
+    var pres=await sb.from('yerr_plans').select('email,status,last_seen,login_count');
+    (pres.data||[]).forEach(function(p){ if(p.email) planByEmail[p.email.toLowerCase()]=p; });
   }catch(e){}
+
+  function parsePhone(s){ if(!s) return ''; var d=String(s).replace(/[^0-9]/g,''); if(d.length===10) return '+1'+d; if(d.length===11 && d.charAt(0)==='1') return '+'+d; return ''; }
+  function daysSince(ts){ if(!ts) return null; return Math.floor((Date.now()-new Date(ts).getTime())/86400000); }
+  var SMS_BODY="Hey it's Victorious from Yerramazing! Your profile is ready - log in and make sure you have access: yerramazing.com/login.html?redirect=my-plan.html - then reply back that you're in. YERR";
 
   if(!rows.length){ list.innerHTML='<div class="empty">No intakes yet. When someone completes the form, they show up here.</div>'; return; }
 
@@ -133,22 +137,44 @@ function fmtDate(s){ try{return new Date(s).toLocaleString();}catch(e){return s;
       try{
         var su=await sb.storage.from('intake-selfies').createSignedUrl(it.selfie_path, 3600);
         if(su.data&&su.data.signedUrl){
-          sel='<img class="intake-selfie" src="'+su.data.signedUrl+'" alt="selfie" data-full="'+su.data.signedUrl+'">';
+          sel='<img class="intake-selfie" src="'+esc(su.data.signedUrl)+'" alt="selfie" data-full="'+esc(su.data.signedUrl)+'">';
         }
       }catch(e){}
     }
-    var pstatus=it.email?(planByEmail[it.email.toLowerCase()]||'none'):'none';
+    var pl=it.email?(planByEmail[it.email.toLowerCase()]||null):null;
+    var pstatus=pl?pl.status:'none';
     var pstyle=pstatus==='published'?'background:#43A047;color:#fff':(pstatus==='draft'?'background:#FFD60A;color:#7A6500':'background:#eee;color:#999');
     var plabel=pstatus==='published'?'PROFILE LIVE':(pstatus==='draft'?'DRAFT':'NO PLAN YET');
-    var viewBtn=it.email?'<a href="../my-plan.html?email='+encodeURIComponent(it.email)+'" style="display:inline-block;margin-top:10px;padding:9px 14px;background:#534AB7;color:#fff;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none">View profile &rarr;</a>':'';
+
+    // activity line (only meaningful once published)
+    var activity='';
+    if(pstatus==='published'){
+      var d=daysSince(pl.last_seen);
+      if(d===null){ activity='<span style="font-size:11px;font-weight:700;color:#E65100">⚠ Never logged in</span>'; }
+      else {
+        var stale=d>=30;
+        activity='<span style="font-size:11px;font-weight:700;color:'+(stale?'#C62828':'#43A047')+'">'
+          +(d===0?'Active today':'Active '+d+'d ago')+' · '+(pl.login_count||0)+' logins'
+          +(stale?' · INACTIVE 30d+ ⚠':'')+'</span>';
+      }
+    }
+
+    var phone=parsePhone(it.answers&&it.answers.contact);
+    var textBtn = (pstatus==='published' && phone)
+      ? '<a href="sms:'+phone+'?&body='+encodeURIComponent(SMS_BODY)+'" style="display:inline-block;margin:10px 8px 0 0;padding:9px 14px;background:#43A047;color:#fff;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none">📱 Text: profile ready</a>'
+      : (pstatus==='published' ? '<span style="display:inline-block;margin-top:10px;font-size:11px;color:#999">No textable # in contact'+(it.answers&&it.answers.contact?': '+esc(it.answers.contact):'')+'</span>' : '');
+    var viewBtn=it.email?'<a href="../my-plan.html?email='+encodeURIComponent(it.email)+'" style="display:inline-block;margin:10px 8px 0 0;padding:9px 14px;background:#534AB7;color:#fff;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none">View profile &rarr;</a>':'';
+    var revokeBtn=(pstatus==='published'&&pl&&pl.email)?'<button type="button" class="revoke-btn" data-email="'+esc(pl.email)+'" style="margin:10px 0 0 0;padding:9px 14px;background:#fff;color:#C62828;border:1px solid #C62828;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer">Revoke access</button>':'';
+
     html+='<div class="intake-card">'
       +'<div class="intake-top">'+sel
       +'<div class="intake-id">'
       +'<div class="intake-name">'+esc(it.name||'(no name)')+(it.seen?'':' <span class="pill-new">NEW</span>')+' <span style="font-size:9px;font-weight:800;letter-spacing:.5px;padding:2px 6px;border-radius:5px;'+pstyle+'">'+plabel+'</span></div>'
       +'<div class="intake-meta">'+fmtDate(it.created_at)+(it.email?' · <a href="mailto:'+esc(it.email)+'">'+esc(it.email)+'</a>':'')+'</div>'
       +(it.goal?'<div class="intake-goal">'+esc(it.goal)+'</div>':'')
+      +(activity?'<div style="margin-top:4px">'+activity+'</div>':'')
       +'</div></div>'
-      +viewBtn
+      +viewBtn+textBtn+revokeBtn
       +'<details><summary>Full answers</summary>'
       +(it.selfie_path&&sel.indexOf('<img')===0?'':'')
       +answersHtml(it.answers)+'</details>'
@@ -160,6 +186,18 @@ function fmtDate(s){ try{return new Date(s).toLocaleString();}catch(e){return s;
   list.querySelectorAll('img.intake-selfie').forEach(function(img){
     img.style.cursor='zoom-in';
     img.addEventListener('click',function(){window.open(this.dataset.full,'_blank');});
+  });
+
+  // revoke access — unpublish their plan (they'll see the "being built" state, not their data)
+  list.querySelectorAll('.revoke-btn').forEach(function(b){
+    b.addEventListener('click',async function(){
+      var em=this.dataset.email;
+      if(!confirm('Revoke access for '+em+'?\n\nTheir plan goes back to draft and they can no longer see it. You can re-publish anytime.')) return;
+      this.disabled=true; this.textContent='Revoking…';
+      var up=await sb.from('yerr_plans').update({status:'draft'}).eq('email',em);
+      if(up.error){ alert('Could not revoke: '+up.error.message); this.disabled=false; this.textContent='Revoke access'; return; }
+      location.reload();
+    });
   });
 
   // mark unseen as seen so the hub badge clears

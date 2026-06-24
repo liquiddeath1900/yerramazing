@@ -334,6 +334,8 @@ function renderPlan(row){
   }
   if(!row){ hide('loading'); show('empty'); return; }
   renderPlan(row);
+  // record activity (only when a user views their OWN plan, not owner-preview)
+  if(targetEmail===email){ try{ await sb.rpc('mark_plan_seen'); }catch(e){} }
 })();
 </script>
 </body>
