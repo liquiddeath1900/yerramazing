@@ -234,6 +234,16 @@ function renderNutrition(n){
   if(n.style) html+='<div class="note note-orange"><strong>'+esc(n.style)+'</strong></div>';
   if(Array.isArray(n.avoid)&&n.avoid.length) html+='<div class="note note-red"><strong>Skips:</strong> '+esc(n.avoid.join(', '))+'</div>';
   if(Array.isArray(n.principles)&&n.principles.length){ html+='<div class="card"><ul class="simple-list">'; n.principles.forEach(function(p){html+='<li>'+esc(p)+'</li>';}); html+='</ul></div>'; }
+  if(n.pre_workout&&typeof n.pre_workout==='object'){
+    var pw=n.pre_workout;
+    html+='<div class="card"><div class="card-title">⚡ Pre-workout fuel</div>';
+    if(pw.intro) html+='<div class="card-detail" style="margin-bottom:10px">'+esc(pw.intro)+'</div>';
+    if(Array.isArray(pw.scenarios)) pw.scenarios.forEach(function(s){
+      html+='<div style="padding:9px 0;border-bottom:1px solid var(--line-soft)"><div style="font-weight:700;color:var(--primary-ink);font-size:14px;line-height:1.3">'+esc(s.when)+'</div><div style="font-size:14px;color:var(--ink-soft);margin-top:3px;line-height:1.5">'+esc(s.eat)+'</div></div>';
+    });
+    if(pw.note) html+='<div class="note note-blue" style="margin-top:12px">'+esc(pw.note)+'</div>';
+    html+='</div>';
+  }
   if(Array.isArray(n.week_plan)&&n.week_plan.length){
     html+='<div class="panel-eyebrow">Your week — meal plan</div>';
     if(n.week_note) html+='<div class="note note-orange">'+esc(n.week_note)+'</div>';

@@ -192,6 +192,7 @@ h1{font-size:clamp(28px,6vw,40px);font-weight:900;letter-spacing:-.03em;line-hei
         <div class="q"><label>First name</label><input type="text" name="name" placeholder="What do I call you?"></div>
         <div class="q"><label>Google email <span class="hint">(how you'll log into your dashboard)</span></label><input type="email" name="email" placeholder="you@gmail.com"></div>
       </div>
+      <div class="q"><label>Phone number <span class="hint">(so I can text you the moment your plan's ready)</span></label><input type="tel" name="phone" inputmode="tel" placeholder="(555) 123-4567"></div>
       <div class="row2">
         <div class="q"><label>Age</label><input type="number" name="age" inputmode="numeric" placeholder="e.g. 32"></div>
         <div class="q"><label>Sex <span class="hint">(for calorie & macro math)</span></label>
@@ -232,6 +233,7 @@ h1{font-size:clamp(28px,6vw,40px);font-weight:900;letter-spacing:-.03em;line-hei
         <div class="q"><label>Days/week you can train</label><select name="days"><option value="" disabled selected>Pick</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
         <div class="q"><label>Time per session</label><select name="session_time"><option value="" disabled selected>Pick</option><option>30 min</option><option>45 min</option><option>60 min</option><option>75+ min</option></select></div>
       </div>
+      <div class="q"><label>What time of day do you usually train? <span class="hint">(so I can time your pre-workout fuel)</span></label><select name="train_time"><option value="" disabled selected>Pick one</option><option>Early morning (fasted)</option><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Evening</option><option>It varies</option></select></div>
       <div class="q"><label>Where will you train?</label>
         <div class="check-group">
           <label><input type="checkbox" name="location" value="Full gym"> Full gym</label>
@@ -395,9 +397,9 @@ var SAVE_PREFIX = 'yerr-intake-';
 
 // Mandatory fields per step — the info the roadmap + login profile can't be built without.
 var REQUIRED = {
-  1: ['name','email','age','sex','height','weight'],
+  1: ['name','email','phone','age','sex','height','weight'],
   2: ['goal'],
-  3: ['experience','days','session_time','location','equipment'],
+  3: ['experience','days','session_time','train_time','location','equipment'],
   4: ['pain'],
   5: ['diet_style'],
   6: ['daily_activity'],
@@ -489,6 +491,7 @@ function validateSection(n){
     } else {
       var v=(els[0].value||'').trim();
       ok=!!v && (els[0].type!=='email' || EMAIL_RE.test(v));
+      if(ok && name==='phone') ok=(v.replace(/[^0-9]/g,'').length>=10); // need a real, textable number
     }
     if(!ok){ var q=els[0].closest('.q'); q.classList.add('invalid'); if(!firstBad)firstBad=q; }
   });
