@@ -193,7 +193,9 @@ function renderStats(stats){
   if(!keys.length)return;
   var html='';
   keys.slice(0,4).forEach(function(k,i){
-    html+='<div class="stat-tile" data-tone="'+tones[i%tones.length]+'"><div class="stat-overline">'+esc(k.replace(/_/g,' '))+'</div><div class="stat-num" style="font-size:30px">'+esc(stats[k])+'</div></div>';
+    var val=String(stats[k]);
+    var fs = val.length<=6 ? 40 : (val.length<=10 ? 33 : 25);
+    html+='<div class="stat-tile" data-tone="'+tones[i%tones.length]+'"><div class="stat-overline">'+esc(k.replace(/_/g,' '))+'</div><div class="stat-num" style="font-size:'+fs+'px">'+esc(val)+'</div></div>';
   });
   $('statGrid').innerHTML=html; show('statGrid');
 }
