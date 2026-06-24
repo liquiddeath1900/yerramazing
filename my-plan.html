@@ -325,8 +325,11 @@ function renderPlan(row){
   var row=(res.data&&res.data[0])||null;
   if(isOwner){
     var bar=$('adminbar');
-    if(row) bar.innerHTML='Admin preview · <strong>'+esc(row.email)+'</strong> '+(row.status==='published'?'<span class="pub">published</span>':'<span class="draft">draft</span>');
-    else bar.innerHTML='Admin · no plan row for <strong>'+esc(targetEmail)+'</strong>. Append <code>?email=…</code> to preview a draft.';
+    var info = row
+      ? ('Admin preview · <strong>'+esc(row.email)+'</strong> '+(row.status==='published'?'<span class="pub">published</span>':'<span class="draft">draft</span>'))
+      : ('Admin · no plan row for <strong>'+esc(targetEmail)+'</strong>. Append <code>?email=…</code> to preview a draft.');
+    var hubBtn='<a href="hub.html" style="margin-left:auto;background:#534AB7;color:#fff;padding:7px 13px;border-radius:9px;font-weight:700;font-size:12px;text-decoration:none;white-space:nowrap">⌂ Admin Hub</a>';
+    bar.innerHTML=info+hubBtn;
     bar.style.display='';
   }
   if(!row){ hide('loading'); show('empty'); return; }
