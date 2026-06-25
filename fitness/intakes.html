@@ -122,6 +122,17 @@ function fmtDate(s){ try{return new Date(s).toLocaleString();}catch(e){return s;
     var pres=await sb.from('yerr_plans').select('email,status,last_seen,login_count');
     (pres.data||[]).forEach(function(p){ if(p.email) planByEmail[p.email.toLowerCase()]=p; });
   }catch(e){}
+  // real Google sign-in timestamps from auth.users (owner-only RPC) — can't be
+  // faked by owner ?email= previews, so this is the trustworthy "did THEY log in"
+  try{
+    var ares=await sb.rpc('owner_login_activity');
+    (ares.data||[]).forEach(function(a){
+      if(!a.email) return; var k=a.email.toLowerCase();
+      planByEmail[k]=planByEmail[k]||{email:a.email};
+      planByEmail[k].auth_last_login=a.auth_last_login;
+      planByEmail[k].auth_created=a.auth_created;
+    });
+  }catch(e){}
 
   function parsePhone(s){ if(!s) return ''; var d=String(s).replace(/[^0-9]/g,''); if(d.length===10) return '+1'+d; if(d.length===11 && d.charAt(0)==='1') return '+'+d; return ''; }
   function daysSince(ts){ if(!ts) return null; return Math.floor((Date.now()-new Date(ts).getTime())/86400000); }
@@ -146,15 +157,19 @@ function fmtDate(s){ try{return new Date(s).toLocaleString();}catch(e){return s;
     var pstyle=pstatus==='published'?'background:#43A047;color:#fff':(pstatus==='draft'?'background:#FFD60A;color:#7A6500':'background:#eee;color:#999');
     var plabel=pstatus==='published'?'PROFILE LIVE':(pstatus==='draft'?'DRAFT':'NO PLAN YET');
 
-    // activity line (only meaningful once published)
+    // activity line (only meaningful once published) — auth_last_login = real
+    // Google sign-in (trustworthy); login_count = times the plan page was opened.
     var activity='';
     if(pstatus==='published'){
-      var d=daysSince(pl.last_seen);
-      if(d===null){ activity='<span style="font-size:11px;font-weight:700;color:#E65100">⚠ Never logged in</span>'; }
-      else {
-        var stale=d>=30;
+      var dAuth=daysSince(pl.auth_last_login);
+      function ago(d){ return d===0?'today':(d===1?'yesterday':d+'d ago'); }
+      if(dAuth===null){
+        activity='<span style="font-size:11px;font-weight:700;color:#E65100">⚠ Never logged in (no Google sign-in)</span>';
+      } else {
+        var stale=dAuth>=30;
+        var when=new Date(pl.auth_last_login).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
         activity='<span style="font-size:11px;font-weight:700;color:'+(stale?'#C62828':'#43A047')+'">'
-          +(d===0?'Active today':'Active '+d+'d ago')+' · '+(pl.login_count||0)+' logins'
+          +'🔑 Last login '+ago(dAuth)+' ('+when+') · '+(pl.login_count||0)+' opens'
           +(stale?' · INACTIVE 30d+ ⚠':'')+'</span>';
       }
     }
