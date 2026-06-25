@@ -34,6 +34,7 @@
 .ex-main{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
 .ex-name{font-weight:700;font-size:15px;color:var(--ink);line-height:1.3}
 .ex-sets{font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--primary-ink);white-space:nowrap;align-self:start;padding-top:2px}
+.ex-tag{grid-column:1/-1;justify-self:start;margin-bottom:2px;align-self:start}
 .ex-note{grid-column:1/-1;font-size:13px;color:var(--ink-mute);line-height:1.5}
 .ex-note.levelup{color:var(--exercise-ink);font-weight:600}
 .simple-list{margin:0;padding-left:20px;font-size:15px;color:var(--ink-soft);line-height:1.8}
@@ -206,6 +207,13 @@ function renderTargets(t){
   Object.keys(t).forEach(function(k){ if(t[k]==null||t[k]==='')return; rows+='<dt>'+esc(labels[k]||k.replace(/_/g,' '))+'</dt><dd>'+esc(t[k])+'</dd>'; });
   if(rows) $('targetsKv').innerHTML=rows;
 }
+function tagClass(t){
+  var s=(t||'').toLowerCase().trim();
+  if(s.indexOf('lower')===0) return 'tag-lower';
+  if(s.indexOf('core')===0) return 'tag-core';
+  if(s.indexOf('cardio')===0||s.indexOf('condition')===0) return 'tag-cardio';
+  return 'tag-upper'; // upper / push / pull all share the upper color
+}
 function renderTraining(tr){
   if(!tr||typeof tr!=='object')return;
   if(tr.note) $('trainingNote').innerHTML='<div class="note note-green">'+(tr.split_name?'<strong>'+esc(tr.split_name)+'</strong> — ':'')+esc(tr.note)+'</div>';
@@ -217,7 +225,9 @@ function renderTraining(tr){
     var rows='';
     exs.forEach(function(e){
       var yt=e.youtube||ytUrl(e.name);
-      rows+='<li class="ex-row"><div class="ex-main"><span class="ex-name">'+esc(e.name)+'</span>'
+      rows+='<li class="ex-row">';
+      if(e.target) rows+='<span class="tag '+tagClass(e.target)+' ex-tag">'+esc(e.target)+'</span>';
+      rows+='<div class="ex-main"><span class="ex-name">'+esc(e.name)+'</span>'
         +'<a class="watch" href="'+esc(yt)+'" target="_blank" rel="noopener">▸ Watch</a></div>'
         +'<span class="ex-sets">'+esc(e.sets||'')+(e.reps?' × '+esc(e.reps):'')+'</span>';
       if(e.note) rows+='<span class="ex-note">'+esc(e.note)+'</span>';
