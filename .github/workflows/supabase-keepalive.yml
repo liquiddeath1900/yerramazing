@@ -9,12 +9,22 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase auth health
+      - name: Ping Supabase REST (real DB activity)
+        env:
+          ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
+          if [ -z "$ANON_KEY" ]; then
+            echo "::error::SUPABASE_ANON_KEY secret is not set"
+            exit 1
+          fi
+          # Hit PostgREST so the query actually exercises Postgres — that's what
+          # resets the inactivity pause timer. RLS returns an empty array (still HTTP 200).
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 \
-            "https://lpzijtmbdowcshomyenk.supabase.co/auth/v1/health")
-          echo "Supabase /auth/v1/health responded: $STATUS"
+            -H "apikey: $ANON_KEY" \
+            "https://lpzijtmbdowcshomyenk.supabase.co/rest/v1/yerr_plans?select=id&limit=1")
+          echo "Supabase REST responded: $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "::error::Supabase unhealthy (HTTP $STATUS) — project may be paused"
             exit 1
           fi
+          echo "Project is awake. Keep-alive ping succeeded."
